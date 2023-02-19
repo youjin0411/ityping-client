@@ -17,6 +17,9 @@ return (
       <Route path='/nav1' component={SelectTheme} />
       <Route path='/nav2' component={Typing} />
       <Route path='/nav3' component={MyPage} />
+      <Route path='/login' component={Login} />
+      <Route path='/signup' component={SignUp} />
+      <Route path="*" element={<h1>404 페이지</h1>}/>
     </Switch>
 	</Router>
 );
