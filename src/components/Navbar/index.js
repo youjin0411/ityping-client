@@ -1,92 +1,72 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
-import {
-Nav,
-NavLink,
-NavLinkWrapper,
-Bars,
-NavMenu,
-NavBtn,
-SelectBoxWrapper,
-Select,
-IconSVG,
-Logo
-} from './NavbarElements';
-
-const OPTIONS = [
-	{ value: "guest", name: "Guest" },
-	{ value: "login", name: "Login" },
-	{ value: "signup", name: "Sign Up" },
-];
+import DropdownMenu from '../ui/DropdownMenu';
+import styled from 'styled-components';
+import { NavLink as Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 
 const Navbar = () => {
-	const history = useHistory();
-	const [selected, setSelected] = useState("guest");
-
-	const handleSelect = (event) => {
-		setSelected(event.target.value);
-
-		if (event.target.value === 'guest') {
-			history.push('/');
-		} else if (event.target.value === 'login') {
-			history.push('/login');
-		} else if (event.target.value === 'signup') {
-			history.push('/signup');
-		};
-	};	
-
 	return (
-		<>
-		<Nav>
-			<Bars />
-
-			<NavMenu>
-				<Logo to='/'>
-						로고
-				</Logo>
-				<NavLinkWrapper>
-					<NavLink to='/nav1'>
-						NAV 1
-					</NavLink>
-					<NavLink to='/nav2'>
-						NAV 2
-					</NavLink>
-					<NavLink to='/nav3'>
-						NAV 3
-					</NavLink>
-				</NavLinkWrapper>
-				<NavBtn>
-					<SelectBoxWrapper>
-						<Select onChange={handleSelect} value={selected}>
-							{OPTIONS.map((option) => (
-								<option
-									key={option.value}
-									value={option.value}
-								>
-									{option.name}
-								</option>
-							))}
-						</Select>
-						<IconSVG
-							width="20"
-							height="20"
-							viewBox="0 0 20 20"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								fillRule="evenodd"
-								clipRule="evenodd"
-								d="M10 14L16 6H4L10 14Z"
-								fill="#1A1A1A"
-							/>
-						</IconSVG>
-					</SelectBoxWrapper>
-				</NavBtn>
-			</NavMenu>
-		</Nav>
-		</>
+		<Container>
+			<Nav>
+				<Bars />
+				<NavMenu>
+					<Logo to='/'>
+							로고
+					</Logo>
+					<Blank/>
+					<DropdownMenu />
+				</NavMenu>
+			</Nav>
+		</Container>
 	);
 };
+
+const Container = styled.div`
+border-bottom: 1px solid #E4E7EC;
+`;
+
+const Nav = styled.nav`
+background: white;
+width: 70vw;
+height: 60px;
+display: flex;
+justify-content: flex-end;
+margin: 0 auto;
+z-index: 12;
+`;
+
+const Logo = styled(Link)`
+	color: #000000;
+	text-decoration: none;
+`;
+
+const Blank = styled.div`
+	width: 10vw;
+`
+
+const NavMenu = styled.div`
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+width: 100vw;
+@media screen and (max-width: 768px) {
+	display: none;
+}
+`;
+
+
+const Bars = styled(FaBars)`
+display: none;
+color: #808080;
+@media screen and (max-width: 768px) {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(-100%, 75%);
+	font-size: 1.8rem;
+	cursor: pointer;
+}
+`;
 
 export default Navbar;
