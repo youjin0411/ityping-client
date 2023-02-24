@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import DropdownMenu from '../ui/DropdownMenu';
+import React from 'react';
+import DropdownMenu from './DropdownMenu';
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';

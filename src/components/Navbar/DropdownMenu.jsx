@@ -8,23 +8,17 @@ const DropdownMenu = () => {
 	return (
     <>
 		<Wrapper>
-			<LinkWrapper href="/nav1">nav1</LinkWrapper>
-			<LinkWrapper href="/nav2">nav2</LinkWrapper>
-			<LinkWrapper href="/nav3">nav3</LinkWrapper>
+			<Link href="/nav1">nav1</Link>
+			<Link href="/nav2">nav2</Link>
+			<Link href="/nav3">nav3</Link>
 		</Wrapper>
 			<DropdownContainer>
 			<DropdownButton onClick={userHandler} ref={userRef}>
 				Guest
 			</DropdownButton>
 			<Menu isDropped={userIsOpen}>
-				<Ul>
-				<Li>
-					<LinkWrapper href="/condition">Login</LinkWrapper>
-				</Li>
-				<Li>
-					<LinkWrapper href="/body">Sign Up</LinkWrapper>
-				</Li>
-				</Ul>
+        <LinkWrapper href="/login">Login</LinkWrapper>
+        <LinkWrapper href="/signup">Sign Up</LinkWrapper>
 			</Menu>
 			</DropdownContainer>
     </>
@@ -40,6 +34,15 @@ const Wrapper = styled.div`
   color: white;
   font-size: 16px;
   width: 40vw;
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  width: 100%;
+  display: block;
+  text-align: center;
 `;
 
 const DropdownContainer = styled.div`
@@ -61,10 +64,11 @@ const Menu = styled.div`
   position: absolute;
   top: 40px;
   left: 50%;
-  width: 180px;
+  width: 100px;
+  height: 80px;
   text-align: center;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  border-radius: 4px;
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, -20px);
@@ -92,31 +96,32 @@ const Menu = styled.div`
     `};
 `;
 
-const Ul = styled.ul`
-  & > li {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  & > li:first-of-type {
-  }
-
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Li = styled.li`
-  border-bottom: 1px solid white;
-  width: 100%;
-`;
-
 const LinkWrapper = styled.a`
   text-decoration: none;
   color: black;
   font-size: 15px;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &:nth-child(1) {
+    border-bottom: 1px solid #E4E7EC;
+  }
+
+  &:hover {
+    background-color: #344054;
+    color: white;
+    transition: all 0.5s;
+  }
+
+  &:nth-child(1):hover {
+    border-radius: 4px 4px 0 0;
+  }
+
+  &:nth-child(2):hover {
+    border-radius: 0 0 4px 4px;
+  }
 `;
