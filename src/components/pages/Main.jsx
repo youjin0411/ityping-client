@@ -7,7 +7,7 @@ function Main(props) {
     const history = useHistory();
 
     const handler = () => {
-        history.push('/nav1');
+        history.push('/select-theme');
     }
 
     return (
@@ -40,6 +40,7 @@ const ContentWrapper = styled.div`
 `;
 
 const Title = styled.h1`
+    color: #1C3796;
     font-size: 40px;
 `;
 
@@ -53,7 +54,7 @@ const Button = styled.button`
     border: 0;
     margin-top: 220px;
     cursor: pointer;
-    background-color: #344054;
+    background-color: #1C3796;
     border-radius: 4px;
     color: white;
     font-size: 25px;

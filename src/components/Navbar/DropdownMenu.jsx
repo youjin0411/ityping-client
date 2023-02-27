@@ -8,9 +8,9 @@ const DropdownMenu = () => {
 	return (
     <>
 		<Wrapper>
-			<Link href="/nav1">nav1</Link>
-			<Link href="/nav2">nav2</Link>
-			<Link href="/nav3">nav3</Link>
+			<Link href="/select-theme">테마선택</Link>
+			<Link href="/code-review">코드리뷰</Link>
+			<Link href="/tutorial">튜토리얼</Link>
 		</Wrapper>
 			<DropdownContainer>
 			<DropdownButton onClick={userHandler} ref={userRef}>
@@ -43,6 +43,11 @@ const Link = styled.a`
   width: 100%;
   display: block;
   text-align: center;
+
+  &:hover {
+    color: #1C3796;
+    transition: all .3s;
+  }
 `;
 
 const DropdownContainer = styled.div`
@@ -53,7 +58,7 @@ const DropdownContainer = styled.div`
 const DropdownButton = styled.div`
   cursor: pointer;
   color: white;
-  background-color: #344054;
+  background-color: #1C3796;
   border-radius: 4px;
   font-size: 14px;
   padding: 6px 12px;
