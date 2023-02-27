@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import useDetectClose from "./useDetectClose";
+import useDetectClose from "../Hook/useDetectClose";
 
 const DropdownMenu = () => {
 	const [userIsOpen, userRef, userHandler] = useDetectClose(false);
