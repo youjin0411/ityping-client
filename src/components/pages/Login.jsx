@@ -6,14 +6,14 @@ function Login(props) {
         <>
             <Container>
                 <Welcome>Welcome!</Welcome>
-                <Text style={{marginBottom: '55px'}}>login to TITLE</Text>
+                <Text style={{marginBottom: '30px'}}>login to TITLE</Text>
                 <Wrapper>
                     <Text>Email or 닉네임</Text>
-                    <InputEmail placeholder='Email or 닉네임을 입력해주세요'></InputEmail>
+                    <InputEmail type='text' placeholder='Email or 닉네임을 입력해주세요'></InputEmail>
                 </Wrapper>
                 <Wrapper>
-                    <Text>Email or 닉네임</Text>
-                    <InputPw placeholder='Password를 입력해주세요'></InputPw>
+                    <Text>Password</Text>
+                    <InputPw type='password' placeholder='Password를 입력해주세요'></InputPw>
                 </Wrapper>
                 <LoginBtn>Login</LoginBtn>
                 <Or>OR</Or>
@@ -56,10 +56,8 @@ const InputEmail = styled.input`
     margin-bottom: 8px;
     border: 1px solid #667085;
     border-radius: 8px;
-
-    &::placeholder {
-        padding: 10px;
-    }
+    padding-left: 10px;
+    outline: 0;
 `;
 
 const InputPw = styled.input`
@@ -68,10 +66,8 @@ const InputPw = styled.input`
     margin-bottom: 15px;
     border: 1px solid #667085;
     border-radius: 8px;
-
-    &::placeholder {
-        padding: 10px;
-    }
+    padding-left: 10px;
+    outline: 0;
 `;
 
 const LoginBtn = styled.button`
