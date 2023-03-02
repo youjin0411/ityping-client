@@ -7,6 +7,7 @@ import CodeReview from './components/pages/CodeReview';
 import Tutorial from './components/pages/Tutorial';
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/SignUp";
+import MyPage from './components/pages/MyPage';
 
 function App() {
 return (
@@ -19,6 +20,7 @@ return (
       <Route path='/tutorial' component={Tutorial} />
       <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUp} />
+      <Route path='/mypage' component={MyPage} />
       <Route path="*" element={<h1>404 페이지</h1>}/>
     </Switch>
 	</Router>
