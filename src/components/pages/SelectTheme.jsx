@@ -8,12 +8,24 @@ function SelectTheme(props) {
             <Img src ={image}></Img>
             <Divtheme> «&nbsp;&nbsp;테마선택&nbsp;&nbsp;» </Divtheme>
             <Widthline/>
+            <Text1>기초</Text1>
+            <Text2>실천</Text2>
             <Heightline/>
         </Wrapper>
     )
 }
+const Text1 = styled.a`
+    float: left;
+    margin-left: 2vw;
+    margin-top: 5vw;`;
+const Text2 = styled.div`
+    float: left;
+    margin-left: -3vw;
+    margin-top: 9vw;`;
 const Img = styled.img`
     float: left;
+    width: 4vw;
+    height: 1vw;
     margin-left: 2vw;
     margin-top: 1.2vw`;
 const Wrapper = styled.div`
