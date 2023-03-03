@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import image from '../../img/circle.png';
 import { useHistory } from 'react-router-dom';
@@ -7,14 +7,15 @@ function CodeReview(props) {
     const history = useHistory();
 
     const handler2 = () => {
-        history.push('/select-themePract');
+        history.push('/code-reviewpract');
     }
 
     const handler1 = () => {
-        history.push('/select-themePract');
+        history.push('/code-reviewbase');
     }
+
     return (
-        <body>
+        <div>
             <Wrapper>
                 <Img src ={image}></Img>
                 <Divtheme> «&nbsp;&nbsp;코드리뷰&nbsp;&nbsp;» </Divtheme>
@@ -29,7 +30,7 @@ function CodeReview(props) {
                     marginLeft: '15vw',
                 }
                 }>
-                    <Box>HTML</Box>
+                    <Box>쇼핑몰</Box>
                 </div>
                 <Text1 onClick={handler1}>기초</Text1>
                 <Text2 onClick={handler2}>실천</Text2>
@@ -40,7 +41,7 @@ function CodeReview(props) {
             }}>
                 <Button>코드 리뷰 보러 가기</Button>
             </div>
-        </body>
+        </div>
     )
 }
 
@@ -70,11 +71,18 @@ const Box = styled.div`
 const Text1 = styled.div`
     float: left;
     margin-top: -8vw;
-    margin-left: 2.5vw;`;
+    margin-left: 2.5vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    color: #98A2B3;`;
 const Text2 = styled.div`
     float: left;
     margin-top: -5vw;
-    margin-left: 2.5vw;`;
+    margin-left: 2.5vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    color: #38405D;
+    font-weight: bold;`;
 const Img = styled.img`
     float: left;
     width: 4vw;

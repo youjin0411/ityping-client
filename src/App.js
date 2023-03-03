@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from "./components/pages/Main";
 import SelectThemeBase from "./components/pages/SelectThemeBase";
 import SelectThemePract from "./components/pages/SelectThemePract";
-import CodeReview from './components/pages/CodeReview';
+import CodeReviewBasse from './components/pages/CodeReviewBasse';
+import CodeReviewPract from './components/pages/CodeReviewPract';
 import Tutorial from './components/pages/Tutorial';
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/SignUp";
@@ -18,7 +19,8 @@ return (
       <Route path='/' exact component={Home} />
       <Route path='/select-themeBase' component={SelectThemeBase} />
       <Route path='/select-themePract' component={SelectThemePract} />
-      <Route path='/code-review' component={CodeReview} />
+      <Route path='/code-reviewbase' component={CodeReviewBasse} />
+      <Route path='/code-reviewpract' component={CodeReviewPract} />
       <Route path='/tutorial' component={Tutorial} />
       <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUp} />

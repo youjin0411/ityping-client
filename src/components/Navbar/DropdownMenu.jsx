@@ -9,7 +9,7 @@ const DropdownMenu = () => {
     <>
 		<Wrapper>
 			<Link href="/select-themeBase">테마선택</Link>
-			<Link href="/code-review">코드리뷰</Link>
+			<Link href="/code-reviewbase">코드리뷰</Link>
 			<Link href="/tutorial">튜토리얼</Link>
 		</Wrapper>
 			<DropdownContainer>

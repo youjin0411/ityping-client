@@ -16,7 +16,7 @@ function SelectTheme(props) {
         history.push('/select-themeBase');
     }
     return (
-        <body>
+        <div>
             <Wrapper>
                 <Img src ={image}></Img>
                 <Divtheme> «&nbsp;&nbsp;테마선택&nbsp;&nbsp;» </Divtheme>
@@ -48,7 +48,7 @@ function SelectTheme(props) {
                 <SpeechText>이유리 님 ________ 부탁해요 ~! 😊</SpeechText>
                 <ChoiceTheme>HTML</ChoiceTheme>
             </div>
-        </body>
+        </div>
     )
 }
 const ChoiceTheme = styled.div`
@@ -96,18 +96,19 @@ const Box = styled.div`
     grid-column-gap: 2vw;`;
 const Text1 = styled.div`
     float: left;
-    font-family: 'Noto Sans KR', sans-serif;
     margin-top: -8vw;
     margin-left: 2.5vw;
+    font-family: 'Noto Sans KR', sans-serif;
     cursor: pointer;
     color: #98A2B3;`;
 const Text2 = styled.div`
     float: left;
-    font-family: 'Noto Sans KR', sans-serif;
     margin-top: -5vw;
     margin-left: 2.5vw;
+    font-family: 'Noto Sans KR', sans-serif;
     cursor: pointer;
-    color: #98A2B3;`;
+    color: #38405D;
+    font-weight: bold;`;
 const Img = styled.img`
     float: left;
     width: 4vw;

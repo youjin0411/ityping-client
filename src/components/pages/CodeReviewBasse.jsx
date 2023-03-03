@@ -1,25 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import image from '../../img/circle.png';
-import person from '../../img/person.png';
-import speach_buble from '../../img/speach_buble.png';
 import { useHistory } from 'react-router-dom';
 
-function SelectTheme(props) {
+function CodeReview(props) {
     const history = useHistory();
 
     const handler2 = () => {
-        history.push('/select-themePract');
+        history.push('/code-reviewpract');
     }
 
     const handler1 = () => {
-        history.push('/select-themeBase');
+        history.push('/code-reviewbase');
     }
+
+    const [border, setBorder] = useState('0px solid white');
+
     return (
         <div>
             <Wrapper>
                 <Img src ={image}></Img>
-                <Divtheme> «&nbsp;&nbsp;테마선택&nbsp;&nbsp;» </Divtheme>
+                <Divtheme> «&nbsp;&nbsp;코드리뷰&nbsp;&nbsp;» </Divtheme>
                 <Widthline/>
                 <div style={
                     {maxWidth: '53.95vw',
@@ -29,11 +30,9 @@ function SelectTheme(props) {
                     textAlign: 'center',
                     marginTop: '2vw',
                     marginLeft: '15vw',
-                }
-                }>
-                    <Box>HTML</Box>
-                    <Box>CSS</Box>
-                    <Box>JS</Box>
+                    }
+                } onClick={ () => setBorder('2px solid #38405D') }>
+                    <Box style={{border}}>HTML</Box>
                 </div>
                 <Text1 onClick={handler1}>기초</Text1>
                 <Text2 onClick={handler2}>실천</Text2>
@@ -42,35 +41,12 @@ function SelectTheme(props) {
             <div style={{
                 marginTop: '3.5vw',
             }}>
-                <Button>타자 치러 가기</Button>
-                <Personimg src={person}></Personimg>
-                <SpeechBubble src={speach_buble}></SpeechBubble>
-                <SpeechText>이유리 님 ________ 부탁해요 ~! 😊</SpeechText>
-                <ChoiceTheme>HTML</ChoiceTheme>
+                <Button>코드 리뷰 보러 가기</Button>
             </div>
         </div>
     )
 }
-const ChoiceTheme = styled.div`
-    font-size: 1.5vw;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
-    margin-left: 40.7vw;
-    margin-top: -2.3vw;`;
-const SpeechText = styled.div`
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 1.5vw;
-    margin-left: 33vw;
-    margin-top: -18vw;
-`;
-const SpeechBubble = styled.img`
-    width: 31vw;
-    height : 5vw;
-    margin-bottom: 14vw;
-    margin-left: -7vw`;
-const Personimg = styled.img`
-    width: 25vw;
-    margin-left: 10vw;`;
+
 const Button = styled.button`
     width: 14vw;
     height: 3.47vw;
@@ -83,7 +59,7 @@ const Button = styled.button`
     font-size: 1rem;
     float: right;
     margin-right: 13vw;
-`;
+    margin-bottom: 2vw;`;
 const Box = styled.div`
     margin-top: 2vw;
     display: flex;
@@ -143,4 +119,5 @@ const Heightline = styled.hr`
     margin-left: 7.9999vw;
     margin-top: -15.5vw;
 `;
-export default SelectTheme;
+
+export default CodeReview;
