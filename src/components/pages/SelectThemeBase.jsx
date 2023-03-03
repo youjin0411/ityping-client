@@ -98,11 +98,13 @@ const Text1 = styled.div`
     float: left;
     margin-top: -8vw;
     margin-left: 2.5vw;
+    font-family: 'Noto Sans KR', sans-serif;
     cursor: pointer;
     color: #98A2B3;`;
 const Text2 = styled.div`
     float: left;
     margin-top: -5vw;
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left: 2.5vw;
     cursor: pointer;
     color: #98A2B3;`;
