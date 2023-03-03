@@ -6,6 +6,7 @@ import SelectThemeBase from "./components/pages/SelectThemeBase";
 import SelectThemePract from "./components/pages/SelectThemePract";
 import CodeReviewBasse from './components/pages/CodeReviewBasse';
 import CodeReviewPract from './components/pages/CodeReviewPract';
+import CodeReviewCheck from './components/pages/CodeReviewCheck';
 import Tutorial from './components/pages/Tutorial';
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/SignUp";
@@ -21,6 +22,7 @@ return (
       <Route path='/select-themePract' component={SelectThemePract} />
       <Route path='/code-reviewbase' component={CodeReviewBasse} />
       <Route path='/code-reviewpract' component={CodeReviewPract} />
+      <Route path='/code-reviewcheck' component={CodeReviewCheck} />
       <Route path='/tutorial' component={Tutorial} />
       <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUp} />

@@ -13,6 +13,9 @@ function CodeReview(props) {
     const handler1 = () => {
         history.push('/code-reviewbase');
     }
+    const intents = () => {
+        history.push('/code-reviewcheck');
+    }
     const [border, setBorder] = useState('0px solid white');
     return (
         <div>
@@ -39,7 +42,7 @@ function CodeReview(props) {
             <div style={{
                 marginTop: '3.5vw',
             }}>
-                <Button>코드 리뷰 보러 가기</Button>
+                <Button onClick={intents}>코드 리뷰 보러 가기</Button>
             </div>
         </div>
     )
@@ -113,7 +116,5 @@ const Heightline = styled.hr`
     height: 68.6vh;
     margin: 0 auto;
     margin-left: 7.9999vw;
-    margin-top: -15.5vw;
-`;
-
+    margin-top: -15.5vw;`;
 export default CodeReview;

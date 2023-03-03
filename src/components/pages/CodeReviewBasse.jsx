@@ -14,6 +14,10 @@ function CodeReview(props) {
         history.push('/code-reviewbase');
     }
 
+    const intents = () => {
+        history.push('/code-reviewcheck');
+    }
+
     const [border, setBorder] = useState('0px solid white');
 
     return (
@@ -41,7 +45,7 @@ function CodeReview(props) {
             <div style={{
                 marginTop: '3.5vw',
             }}>
-                <Button>코드 리뷰 보러 가기</Button>
+                <Button onClick={intents}>코드 리뷰 보러 가기</Button>
             </div>
         </div>
     )
