@@ -13,7 +13,7 @@ function CodeReview(props) {
     const handler1 = () => {
         history.push('/code-reviewbase');
     }
-
+    const [border, setBorder] = useState('0px solid white');
     return (
         <div>
             <Wrapper>
@@ -29,8 +29,8 @@ function CodeReview(props) {
                     marginTop: '2vw',
                     marginLeft: '15vw',
                 }
-                }>
-                    <Box>쇼핑몰</Box>
+                } onClick={ () => setBorder('2px solid #38405D') }>
+                    <Box style={{border}}>쇼핑몰</Box>
                 </div>
                 <Text1 onClick={handler1}>기초</Text1>
                 <Text2 onClick={handler2}>실천</Text2>
