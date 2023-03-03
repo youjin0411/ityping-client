@@ -8,7 +8,7 @@ const DropdownMenu = () => {
 	return (
     <>
 		<Wrapper>
-			<Link href="/select-theme">테마선택</Link>
+			<Link href="/select-themeBase">테마선택</Link>
 			<Link href="/code-review">코드리뷰</Link>
 			<Link href="/tutorial">튜토리얼</Link>
 		</Wrapper>

@@ -3,8 +3,18 @@ import styled from 'styled-components';
 import image from '../../img/circle.png';
 import person from '../../img/person.png';
 import speach_buble from '../../img/speach_buble.png';
+import { useHistory } from 'react-router-dom';
 
 function SelectTheme(props) {
+    const history = useHistory();
+
+    const handler2 = () => {
+        history.push('/select-themePract');
+    }
+
+    const handler1 = () => {
+        history.push('/select-themeBase');
+    }
     return (
         <body>
             <Wrapper>
@@ -25,8 +35,8 @@ function SelectTheme(props) {
                     <Box>CSS</Box>
                     <Box>JS</Box>
                 </div>
-                <Text1>기초</Text1>
-                <Text2>실천</Text2>
+                <Text1 onClick={handler1}>기초</Text1>
+                <Text2 onClick={handler2}>실천</Text2>
                 <Heightline/>
             </Wrapper>
             <div style={{
@@ -84,14 +94,18 @@ const Box = styled.div`
     height: 9vw;
     border-radius: 4px;
     grid-column-gap: 2vw;`;
-const Text1 = styled.a`
+const Text1 = styled.div`
     float: left;
     margin-top: -8vw;
-    margin-left: 2.5vw;`;
+    margin-left: 2.5vw;
+    cursor: pointer;
+    color: #98A2B3;`;
 const Text2 = styled.div`
     float: left;
     margin-top: -5vw;
-    margin-left: 2.5vw;`;
+    margin-left: 2.5vw;
+    cursor: pointer;
+    color: #98A2B3;`;
 const Img = styled.img`
     float: left;
     width: 4vw;

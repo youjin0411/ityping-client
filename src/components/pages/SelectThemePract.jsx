@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import image from '../../img/circle.png';
+import person from '../../img/person.png';
+import speach_buble from '../../img/speach_buble.png';
 import { useHistory } from 'react-router-dom';
 
-function CodeReview(props) {
+function SelectTheme(props) {
     const history = useHistory();
 
     const handler2 = () => {
@@ -11,13 +13,13 @@ function CodeReview(props) {
     }
 
     const handler1 = () => {
-        history.push('/select-themePract');
+        history.push('/select-themeBase');
     }
     return (
         <body>
             <Wrapper>
                 <Img src ={image}></Img>
-                <Divtheme> «&nbsp;&nbsp;코드리뷰&nbsp;&nbsp;» </Divtheme>
+                <Divtheme> «&nbsp;&nbsp;테마선택&nbsp;&nbsp;» </Divtheme>
                 <Widthline/>
                 <div style={
                     {maxWidth: '53.95vw',
@@ -29,7 +31,9 @@ function CodeReview(props) {
                     marginLeft: '15vw',
                 }
                 }>
-                    <Box>HTML</Box>
+                    <Box>쇼핑몰</Box>
+                    <Box>회사소개</Box>
+                    <Box>사진갤러리</Box>
                 </div>
                 <Text1 onClick={handler1}>기초</Text1>
                 <Text2 onClick={handler2}>실천</Text2>
@@ -38,12 +42,35 @@ function CodeReview(props) {
             <div style={{
                 marginTop: '3.5vw',
             }}>
-                <Button>코드 리뷰 보러 가기</Button>
+                <Button>타자 치러 가기</Button>
+                <Personimg src={person}></Personimg>
+                <SpeechBubble src={speach_buble}></SpeechBubble>
+                <SpeechText>이유리 님 ________ 부탁해요 ~! 😊</SpeechText>
+                <ChoiceTheme>HTML</ChoiceTheme>
             </div>
         </body>
     )
 }
-
+const ChoiceTheme = styled.div`
+    font-size: 1.5vw;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left: 40.7vw;
+    margin-top: -2.3vw;`;
+const SpeechText = styled.div`
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.5vw;
+    margin-left: 33vw;
+    margin-top: -18vw;
+`;
+const SpeechBubble = styled.img`
+    width: 31vw;
+    height : 5vw;
+    margin-bottom: 14vw;
+    margin-left: -7vw`;
+const Personimg = styled.img`
+    width: 25vw;
+    margin-left: 10vw;`;
 const Button = styled.button`
     width: 14vw;
     height: 3.47vw;
@@ -56,7 +83,7 @@ const Button = styled.button`
     font-size: 1rem;
     float: right;
     margin-right: 13vw;
-    margin-bottom: 2vw;`;
+`;
 const Box = styled.div`
     margin-top: 2vw;
     display: flex;
@@ -69,12 +96,18 @@ const Box = styled.div`
     grid-column-gap: 2vw;`;
 const Text1 = styled.div`
     float: left;
+    font-family: 'Noto Sans KR', sans-serif;
     margin-top: -8vw;
-    margin-left: 2.5vw;`;
+    margin-left: 2.5vw;
+    cursor: pointer;
+    color: #98A2B3;`;
 const Text2 = styled.div`
     float: left;
+    font-family: 'Noto Sans KR', sans-serif;
     margin-top: -5vw;
-    margin-left: 2.5vw;`;
+    margin-left: 2.5vw;
+    cursor: pointer;
+    color: #98A2B3;`;
 const Img = styled.img`
     float: left;
     width: 4vw;
@@ -107,5 +140,4 @@ const Heightline = styled.hr`
     margin-left: 7.9999vw;
     margin-top: -15.5vw;
 `;
-
-export default CodeReview;
+export default SelectTheme;
