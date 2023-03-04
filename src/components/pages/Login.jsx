@@ -3,23 +3,21 @@ import styled from 'styled-components';
 
 function Login(props) {
     return (
-        <>
-            <Container>
-                <Welcome>Welcome!</Welcome>
-                <Text style={{marginBottom: '30px'}}>login to TITLE</Text>
-                <Wrapper>
-                    <Text>Email or 닉네임</Text>
-                    <InputEmail type='text' placeholder='Email or 닉네임을 입력해주세요'></InputEmail>
-                </Wrapper>
-                <Wrapper>
-                    <Text>Password</Text>
-                    <InputPw type='password' placeholder='Password를 입력해주세요'></InputPw>
-                </Wrapper>
-                <LoginBtn>Login</LoginBtn>
-                <Or>OR</Or>
-                <Button>Sign in with Google</Button>
-            </Container>
-        </>
+        <Container>
+            <Welcome>Welcome!</Welcome>
+            <Text style={{marginBottom: '30px'}}>login to TITLE</Text>
+            <Wrapper>
+                <Text>Email or 닉네임</Text>
+                <InputEmail type='text' placeholder='Email or 닉네임을 입력해주세요'></InputEmail>
+            </Wrapper>
+            <Wrapper>
+                <Text>Password</Text>
+                <InputPw type='password' placeholder='Password를 입력해주세요'></InputPw>
+            </Wrapper>
+            <LoginBtn>Login</LoginBtn>
+            <Or>OR</Or>
+            <Button>Sign in with Google</Button>
+        </Container>
     )
 }
 

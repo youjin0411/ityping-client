@@ -27,7 +27,7 @@ function MyPage(props) {
                         <div></div><div></div><div></div><div></div><div></div>
                         <Logout>logout</Logout>
                     </LeftMenu>
-                    <hr style={{border:'1px solid #667085', width:'1', height: '660px', marginLeft:'20px', marginRight:'30px'}}/>
+                    <hr style={{border:'1px solid #667085', width:'1', height: '820px', marginLeft:'20px', marginRight:'30px'}}/>
                     <ProfileMenu>
                         <HeaderWrapper>
                             <p style={{fontSize:'16px', color:'#38405D'}}>기본정보</p>
@@ -48,6 +48,42 @@ function MyPage(props) {
                             </Box>
                         </InfoWrapper>
                     </ProfileMenu>
+                    <RecordMenu>
+                        <BasicWrapper>
+                            <ContentWrapper>
+                                <p style={{fontSize:'16px', color:'#38405D', float: 'left'}}>기초</p>
+                                <ContentsContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>html</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>css</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>css</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>html</p>
+                                    </ContentContainer>
+                                </ContentsContainer>
+                            </ContentWrapper>
+                        </BasicWrapper>
+                        <PracticeWrapper>
+                            <ContentWrapper>
+                                <p style={{fontSize:'16px', color:'#38405D'}}>실전</p>
+                                <ContentsContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>쇼핑몰</p>
+                                    </ContentContainer>
+                                </ContentsContainer>
+                            </ContentWrapper>
+                        </PracticeWrapper>
+                    </RecordMenu>
                 </MenuContainer>
             </Container>
         </Wrapper>
@@ -56,8 +92,8 @@ function MyPage(props) {
 
 const Wrapper = styled.div`
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-left: 370px;
 `;
 
 const Container = styled.div`
@@ -65,7 +101,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 60px;
+    margin: 30px 0;
 `;
 
 const Title = styled.h2`
@@ -74,20 +110,21 @@ const Title = styled.h2`
 `;
 
 const MenuContainer = styled.div`
-    height: 660px;
+    height: 820px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 `;
 
 const LeftMenu = styled.div`
-    height: 660px;
+    height: 820px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 `;
 
+/*** ProfileMenu ***/
 const ProfileMenu = styled.div`
     display: flex;
     flex-direction: column;
@@ -194,6 +231,66 @@ const UserInfo = styled.p`
     font-size: 16px;
     color: #38405D;
     padding-right: 20px;
+`;
+
+/*** RecordMenu ***/
+const RecordMenu = styled.div`
+    height: 820px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+`;
+
+const BasicWrapper = styled.div`
+    width: 860px;
+    height: 495px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #667085;
+    border-radius: 10px;
+`;
+
+const ContentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const ContentsContainer = styled.div`
+    width: 800px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 40px;
+`;
+
+const ContentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Image = styled.div`
+    width: 240px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #E4E7EC;
+`;
+
+const PracticeWrapper = styled.div`
+    width: 860px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #667085;
+    border-radius: 10px;
 `;
 
 export default MyPage;
