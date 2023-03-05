@@ -7,7 +7,7 @@ function Main(props) {
     const history = useHistory();
 
     const handler = () => {
-        history.push('/select-theme');
+        history.push('/select-themeBase');
     }
 
     return (
