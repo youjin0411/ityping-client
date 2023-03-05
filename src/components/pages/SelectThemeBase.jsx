@@ -15,11 +15,15 @@ function SelectTheme(props) {
     const handler1 = () => {
         history.push('/select-themeBase');
     }
+
+    const moveTyping = () => {
+        history.push('/typing');
+    }
     return (
         <div>
             <Wrapper>
                 <Img src ={image}></Img>
-                <Divtheme> «&nbsp;&nbsp;테마선택&nbsp;&nbsp;» </Divtheme>
+                <Divtheme> &lt; 테마선택 &gt; </Divtheme>
                 <Widthline/>
                 <div style={
                     {maxWidth: '53.95vw',
@@ -42,7 +46,7 @@ function SelectTheme(props) {
             <div style={{
                 marginTop: '3.5vw',
             }}>
-                <Button>타자 치러 가기</Button>
+                <Button onClick={moveTyping}>타자 치러 가기</Button>
                 <Personimg src={person}></Personimg>
                 <SpeechBubble src={speach_buble}></SpeechBubble>
                 <SpeechText>이유리 님 ________ 부탁해요 ~! 😊</SpeechText>

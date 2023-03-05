@@ -19,7 +19,7 @@ function SelectTheme(props) {
         <div>
             <Wrapper>
                 <Img src ={image}></Img>
-                <Divtheme> «&nbsp;&nbsp;테마선택&nbsp;&nbsp;» </Divtheme>
+                <Divtheme> &lt; 테마선택 &gt;</Divtheme>
                 <Widthline/>
                 <div style={
                     {maxWidth: '53.95vw',
