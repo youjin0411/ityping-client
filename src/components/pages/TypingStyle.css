@@ -1,19 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
 .keyboard {
     color: #38405D;
-    width: 71.9444vw;
+    width: 75.9444vw;
     border-radius: 4px;
     margin: 0 auto;
-    margin-top: 5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .row {
     /* ! */
     display: flex;
+    font-size: 15px;
 }
 
 .key {
-    width: 45px;
-    height: 45px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    width: 58px;
+    height: 50px;
     margin: 5px;
     border-radius: 4px;
     background-color: white;
@@ -30,11 +35,17 @@
 
 .key:hover {
     background-color: #1C3796;
+    color: #fff;
 }
 
 .key.active {
     background-color: #333;
     color: #fff;
+}
+
+.s {
+    width: 58px;
+    height: 28px;
 }
 
 .key .two-value {
@@ -47,7 +58,7 @@
 }
 
 .space-key {
-    width: 420px;
+    width: 285px;
 }
 
 .back-space-key {
@@ -76,6 +87,28 @@
 
 .right-shift-key {
     width: 185px;
+}
+
+.arrow {
+    width: 229px;
+    height: 50px;
+    border: solid #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 40px);
+    grid-column-gap: 1.5rem;
+    grid-row-gap: -22rem;
+    margin-top: -0.1rem;
+}
+
+.arrow:hover {
+    pointer-events: none;
+}
+
+.grid-item {
+    text-align: center;
+    width: 58px;
+    height: 19px;
+    padding: -15px;
 }
 
 .menu {
@@ -175,5 +208,9 @@ input:checked+.slider::before {
 }
 
 .error .error-message {
+    display: block;
+}
+
+error .error-message {
     display: block;
 }

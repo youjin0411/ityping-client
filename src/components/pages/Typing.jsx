@@ -20,7 +20,7 @@ function Typing(props) {
                 }
                 }>
                 </div>
-                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'44.4rem',height: '18rem'}}>
+                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'44.4rem',height: '20rem'}}>
                     &lt;!DOCTYPE html&gt; <br />
                     &lt;html lang="en"&gt;<br />
                     &lt;head&gt;<br />
@@ -42,20 +42,20 @@ function Typing(props) {
             </Wrapper>
             <div class="keyboard" id="keyboard">
                 <div class="row">
-                    <div class="key" data-code="Spec1" data-val="esc">esc</div>
-                    <div class="key" data-code="Spec1" data-val="F1">c</div>
-                    <div class="key" data-code="Spec1" data-val="F2">F2</div>
-                    <div class="key" data-code="Spec1" data-val="F3">F3</div>
-                    <div class="key" data-code="Spec1" data-val="F4">F4</div>
-                    <div class="key" data-code="Spec1" data-val="F5">F5</div>
-                    <div class="key" data-code="Spec1" data-val="F6">F6</div>
-                    <div class="key" data-code="Spec1" data-val="F7">F7</div>
-                    <div class="key" data-code="Spec1" data-val="F8">F8</div>
-                    <div class="key" data-code="Spec1" data-val="F9">F9</div>
-                    <div class="key" data-code="Spec1" data-val="F10">F10</div>
-                    <div class="key" data-code="Spec1" data-val="F11">F11</div>
-                    <div class="key" data-code="Spec1" data-val="F12">F12</div>
-                    <div class="key back-space-key" data-code="Spec1" data-val="del">del</div>
+                    <div class="key s" data-code="Spec1" data-val="esc">esc</div>
+                    <div class="key s" data-code="Spec1" data-val="F1">c</div>
+                    <div class="key s" data-code="Spec1" data-val="F2">F2</div>
+                    <div class="key s" data-code="Spec1" data-val="F3">F3</div>
+                    <div class="key s" data-code="Spec1" data-val="F4">F4</div>
+                    <div class="key s" data-code="Spec1" data-val="F5">F5</div>
+                    <div class="key s" data-code="Spec1" data-val="F6">F6</div>
+                    <div class="key s" data-code="Spec1" data-val="F7">F7</div>
+                    <div class="key s" data-code="Spec1" data-val="F8">F8</div>
+                    <div class="key s" data-code="Spec1" data-val="F9">F9</div>
+                    <div class="key s" data-code="Spec1" data-val="F10">F10</div>
+                    <div class="key s" data-code="Spec1" data-val="F11">F11</div>
+                    <div class="key s" data-code="Spec1" data-val="F12">F12</div>
+                    <div class="key s" data-code="Spec1" data-val="del">del</div>
                 </div>
                             <div class="row">
                 <div class="key" data-code="Backquote" data-val="`">
@@ -188,18 +188,117 @@ function Typing(props) {
                 <div class="key right-shift-key" data-code="ShiftRight">Shift</div>
             </div>
             <div class="row">
-                <div class="key fn-key">Ctrl</div>
-                <div class="key fn-key">-</div>
-                <div class="key fn-key">Alt</div>
-                <div class="key space-key" data-code="Space" data-val="Space">Space</div>
-                <div class="key fn-key">Alt</div>
-                <div class="key fn-key">Fn</div>
-                <div class="key fn-key">-</div>
-                <div class="key fn-key">Ctrl</div>
+                <div class="key">Ctrl</div>
+                <div class="key">fn</div>
+                <div class="key">&nbsp;</div>
+                <div class="key">alt</div>
+                <div class="key space-key" data-code="Space" data-val="Space">&nbsp;</div>
+                <div class="key fn-key">한/영</div>
+                <div class="key fn-key">&nbsp;</div>
+                <div class="arrow">
+                    <div class="key grid-item">&nbsp;</div>
+                    <div class="key grid-item">▲</div>
+                    <div class="key grid-item">&nbsp;</div>
+                    <div class="key grid-item">◀</div>
+                    <div class="key grid-item">▼</div>
+                    <div class="key grid-item">▶</div>
+                </div>
             </div>
         </div>
     </div>
     )
+}
+class Keyboard {
+  #swichEl;
+  #fontSelectEl;
+  #containerEl;
+  #keyboardEl;
+  #inputGroupEl;
+  #inputEl;
+  #keyPress = false;
+  #mouseDown = false;
+  constructor() {
+    this.#assignElement();
+    this.#addEvent();
+  }
+  #assignElement() {
+    this.#containerEl = document.getElementById("container");
+    this.#swichEl = this.#containerEl.querySelector("#switch");
+    this.#fontSelectEl = this.#containerEl.querySelector("#font");
+    this.#keyboardEl = this.#containerEl.querySelector("#keyboard");
+    this.#inputGroupEl = this.#containerEl.querySelector("#input-group");
+    this.#inputEl = this.#inputGroupEl.querySelector("#input");
+  }
+
+  #addEvent() {
+    this.#swichEl.addEventListener("change", this.#onChageTheme);
+    this.#fontSelectEl.addEventListener("change", this.#onChageFont);
+    document.addEventListener("keydown", this.#onKeyDown.bind(this));
+    document.addEventListener("keyup", this.#onKeyUp.bind(this));
+    this.#inputEl.addEventListener("input", this.#onInput);
+    this.#keyboardEl.addEventListener(
+      "mousedown",
+      this.#onMouseDown.bind(this)
+    );
+    document.addEventListener("mouseup", this.#onMouseUp.bind(this));
+  }
+
+  #onMouseUp(event) {
+    if (this.#keyPress) return;
+    this.#mouseDown = true;
+    const keyEl = event.target.closest("div.key");
+    const isActive = !!keyEl?.classList.contains("active");
+    const val = keyEl?.dataset.val;
+
+    if (isActive && !!val && val !== "Space" && val !== "Backspace") {
+      this.#inputEl.value += val;
+    }
+    if (isActive && val === "Space") {
+      this.#inputEl.value += " ";
+    }
+    if (isActive && val === "Backspace") {
+      this.#inputEl.value = this.#inputEl.value.slice(0, -1);
+    }
+
+    this.#keyboardEl.querySelector(".active")?.classList.remove("active");
+  }
+  #onMouseDown(event) {
+    if (this.#keyPress) return;
+    this.#mouseDown = true;
+    event.target.closest("div.key")?.classList.add("active");
+  }
+  #onInput(event) {
+    event.target.value = event.target.value.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/, "");
+  }
+  #onKeyDown(event) {
+    if (this.#mouseDown) return;
+    this.#keyPress = true;
+    this.#keyboardEl
+      .querySelector(`[data-code=${event.code}]`)
+      ?.classList.add("active");
+    this.#inputGroupEl.classList.toggle(
+      "error",
+      /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(event.key)
+    );
+  }
+  #onKeyUp(event) {
+    if (this.#mouseDown) return;
+    this.#keyPress = false;
+    this.#keyboardEl
+      .querySelector(`[data-code=${event.code}]`)
+      ?.classList.remove("active");
+  }
+
+  #onChageTheme(event) {
+    document.documentElement.setAttribute(
+      "theme",
+      event.target.checked ? "dark-mode" : ""
+    );
+  }
+
+  #onChageFont(event) {
+    document.body.style.fontFamily = event.target.value;
+  }
 }
 const Img = styled.img`
     float: left;
@@ -211,8 +310,8 @@ const Wrapper = styled.div`
     border: 1px solid #667085;
     border-radius: 5px;
     text-align: center;
-    width: 71.9444vw;
-    height: 68.75vh;
+    width: 79.9444vw;
+    height: 75.75vh;
     margin : 0 auto;
     margin-top: 6.925vh;`
     ;
@@ -233,10 +332,10 @@ const Widthline = styled.hr`
     background: #667085;`;
 const Heightline = styled.hr`
     width: 0.01vw;
-    height: 68.6vh;
+    height: 75.7vh;
     margin: 0 auto;
     margin-left: 64vw;
-    margin-top: -30.6vw;
+    margin-top: -33.3vw;
 
 `;
-export default Typing;
+export default Typing
