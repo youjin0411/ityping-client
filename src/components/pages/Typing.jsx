@@ -20,7 +20,8 @@ function Typing(props) {
                 }
                 }>
                 </div>
-                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'44.4rem',height: '18rem'}}>&lt;!DOCTYPE html&gt; <br />
+                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'44.4rem',height: '18rem'}}>
+                &lt;!DOCTYPE html&gt; <br />
                 &lt;html lang="en"&gt;<br />
                 &lt;head&gt;<br />
                 &lt;meta charset="UTF-8"&gt;<br />
