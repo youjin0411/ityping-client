@@ -11,6 +11,7 @@ import Tutorial from './components/pages/Tutorial';
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/SignUp";
 import MyPage from './components/pages/MyPage';
+import Typing from './components/pages/Typing';
 
 function App() {
 return (
@@ -27,6 +28,7 @@ return (
       <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUp} />
       <Route path='/mypage' component={MyPage} />
+      <Route path='/typing' component={Typing} />
       <Route path="*" element={<h1>404 페이지</h1>}/>
     </Switch>
 	</Router>
