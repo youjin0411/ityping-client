@@ -20,7 +20,7 @@ function Typing(props) {
                 }
                 }>
                 </div>
-                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'44.4rem',height: '20rem'}}>
+                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'82.7rem',height: '40.5rem', fontSize :'2rem'}}>
                     &lt;!DOCTYPE html&gt; <br />
                     &lt;html lang="en"&gt;<br />
                     &lt;head&gt;<br />
@@ -310,8 +310,8 @@ const Wrapper = styled.div`
     border: 1px solid #667085;
     border-radius: 5px;
     text-align: center;
-    width: 79.9444vw;
-    height: 75.75vh;
+    width: 66.9444vw;
+    height: 70.75vh;
     margin : 0 auto;
     margin-top: 6.925vh;`
     ;
@@ -327,15 +327,15 @@ const Divtheme = styled.div`
     `;
 const Widthline = styled.hr`
     position: absolute;
-    width: 63.95vw;
+    width: 57.95vw;
     margin-top: 1.2vw;
     background: #667085;`;
 const Heightline = styled.hr`
     width: 0.01vw;
-    height: 75.7vh;
+    height: 70.45vh;
     margin: 0 auto;
-    margin-left: 64vw;
-    margin-top: -33.3vw;
+    margin-left: 58.1vw;
+    margin-top: -32.8vw;
 
 `;
 export default Typing
