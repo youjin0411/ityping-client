@@ -20,7 +20,7 @@ function Typing(props) {
                 }
                 }>
                 </div>
-                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'82.7rem',height: '40.5rem', fontSize :'2rem'}}>
+                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'66.2rem',height: '30.5rem', fontSize :'1.6rem'}}>
                     &lt;!DOCTYPE html&gt; <br />
                     &lt;html lang="en"&gt;<br />
                     &lt;head&gt;<br />
@@ -335,7 +335,7 @@ const Heightline = styled.hr`
     height: 70.45vh;
     margin: 0 auto;
     margin-left: 58.1vw;
-    margin-top: -32.8vw;
+    margin-top: -31.2vw;
 
 `;
 export default Typing

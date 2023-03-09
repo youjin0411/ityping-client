@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
 .keyboard {
     color: #38405D;
-    width: 58.9444vw;
+    width: 66.9444vw;
     border-radius: 4px;
     margin: 0 auto;
     margin-top: 1.5rem;
@@ -58,7 +58,7 @@
 }
 
 .space-key {
-    width: 455px;
+    width: 350px;
 }
 
 .back-space-key {
