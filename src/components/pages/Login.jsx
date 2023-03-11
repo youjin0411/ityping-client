@@ -1,20 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../_actions/user_login';
 
-function Login(props) {
+function Login() {
+    const dispatch = useDispatch();
+
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
+
+    const onEmailHandler = (event) => {
+        setEmail(event.currentTarget.value);
+    }
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value);
+    }
+    const onSubmitHandler = (event) => {
+        // 버튼만 누르면 리로드 되는것을 막아줌
+        event.preventDefault();
+
+        console.log('Email', Email);
+        console.log('Password', Password);
+        
+        let body = {
+            email: Email,
+            password: Password,
+        }
+
+        dispatch(loginUser(body));
+    }
+
     return (
         <Container>
             <Welcome>Welcome!</Welcome>
             <Text style={{marginBottom: '30px'}}>login to TITLE</Text>
-            <Wrapper>
-                <Text>Email or 닉네임</Text>
-                <InputEmail type='text' placeholder='Email or 닉네임을 입력해주세요'></InputEmail>
-            </Wrapper>
-            <Wrapper>
-                <Text>Password</Text>
-                <InputPw type='password' placeholder='Password를 입력해주세요'></InputPw>
-            </Wrapper>
-            <LoginBtn>Login</LoginBtn>
+            <Form onSubmit={onSubmitHandler}>
+                <label>Email</label>
+                <InputEmail type='email' value={Email} onChange={onEmailHandler} placeholder='Email을 입력해주세요'/>
+                <label>Password</label>
+                <InputPw type='password' value={Password} onChange={onPasswordHandler} placeholder='Password를 입력해주세요'/>
+                <LoginBtn formAction=''>Login</LoginBtn>
+            </Form>
             <Or>OR</Or>
             <Button>Sign in with Google</Button>
         </Container>
@@ -43,10 +69,11 @@ const Text = styled.p`
     margin: 8px 0;
 `;
 
-const Wrapper = styled.div`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
-`
+    justify-content: center;
+`;
 
 const InputEmail = styled.input`
     width: 250px;
@@ -71,6 +98,7 @@ const InputPw = styled.input`
 const LoginBtn = styled.button`
     width: 250px;
     height: 40px;
+    margin-left: 6px;
     color: white;
     border: 1px solid #667085;
     background-color: #7986B6;
