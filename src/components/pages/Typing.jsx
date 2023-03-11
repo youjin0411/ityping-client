@@ -49,23 +49,23 @@ function Typing(props) {
                 }
                 }>
                 </div>
-                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'66.2rem',height: '30.5rem', fontSize :'1.6rem'}}>
-                    &lt;!DOCTYPE html&gt; <br />
-                    &lt;html lang="en"&gt;<br />
-                    &lt;head&gt;<br />
-                    &lt;meta charset="UTF-8"&gt;<br />
-                    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;<br />
-                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br />
-                    &lt;link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'/&gt;<br />
-                    &lt;!-- CSS --&gt; &lt;link rel="stylesheet" href="../css/default.css"/&gt;<br />
-                    &lt;link rel="stylesheet" href="../css/nav.css"/&gt;<br />
-                    &lt;link rel="stylesheet" href="./css/info.css"/&gt;<br />
-                    &lt;title&gt;HOME&lt;title/&gt;<br />
-                    &lt;/head&gt;<br />
-                    &lt;body&gt;<br />
-                    &lt;nav class="nav container" id="nav-toggle"&gt;<br />
-                    &lt;div class="nav-toggle" id="nav-toggle"&gt;<br />
-                    &lt;i class='bx bx-menu'&gt;&lt;i&gt;<br />
+                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'66.2rem',height: '30.5rem', fontSize :'1.6rem', color: '#98A2B3'}}>
+                    <div>&lt;!DOCTYPE html&gt;</div>
+                    <div>&lt;html lang="en"&gt;</div>
+                    <div>&lt;head&gt;</div> 
+                    <div>&lt;meta charset="UTF-8"&gt;</div>
+                    <div>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</div>
+                    <div>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; </div>
+                    <div>&lt;link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'/&gt;</div>
+                    <div>&lt;!-- CSS --&gt; &lt;link rel="stylesheet" href="../css/default.css"/&gt;</div>
+                    <div>&lt;link rel="stylesheet" href="../css/nav.css"/&gt;</div>
+                    <div>&lt;link rel="stylesheet" href="./css/info.css"/&gt;</div>
+                    <div>&lt;title&gt;HOME&lt;title/&gt;</div>
+                    <div>&lt;/head&gt;</div>
+                    <div>&lt;body&gt;</div>
+                    <div>&lt;nav class="nav container" id="nav-toggle"&gt;</div>
+                    <div>&lt;div class="nav-toggle" id="nav-toggle"&gt;</div>
+                    <div>&lt;i class='bx bx-menu'&gt;&lt;i&gt;</div>
                 </div>
                 <Heightline/>
             </Wrapper>
