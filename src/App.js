@@ -13,6 +13,7 @@ import SignUp from "./components/pages/SignUp";
 import MyPage from './components/pages/MyPage';
 import Typing from './components/pages/Typing';
 
+
 function App() {
 return (
 	<Router>
