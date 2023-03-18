@@ -55,8 +55,6 @@ function MyPage(props) {
 }
 
 const Wrapper = styled.div`
-    display: flex;
-    align-items: center;
     margin-left: 370px;
 `;
 
