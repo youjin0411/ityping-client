@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 function MyPage(props) {
 
     const { userName } = props;
+    const menus = useRef([]);
+    
+    const profile = (menu) => {
+        menu[0].style.display = 'block';
+        menu[1].style.display = 'none';
+        // menu[2].style.display = 'none';
+    };
+
+    const record = (menu) => {
+        menu[0].style.display = 'none';
+        menu[1].style.display = 'block';
+        // menu[2].style.display = 'none';
+    };
+
+    const save = (menu) => {
+        // menu[0].style.display = 'none';
+        // menu[1].style.display = 'none';
+        // // menu[2].style.display = 'block';
+    };
 
     return (
         <Wrapper>
@@ -20,15 +39,15 @@ function MyPage(props) {
                             </div>
                         </Message>
                         <MenuItemContainer>
-                            <MenuItem>프로필</MenuItem>
-                            <MenuItem>기록보기</MenuItem>
-                            <MenuItem>저장</MenuItem>
+                                <MenuItem onClick={profile(menus.current)}>프로필</MenuItem>
+                                <MenuItem onClick={record(menus.current)}>기록보기</MenuItem>
+                                <MenuItem onClick={save(menus.current)}>저장</MenuItem>
                         </MenuItemContainer>
                         <div></div><div></div><div></div><div></div><div></div>
                         <Logout>logout</Logout>
                     </LeftMenu>
                     <hr style={{border:'1px solid #667085', width:'1', height: '660px', marginLeft:'20px', marginRight:'30px'}}/>
-                    <ProfileMenu>
+                    <ProfileMenu ref={el => menus.current[0] = el} className="profile">
                         <HeaderWrapper>
                             <p style={{fontSize:'16px', color:'#38405D'}}>기본정보</p>
                             <Edit>0</Edit>
@@ -48,11 +67,47 @@ function MyPage(props) {
                             </Box>
                         </InfoWrapper>
                     </ProfileMenu>
+                    <RecordMenu ref={el => menus.current[1] = el}>
+                        <BasicWrapper>
+                            <ContentWrapper>
+                                <p style={{fontSize:'16px', color:'#38405D', float: 'left'}}>기초</p>
+                                <ContentsContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>html</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>css</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>css</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>html</p>
+                                    </ContentContainer>
+                                </ContentsContainer>
+                            </ContentWrapper>
+                        </BasicWrapper>
+                        <PracticeWrapper>
+                            <ContentWrapper>
+                                <p style={{fontSize:'16px', color:'#38405D'}}>실전</p>
+                                <ContentsContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>쇼핑몰</p>
+                                    </ContentContainer>
+                                </ContentsContainer>
+                            </ContentWrapper>
+                        </PracticeWrapper>
+                    </RecordMenu>
                 </MenuContainer>
             </Container>
         </Wrapper>
-    )
-}
+    );
+};
 
 const Wrapper = styled.div`
     margin-left: 370px;
@@ -192,6 +247,66 @@ const UserInfo = styled.p`
     font-size: 16px;
     color: #38405D;
     padding-right: 20px;
+`;
+
+/*** RecordMenu ***/
+const RecordMenu = styled.div`
+    height: 820px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+`;
+
+const BasicWrapper = styled.div`
+    width: 860px;
+    height: 495px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #667085;
+    border-radius: 10px;
+`;
+
+const ContentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const ContentsContainer = styled.div`
+    width: 800px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 40px;
+`;
+
+const ContentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Image = styled.div`
+    width: 240px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #E4E7EC;
+`;
+
+const PracticeWrapper = styled.div`
+    width: 860px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #667085;
+    border-radius: 10px;
 `;
 
 export default MyPage;
