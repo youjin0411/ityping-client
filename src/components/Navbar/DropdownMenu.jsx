@@ -19,7 +19,7 @@ const DropdownMenu = () => {
 			<Menu isDropped={userIsOpen}>
         <LinkWrapper href="/login">Login</LinkWrapper>
         <LinkWrapper href="/signup">Sign Up</LinkWrapper>
-        <LinkWrapper href="/mypage">My Page</LinkWrapper>
+        <LinkWrapper href="/mypage/profile">My Page</LinkWrapper>
 			</Menu>
 			</DropdownContainer>
     </>
@@ -32,9 +32,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  column-gap: 44px;
   color: white;
   font-size: 16px;
-  width: 40vw;
+  width: 300px;
 `;
 
 const Link = styled.a`

@@ -48,7 +48,8 @@ const NavMenu = styled.div`
 display: flex;
 justify-content: space-evenly;
 align-items: center;
-width: 100vw;
+width: 1920px;
+column-gap: 100px;
 @media screen and (max-width: 768px) {
 	display: none;
 }
