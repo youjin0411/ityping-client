@@ -8,7 +8,7 @@ const Save = () => {
             <Container>
                 <Title>MY PAGE</Title>
                 <MenuContainer>
-                    <LeftMenu>
+                    <div>
                         <Message>
                             <div style={{fontSize:'18px', color:'#FF9F42'}}>
                                 최혜민님,
@@ -22,11 +22,53 @@ const Save = () => {
                             <Link href="/mypage/record">기록보기</Link>
                             <Link href="/mypage/save">저장</Link>
                         </MenuItemContainer>
-                        <div></div><div></div><div></div><div></div><div></div>
                         <Logout>logout</Logout>
-                    </LeftMenu>
-                    <hr style={{border:'1px solid #667085', width:'1', height: '660px', marginLeft:'20px', marginRight:'30px'}}/>
-                    저장
+                    </div>
+                    <hr style={{border:'1px solid #667085', width:'1', height: '813px', marginLeft:'20px', marginRight:'30px'}}/>
+                    <SaveMenu>
+                        <BasicWrapper>
+                            <ContentWrapper>
+                                <p style={{fontSize:'16px', color:'#38405D', float: 'left'}}>기초</p>
+                                <ContentsContainer>
+                                    <ContentContainer>
+                                        <div style={{position:'relative'}}><Image></Image>
+                                            <div style={{position:'absolute', top:'15%', left:'15%', transform:'translate(-50%, -50%)'}}><p>25%</p></div>
+                                        </div>
+                                        <p>html</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <div style={{position:'relative'}}><Image></Image>
+                                            <div style={{position:'absolute', top:'15%', left:'15%', transform:'translate(-50%, -50%)'}}><p>73%</p></div>
+                                        </div>
+                                        <p>css</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <div style={{position:'relative'}}><Image></Image>
+                                            <div style={{position:'absolute', top:'15%', left:'15%', transform:'translate(-50%, -50%)'}}><p>14%</p></div>
+                                        </div>
+                                        <p>css</p>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                        <div style={{position:'relative'}}><Image></Image>
+                                            <div style={{position:'absolute', top:'15%', left:'15%', transform:'translate(-50%, -50%)'}}><p>36%</p></div>
+                                        </div>
+                                        <p>html</p>
+                                    </ContentContainer>
+                                </ContentsContainer>
+                            </ContentWrapper>
+                        </BasicWrapper>
+                        <PracticeWrapper>
+                            <ContentWrapper>
+                                <p style={{fontSize:'16px', color:'#38405D'}}>실전</p>
+                                <ContentsContainer>
+                                    <ContentContainer>
+                                        <Image></Image>
+                                        <p>쇼핑몰</p>
+                                    </ContentContainer>
+                                </ContentsContainer>
+                            </ContentWrapper>
+                        </PracticeWrapper>
+                    </SaveMenu>
                 </MenuContainer>
             </Container>
         </Wrapper>
@@ -57,27 +99,8 @@ const MenuContainer = styled.div`
     align-items: flex-start;
 `;
 
-const LeftMenu = styled.div`
-    height: 660px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-const ProfileMenu = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 380px;
-    height: 300px;
-    border-radius: 10px;
-    border: 1px solid #667085;
-`;
-
 const Message = styled.div`
-    width : 260px;
+    width : 280px;
     height: 100px;
     display: flex;  
     flex-direction: column;
@@ -93,6 +116,7 @@ const MenuItemContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 34px;
     row-gap: 8px;
 `;
 
@@ -118,9 +142,12 @@ const Link = styled.a`
     }
 `;
 
-const Logout = styled.button`
+const Logout = styled.a`
     width: 280px;
     height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 464px;
     border-radius: 10px;
     border: 1px solid #667085;
     background-color: white;
@@ -128,59 +155,15 @@ const Logout = styled.button`
     font-weight: bold;
     text-align: left;
     padding-left: 13px;
-    cursor: pointer;
 
     &:hover {
-        border: 2px solid #C55545;
+        box-shadow: 0 0 0 2px #C55545 inset;
     }
 `;
 
-const HeaderWrapper = styled.div`
-    width: 316px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: -40px;
-`;
-
-const Edit = styled.button`
-
-`;
-
-const InfoWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 10px;
-`;
-
-const Box = styled.div`
-    width: 315px;
-    height: 45px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #E4E7EC;
-    border-radius: 8px;
-`;
-
-const Info = styled.p`
-    font-size: 16px;
-    color: #667085;
-    padding-left: 20px;
-`;
-
-const UserInfo = styled.p`
-    font-size: 16px;
-    color: #38405D;
-    padding-right: 20px;
-`;
-
-/*** RecordMenu ***/
-const RecordMenu = styled.div`
+const SaveMenu = styled.div`
     height: 820px;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;

@@ -8,7 +8,7 @@ const Record = () => {
             <Container>
                 <Title>MY PAGE</Title>
                 <MenuContainer>
-                    <LeftMenu>
+                    <div>
                         <Message>
                             <div style={{fontSize:'18px', color:'#FF9F42'}}>
                                 최혜민님,
@@ -22,10 +22,9 @@ const Record = () => {
                             <Link href="/mypage/record">기록보기</Link>
                             <Link href="/mypage/save">저장</Link>
                         </MenuItemContainer>
-                        <div></div><div></div><div></div><div></div><div></div>
                         <Logout>logout</Logout>
-                    </LeftMenu>
-                    <hr style={{border:'1px solid #667085', width:'1', height: '660px', marginLeft:'20px', marginRight:'30px'}}/>
+                    </div>
+                    <hr style={{border:'1px solid #667085', width:'1', height: '813px', marginLeft:'20px', marginRight:'30px'}}/>
                     <RecordMenu>
                         <BasicWrapper>
                             <ContentWrapper>
@@ -92,16 +91,8 @@ const MenuContainer = styled.div`
     align-items: flex-start;
 `;
 
-const LeftMenu = styled.div`
-    height: 660px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-`;
-
 const Message = styled.div`
-    width : 260px;
+    width : 280px;
     height: 100px;
     display: flex;  
     flex-direction: column;
@@ -117,6 +108,7 @@ const MenuItemContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 34px;
     row-gap: 8px;
 `;
 
@@ -142,10 +134,12 @@ const Link = styled.a`
     }
 `;
 
-
-const Logout = styled.button`
+const Logout = styled.a`
     width: 280px;
     height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 464px;
     border-radius: 10px;
     border: 1px solid #667085;
     background-color: white;
@@ -153,10 +147,9 @@ const Logout = styled.button`
     font-weight: bold;
     text-align: left;
     padding-left: 13px;
-    cursor: pointer;
 
     &:hover {
-        border: 2px solid #C55545;
+        box-shadow: 0 0 0 2px #C55545 inset;
     }
 `;
 
