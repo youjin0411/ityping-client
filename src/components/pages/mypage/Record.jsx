@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Details from './RecordDetails';
 
 const Record = () => {
+
+    const [isHovering, setIsHovering] = useState(0);
 
     return (
         <Wrapper>
@@ -31,19 +34,51 @@ const Record = () => {
                                 <p style={{fontSize:'16px', color:'#38405D', float: 'left'}}>기초</p>
                                 <ContentsContainer>
                                     <ContentContainer>
-                                        <Image></Image>
+                                        <Image 
+                                            onMouseOver={() => setIsHovering(1)}
+                                            onMouseOut={() => setIsHovering(0)}>
+                                        {isHovering ? (
+                                            <Details/>
+                                        ) : (
+                                            ""
+                                        )}
+                                        </Image>
                                         <p>html</p>
                                     </ContentContainer>
                                     <ContentContainer>
-                                        <Image></Image>
+                                        <Image
+                                            onMouseOver={() => setIsHovering(1)}
+                                            onMouseOut={() => setIsHovering(0)}>
+                                        {isHovering ? (
+                                            <Details/>
+                                        ) : (
+                                            ""
+                                        )}
+                                        </Image>
                                         <p>css</p>
                                     </ContentContainer>
                                     <ContentContainer>
-                                        <Image></Image>
+                                        <Image
+                                            onMouseOver={() => setIsHovering(1)}
+                                            onMouseOut={() => setIsHovering(0)}>
+                                        {isHovering ? (
+                                            <Details/>
+                                        ) : (
+                                            ""
+                                        )}
+                                        </Image>
                                         <p>css</p>
                                     </ContentContainer>
                                     <ContentContainer>
-                                        <Image></Image>
+                                        <Image
+                                            onMouseOver={() => setIsHovering(1)}
+                                            onMouseOut={() => setIsHovering(0)}>
+                                        {isHovering ? (
+                                            <Details/>
+                                        ) : (
+                                            ""
+                                        )}
+                                        </Image>
                                         <p>html</p>
                                     </ContentContainer>
                                 </ContentsContainer>
@@ -54,7 +89,15 @@ const Record = () => {
                                 <p style={{fontSize:'16px', color:'#38405D'}}>실전</p>
                                 <ContentsContainer>
                                     <ContentContainer>
-                                        <Image></Image>
+                                        <Image
+                                            onMouseOver={() => setIsHovering(1)}
+                                            onMouseOut={() => setIsHovering(0)}>
+                                        {isHovering ? (
+                                            <Details/>
+                                        ) : (
+                                            ""
+                                        )}
+                                        </Image>
                                         <p>쇼핑몰</p>
                                     </ContentContainer>
                                 </ContentsContainer>
