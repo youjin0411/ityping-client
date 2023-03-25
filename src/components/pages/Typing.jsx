@@ -38,19 +38,8 @@ function Typing(props) {
                 <Img src ={image}></Img>
                 <Divtheme> &lt; html &gt; </Divtheme>
                 <Widthline/>
-                <div style={
-                    {maxWidth: '53.95vw',
-                    margin: '0 auto',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr 1fr',
-                    textAlign: 'center',
-                    marginTop: '2vw',
-                    marginLeft: '15vw',
-                }
-                }>
-                </div>
-                <div style={{textAlign: 'left', marginLeft: '3vw', marginTop: '0.7vw', overflowY:'scroll', width:'66.2rem',height: '30.5rem', fontSize :'1.6rem', color: '#98A2B3'}}>
-                    <div>&lt;!DOCTYPE html&gt;</div>
+                <div style={{textAlign: 'left', marginLeft: '50px', overflowY:'scroll', width:'928px', height: '458px', fontSize :'1.6rem', color: '#98A2B3'}}>
+                    <div style={{marginTop: '40px'}}>&lt;!DOCTYPE html&gt;</div>
                     <div>&lt;html lang="en"&gt;</div>
                     <div>&lt;head&gt;</div> 
                     <div>&lt;meta charset="UTF-8"&gt;</div>
@@ -65,7 +54,7 @@ function Typing(props) {
                     <div>&lt;body&gt;</div>
                     <div>&lt;nav class="nav container" id="nav-toggle"&gt;</div>
                     <div>&lt;div class="nav-toggle" id="nav-toggle"&gt;</div>
-                    <div>&lt;i class='bx bx-menu'&gt;&lt;i&gt;</div>
+                    <div style={{marginBottom: '40px'}}>&lt;i class='bx bx-menu'&gt;&lt;i&gt;</div>
                 </div>
                 <Heightline/>
             </Wrapper>
@@ -151,7 +140,7 @@ function Typing(props) {
                     <span class="two-value">&#125;</span>
                     <span class="two-value">&#93;</span>
                 </div>
-                <div class="key back-slash-key" data-code="Backslash" data-val="\" style={{ background : keyState === "|"? "#1C3796" : "white", color : keyState === "|" ? "white" : "#38405D"}}>
+                <div class="key" data-code="Backslash" data-val="\" style={{ background : keyState === "|"? "#1C3796" : "white", color : keyState === "|" ? "white" : "#38405D"}}>
                     <span class="two-value">|</span>
                     <span class="two-value">\</span>
                 </div>
@@ -208,10 +197,10 @@ function Typing(props) {
                 <div class="key" style={{ background : keyState === "Control"  ? "#1C3796" : "white", color : keyState === "Control" ? "white" : "#38405D"}}>Ctrl</div>
                 <div class="key" >fn</div>
                 <div class="key">&nbsp;</div>
-                <div class="key" style={{ background : keyState === "Alt"? "#1C3796" : "white", color : keyState === "Alt" ? "white" : "#38405D"}}>alt</div>
+                <div class="key alt-key" style={{ background : keyState === "Alt"? "#1C3796" : "white", color : keyState === "Alt" ? "white" : "#38405D"}}>alt</div>
                 <div class="key space-key" data-code="Space" data-val="Space" style={{ background : keyState === ""  ? "#1C3796" : "white", color : keyState === "" ? "white" : "#38405D"}}>&nbsp;</div>
-                <div class="key fn-key" style={{ background : keyState === "HangulMode"? "#1C3796" : "white", color : keyState === "HangulMode"? "white" : "#38405D"}}>한/영</div>
-                <div class="key fn-key">&nbsp;</div>
+                <div class="key hangle-key" style={{ background : keyState === "HangulMode"? "#1C3796" : "white", color : keyState === "HangulMode"? "white" : "#38405D"}}>한/영</div>
+                <div class="key">&nbsp;</div>
                 <div class="arrow">
                     <div class="key grid-item">&nbsp;</div>
                     <div class="key grid-item" style={{ background : keyState === "ArrowUp"? "#1C3796" : "white", color : keyState === "ArrowUp"? "white" : "#38405D"}}>▲</div>
@@ -232,16 +221,19 @@ const Img = styled.img`
     width: 4vw;
     height: 1vw;
     margin-left: 2vw;
-    margin-top: 1.5vw`;
+    margin-top: 1.5vw;
+`;
+
 const Wrapper = styled.div`
     border: 1px solid #667085;
     border-radius: 5px;
     text-align: center;
-    width: 66.9444vw;
-    height: 70.75vh;
+    width: 1054px;
+    height: 533px;
     margin : 0 auto;
-    margin-top: 6.925vh;`
-    ;
+    margin-top: 40px;
+`;
+
 const Divtheme = styled.div`
     font-size: 1.4vw;
     font-weight: bold;
@@ -251,18 +243,20 @@ const Divtheme = styled.div`
     margin: 0 auto;
     margin-left :-16vw;
     margin-top: 1vw;
-    `;
+`;
+
 const Widthline = styled.hr`
-    position: absolute;
-    width: 57.95vw;
-    margin-top: 1.2vw;
-    background: #667085;`;
+    width: 927px;
+    margin: 0;
+    margin-top: 14px;
+    background: #667085;
+`;
+
 const Heightline = styled.hr`
     width: 0.01vw;
-    height: 70.45vh;
+    height: 533px;
     margin: 0 auto;
-    margin-left: 58.1vw;
-    margin-top: -31.2vw;
-
+    margin-left: 928px;
+    margin-top: -532px;
 `;
 export default Typing

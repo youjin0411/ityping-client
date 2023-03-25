@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
 .keyboard {
     color: #38405D;
-    width: 66.9444vw;
+    width: 730px; 
     border-radius: 4px;
     margin: 0 auto;
     margin-top: 1.5rem;
@@ -17,9 +17,10 @@
 .key {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
-    width: 78px;
-    height: 70px;
-    margin: 5px;
+    width: 40px;
+    height: 40px;
+    box-shadow: 1px 1px 0 #38405D;
+    margin: 3px;
     border-radius: 4px;
     background-color: white;
     border: solid #38405D;
@@ -53,69 +54,54 @@
     text-align: center;
 }
 
-.fn-key {
-    width: 100px;
-}
-
 .space-key {
-    width: 350px;
+    width: 240px;
 }
 
-.back-space-key {
-    width: 148px;
+.alt-key,
+.hangle-key {
+    width: 54px;
 }
 
+.back-space-key,
 .tab-key {
-    width: 115px;
+    width: 67px;
 }
 
-.back-slash-key {
-    width: 112px;
-}
-
-.caps-lock-key {
-    width: 145px;
-}
-
-.left-shift-key {
-    width: 213px;
-}
-
+.caps-lock-key,
 .enter-key {
-    width: 176px;
+    width: 79px;
 }
 
+.left-shift-key,
 .right-shift-key {
-    width: 205px;
+    width: 104px;
 }
 
 .arrow {
-    width: 200px;
-    height: 70px;
+    width: 133px;
+    height: 41px;
     border: solid #fff;
     display: grid;
-    grid-template-columns: repeat(3, 105px);
-    grid-column-gap: -15.5rem;
-    grid-row-gap: -22rem;
-    margin-top: -0.1rem;
+    grid-template-columns: repeat(3, 48px);
+    margin: -2px;
 }
 
 .arrow:hover {
     pointer-events: none;
 }
 
-.arrow :nth-child(1) {
-    border: solid #fff;
-}
-
+.arrow :nth-child(1),
 .arrow :nth-child(3) {
     border: solid #fff;
+    box-shadow: none;
 }
 
 .grid-item {
     text-align: center;
-    width: 88px;
-    height: 26px;
+    width: 42px;
+    height: 15px;
+    font-size: 10px;
 }
 
 .menu {
