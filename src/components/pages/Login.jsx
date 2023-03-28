@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../_actions/user_login';
 
-function Login() {
+const Login = () => {
     const dispatch = useDispatch();
 
     const [Email, setEmail] = useState("");

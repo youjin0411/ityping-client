@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import image from '../../img/image.png';
 
-function Main(props) {
+const Main = (props) => {
     const history = useHistory();
 
     const handler = () => {

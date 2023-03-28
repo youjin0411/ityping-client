@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import image from '../../img/image.png';
 import useMoveScroll from '../Hook/useMoveScroll';
 
-function Tutorial(props) {
+const Tutorial = (props) => {
 
     const {element, onMoveToElement} = useMoveScroll()
 

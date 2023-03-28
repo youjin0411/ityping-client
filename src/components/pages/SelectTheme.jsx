@@ -1,42 +1,30 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import image from '../../img/circle.png';
-import { useHistory } from 'react-router-dom';
+import person from '../../img/person.png';
+import speach_buble from '../../img/speach_buble.png';
 
-function CodeReview(props) {
-    const history = useHistory();
-
-    const handler2 = () => {
-        history.push('/code-reviewpract');
-    }
-
-    const handler1 = () => {
-        history.push('/code-reviewbase');
-    }
-
-    const intents = () => {
-        history.push('/code-reviewcheck');
-    }
-
-    const [border, setBorder] = useState('0px solid white');
+const SelectTheme = (props) => {
+    const {handler1, handler2, moveTyping} = props;
 
     return (
         <div>
             <Wrapper>
                 <Img src ={image}></Img>
-                <Divtheme> «&nbsp;&nbsp;코드리뷰&nbsp;&nbsp;» </Divtheme>
+                <Divtheme> &lt; 테마선택 &gt;</Divtheme>
                 <Widthline/>
-                <div style={
-                    {maxWidth: '53.95vw',
+                <div style={{
+                    maxWidth: '53.95vw',
                     margin: '0 auto',
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr 1fr',
                     textAlign: 'center',
                     marginTop: '2vw',
                     marginLeft: '15vw',
-                    }
-                } onClick={ () => setBorder('2px solid #38405D') }>
-                    <Box style={{border}}>HTML</Box>
+                }}>
+                    <Box>쇼핑몰</Box>
+                    <Box>회사소개</Box>
+                    <Box>사진갤러리</Box>
                 </div>
                 <Text1 onClick={handler1}>기초</Text1>
                 <Text2 onClick={handler2}>실천</Text2>
@@ -45,11 +33,41 @@ function CodeReview(props) {
             <div style={{
                 marginTop: '3.5vw',
             }}>
-                <Button onClick={intents}>코드 리뷰 보러 가기</Button>
+                <Button onClick={moveTyping}>타자 치러 가기</Button>
+                <Personimg src={person}></Personimg>
+                <SpeechBubble src={speach_buble}></SpeechBubble>
+                <SpeechText>이유리 님 ________ 부탁해요 ~! 😊</SpeechText>
+                <ChoiceTheme>HTML</ChoiceTheme>
             </div>
         </div>
     )
 }
+const ChoiceTheme = styled.div`
+    font-size: 1.5vw;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left: 40.7vw;
+    margin-top: -2.3vw;
+`;
+
+const SpeechText = styled.div`
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.5vw;
+    margin-left: 33vw;
+    margin-top: -18vw;
+`;
+
+const SpeechBubble = styled.img`
+    width: 31vw;
+    height : 5vw;
+    margin-bottom: 14vw;
+    margin-left: -7vw;
+`;
+
+const Personimg = styled.img`
+    width: 25vw;
+    margin-left: 10vw;
+`;
 
 const Button = styled.button`
     width: 14vw;
@@ -63,7 +81,8 @@ const Button = styled.button`
     font-size: 1rem;
     float: right;
     margin-right: 13vw;
-    margin-bottom: 2vw;`;
+`;
+
 const Box = styled.div`
     margin-top: 2vw;
     display: flex;
@@ -73,30 +92,36 @@ const Box = styled.div`
     width: 16vw;
     height: 9vw;
     border-radius: 4px;
-    grid-column-gap: 2vw;`;
+    grid-column-gap: 2vw;
+`;
+
 const Text1 = styled.div`
     float: left;
     margin-top: -8vw;
     margin-left: 2.5vw;
     font-family: 'Noto Sans KR', sans-serif;
-    color: #38405D;
-    font-weight: bold;
     cursor: pointer;
-    `;
+    color: #98A2B3;
+`;
+
 const Text2 = styled.div`
     float: left;
     margin-top: -5vw;
     margin-left: 2.5vw;
     font-family: 'Noto Sans KR', sans-serif;
     cursor: pointer;
-    color: #98A2B3;
+    color: #38405D;
+    font-weight: bold;
 `;
+
 const Img = styled.img`
     float: left;
     width: 4vw;
     height: 1vw;
     margin-left: 2vw;
-    margin-top: 1.2vw`;
+    margin-top: 1.2vw;
+`;
+
 const Wrapper = styled.div`
     border: 1px solid #667085;
     border-radius: 5px;
@@ -104,18 +129,23 @@ const Wrapper = styled.div`
     width: 71.9444vw;
     height: 68.75vh;
     margin : 0 auto;
-    margin-top: 6.925vh;`
-    ;
+    margin-top: 6.925vh;
+`;
+
 const Divtheme = styled.div`
     font-size: 1.2vw;
     font-weight: bold;
     font-family: 'Noto Sans KR', sans-serif;
-    padding-top: 0.7vw;`;
+    padding-top: 0.7vw;
+`;
+
 const Widthline = styled.hr`
     position: absolute;
     width: 63.95vw;
     background: #667085;
-    margin-left: 7.9900vw;`;
+    margin-left: 7.9900vw;
+`;
+
 const Heightline = styled.hr`
     width: 0.01vw;
     height: 68.6vh;
@@ -124,4 +154,4 @@ const Heightline = styled.hr`
     margin-top: -15.5vw;
 `;
 
-export default CodeReview;
+export default SelectTheme;

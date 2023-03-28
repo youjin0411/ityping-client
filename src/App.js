@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from "./components/pages/Main";
 import SelectThemeBase from "./components/pages/SelectThemeBase";
 import SelectThemePract from "./components/pages/SelectThemePract";
-import CodeReviewBasse from './components/pages/CodeReviewBasse';
+import CodeReviewBase from './components/pages/CodeReviewBase';
 import CodeReviewPract from './components/pages/CodeReviewPract';
 import CodeReviewCheck from './components/pages/CodeReviewCheck';
 import Tutorial from './components/pages/Tutorial';
@@ -13,7 +13,7 @@ import SignUp from "./components/pages/SignUp";
 import Typing from './components/pages/Typing';
 import MyPage from './components/pages/mypage/MyPage';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Navbar />
@@ -21,7 +21,7 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/select-themeBase' component={SelectThemeBase} />
         <Route path='/select-themePract' component={SelectThemePract} />
-        <Route path='/code-reviewbase' component={CodeReviewBasse} />
+        <Route path='/code-reviewbase' component={CodeReviewBase} />
         <Route path='/code-reviewpract' component={CodeReviewPract} />
         <Route path='/code-reviewcheck' component={CodeReviewCheck} />
         <Route path='/tutorial' component={Tutorial} />
