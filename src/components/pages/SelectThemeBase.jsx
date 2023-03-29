@@ -1,24 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import SelectTheme from './SelectTheme';
 
-const SelectThemeBase = (props) => {
-    const history = useHistory();
+const SelectThemeBase = () => {
+    const contents = ['HTML', 'CSS', 'JS'];
 
-    const handler1 = () => {
-        history.push('/select-themeBase');
-    }
 
-    const handler2 = () => {
-        history.push('/select-themePract');
-    }
-
-    const moveTyping = () => {
-        history.push('/typing');
-    }
-    
     return (
-        <SelectTheme handler1={handler1} handler2={handler2} moveTyping={moveTyping}/>
+        <SelectTheme contents={contents} isBase={true}/>
     )
 }
 

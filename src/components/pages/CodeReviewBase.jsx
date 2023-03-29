@@ -3,7 +3,7 @@ import CodeReview from './CodeReview';
 
 const CodeReviewBase = () => {
     return (
-        <CodeReview Contents='HTML' selected={'color: "#38405D", font-weight: "bold"'}/>
+        <CodeReview Contents='HTML' isBase={true}/>
     )
 }
 

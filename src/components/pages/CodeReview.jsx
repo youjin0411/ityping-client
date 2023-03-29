@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 const CodeReview = (props) => {
     const [border, setBorder] = useState('0px solid white');
-    const {Contents, selected} = props;
+    const {Contents, isBase, isPract} = props;
     
     const history = useHistory();
     
@@ -42,8 +42,8 @@ const CodeReview = (props) => {
                 >
                     <Box style={{border}}>{Contents}</Box>
                 </div>
-                <Text1 onClick={handler1} style={{selected}}>기초</Text1>
-                <Text2 onClick={handler2}>실천</Text2>
+                <Text1 style={isBase ? {color: '#38405D', fontWeight: 'bold'} : {}} onClick={handler1}>기초</Text1>
+                <Text2 style={isPract ? {color: '#38405D', fontWeight: 'bold'} : {}} onClick={handler2}>실전</Text2>
                 <HeightLine/>
             </Wrapper>
             <div style={{

@@ -3,9 +3,24 @@ import styled from 'styled-components';
 import image from '../../img/circle.png';
 import person from '../../img/person.png';
 import speach_buble from '../../img/speach_buble.png';
+import { useHistory } from 'react-router-dom';
 
 const SelectTheme = (props) => {
-    const {handler1, handler2, moveTyping} = props;
+    const {contents, isBase, isPract} = props;
+
+    const history = useHistory();
+
+    const handler1 = () => {
+        history.push('/select-themeBase');
+    }
+
+    const handler2 = () => {
+        history.push('/select-themePract');
+    }
+
+    const moveTyping = () => {
+        history.push('/typing');
+    }
 
     return (
         <div>
@@ -20,18 +35,19 @@ const SelectTheme = (props) => {
                     gridTemplateColumns: '1fr 1fr 1fr',
                     textAlign: 'center',
                     marginTop: '2vw',
-                    marginLeft: '15vw',
+                    marginLeft: '15vw'
                 }}>
-                    <Box>쇼핑몰</Box>
-                    <Box>회사소개</Box>
-                    <Box>사진갤러리</Box>
+                    <Box>{contents[0]}</Box>
+                    <Box>{contents[1]}</Box>
+                    <Box>{contents[2]}</Box>
                 </div>
-                <Text1 onClick={handler1}>기초</Text1>
-                <Text2 onClick={handler2}>실천</Text2>
+                <Text1 style={isBase ? {color: '#38405D', fontWeight: 'bold'} : {}} 
+                    onClick={handler1}>기초</Text1>
+                <Text2 style={isPract ? {color: '#38405D', fontWeight: 'bold'} : {}} onClick={handler2}>실천</Text2>
                 <Heightline/>
             </Wrapper>
             <div style={{
-                marginTop: '3.5vw',
+                marginTop: '3.5vw'
             }}>
                 <Button onClick={moveTyping}>타자 치러 가기</Button>
                 <Personimg src={person}></Personimg>
@@ -110,8 +126,7 @@ const Text2 = styled.div`
     margin-left: 2.5vw;
     font-family: 'Noto Sans KR', sans-serif;
     cursor: pointer;
-    color: #38405D;
-    font-weight: bold;
+    color: #98A2B3;
 `;
 
 const Img = styled.img`
@@ -126,8 +141,8 @@ const Wrapper = styled.div`
     border: 1px solid #667085;
     border-radius: 5px;
     text-align: center;
-    width: 71.9444vw;
-    height: 68.75vh;
+    width: 1180px;
+    height: 560px;
     margin : 0 auto;
     margin-top: 6.925vh;
 `;
@@ -141,14 +156,14 @@ const Divtheme = styled.div`
 
 const Widthline = styled.hr`
     position: absolute;
-    width: 63.95vw;
+    width: 1070px;
     background: #667085;
     margin-left: 7.9900vw;
 `;
 
 const Heightline = styled.hr`
     width: 0.01vw;
-    height: 68.6vh;
+    height: 560px;
     margin: 0 auto;
     margin-left: 7.9999vw;
     margin-top: -15.5vw;
