@@ -35,7 +35,7 @@ const SelectTheme = (props) => {
                     gridTemplateColumns: '1fr 1fr 1fr',
                     textAlign: 'center',
                     marginTop: '2vw',
-                    marginLeft: '15vw'
+                    marginLeft: '226px'
                 }}>
                     <Box>{contents[0]}</Box>
                     <Box>{contents[1]}</Box>
@@ -105,10 +105,10 @@ const Box = styled.div`
     justify-content: center;
     align-items: center;
     background: #E4E7EC;
-    width: 16vw;
-    height: 9vw;
+    width: 240px;
+    height: 150px;
     border-radius: 4px;
-    grid-column-gap: 2vw;
+    grid-column-gap: 60px;
 `;
 
 const Text1 = styled.div`
@@ -133,7 +133,7 @@ const Img = styled.img`
     float: left;
     width: 4vw;
     height: 1vw;
-    margin-left: 2vw;
+    margin-left: 18px;
     margin-top: 1.2vw;
 `;
 
@@ -156,17 +156,17 @@ const Divtheme = styled.div`
 
 const Widthline = styled.hr`
     position: absolute;
-    width: 1070px;
+    width: 1065px;
     background: #667085;
-    margin-left: 7.9900vw;
+    margin-left: 113px;
 `;
 
 const Heightline = styled.hr`
     width: 0.01vw;
     height: 560px;
     margin: 0 auto;
-    margin-left: 7.9999vw;
-    margin-top: -15.5vw;
+    margin-left: 110px;
+    margin-top: -275px;
 `;
 
 export default SelectTheme;
