@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectTheme from './SelectTheme copy';
+import SelectTheme from './SelectTheme';
 
 const SelectThemeBase = () => {
     const contents = ['HTML', 'CSS', 'JS'];

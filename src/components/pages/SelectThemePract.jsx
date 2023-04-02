@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectTheme from './SelectTheme copy'
+import SelectTheme from './SelectTheme'
 
 const SelectThemePract = () => {
     const contents = ['쇼핑몰', '회사소개', '게임'];

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import image from '../../img/circle.png';
+import bg from '../../img/back.png'
 import { useHistory } from 'react-router-dom';
 
 const CodeReview = (props) => {
@@ -24,7 +24,7 @@ const CodeReview = (props) => {
     return (
         <div>
             <Wrapper>
-                <Img src ={image}></Img>
+                <Img src ={bg}></Img>
                 <Divtheme> «&nbsp;&nbsp;코드리뷰&nbsp;&nbsp;» </Divtheme>
                 <Widthline/>
                 <div style={{

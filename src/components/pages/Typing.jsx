@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import image from '../../img/circle.png';
+import bg from '../../img/back.png'
 import "./TypingStyle.css";
 
-const Typing = (props) => {
+const Typing = () => {
         //keyState 값을 변경할때마다 리렌더링 된다. keyState는 빈객체를 초기값으로 가진다.
     const [keyState, setKeyState] = useState() 
     // useEffect는 렌더링이 끝난 후에 실행된다. 즉 useState 값이 변경(랜더링)되고 난 후에 실행된다. 
@@ -35,7 +35,7 @@ const Typing = (props) => {
     return (
         <div>
             <Wrapper>
-                <Img src ={image}></Img>
+                <Img src={bg}></Img>
                 <Divtheme> &lt; html &gt; </Divtheme>
                 <Widthline/>
                 <div style={{textAlign: 'left', marginLeft: '50px', overflowY:'scroll', width:'928px', height: '458px', fontSize :'1.6rem', color: '#98A2B3'}}>
