@@ -6,7 +6,7 @@ const SignUp = (props) => {
         <>
             <Container>
                 <Welcome>Welcome!</Welcome>
-                <Text style={{marginBottom: '30px'}}>SignUp to TITLE</Text>
+                <Text style={{marginBottom: '30px'}}>SignUp to ITyping</Text>
                 <Wrapper>
                     <Text>Email</Text>
                     <InputEmail type='text' placeholder='Email을 입력해주세요'></InputEmail>

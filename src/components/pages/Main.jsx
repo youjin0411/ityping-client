@@ -13,7 +13,7 @@ const Main = (props) => {
     return (
         <Wrapper>
             <ContentWrapper>
-                <Title>TITLE</Title>
+                <Title>ITyping</Title>
                 <Content>
                     Online Typing Practice for Programmers<br/>
                     테마를 선택해 원하는 코딩을 해보며<br/>

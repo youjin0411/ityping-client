@@ -33,7 +33,7 @@ const Login = () => {
     return (
         <Container>
             <Welcome>Welcome!</Welcome>
-            <Text style={{marginBottom: '30px'}}>login to TITLE</Text>
+            <Text style={{marginBottom: '30px'}}>login to ITyping</Text>
             <Form onSubmit={onSubmitHandler}>
                 <label>Email</label>
                 <InputEmail type='email' value={Email} onChange={onEmailHandler} placeholder='Email을 입력해주세요'/>
