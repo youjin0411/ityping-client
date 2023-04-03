@@ -31,6 +31,7 @@
     justify-content: center;
     flex-wrap: wrap;
     transition: 0.2s;
+    font-size: 12px;
     /* ! */
 }
 
@@ -60,7 +61,7 @@
 
 .alt-key,
 .hangle-key {
-    width: 54px;
+    width: 50px;
 }
 
 .back-space-key,
@@ -99,7 +100,7 @@
 
 .grid-item {
     text-align: center;
-    width: 42px;
+    width: 41px;
     height: 15px;
     font-size: 10px;
 }
