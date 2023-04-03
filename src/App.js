@@ -10,7 +10,7 @@ import CodeReviewCheck from './components/pages/CodeReviewCheck';
 import Tutorial from './components/pages/Tutorial';
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/SignUp";
-import Typing from './components/pages/Typing copy';
+import Typing from './components/pages/Typing';
 import MyPage from './components/pages/mypage/MyPage';
 
 const App = () => {
