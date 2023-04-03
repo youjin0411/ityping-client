@@ -22,17 +22,22 @@ const Navbar = () => {
 };
 
 const Container = styled.div`
-border-bottom: 1px solid #E4E7EC;
+height: 60px;
+	border-bottom: 1px solid #E4E7EC;
 `;
 
 const Nav = styled.nav`
-background: white;
-width: 70vw;
-height: 60px;
-display: flex;
-justify-content: flex-end;
-margin: 0 auto;
-z-index: 12;
+	background: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 70vw;
+	height: 60px;
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 auto;
+	z-index: 12;
 `;
 
 const Logo = styled(Link)`
