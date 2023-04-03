@@ -80,6 +80,7 @@ const Select = styled.div`
     color: #98A2B3;
     margin-top: 22px;
     margin-left: 38px;
+    cursor: pointer;
 
     &:nth-child(2) {
         margin-top: 62px;

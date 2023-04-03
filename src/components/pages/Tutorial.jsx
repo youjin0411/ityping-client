@@ -1,17 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import image from '../../img/image.png';
+import down from '../../img/down.png';
 import useMoveScroll from '../Hook/useMoveScroll';
+import tutorial from '../../img/tutorial.png';
+import { useHistory } from 'react-router-dom';
 
 const Tutorial = (props) => {
+    const history = useHistory();
 
-    const {element, onMoveToElement} = useMoveScroll()
+    const {element, onMoveToElement} = useMoveScroll();
+
+    const handler = () => {
+        history.push('/select-themeBase');
+    }
 
     return (
         <>
             <Wrapper>
                 <ContentWrapper>
-                    <Title>TITLE</Title>
+                    <Title>ITyping</Title>
                     <Content>
                         Online Typing Practice for Programmers<br/>
                         테마를 선택해 원하는 코딩을 해보며<br/>
@@ -21,8 +29,11 @@ const Tutorial = (props) => {
                 </ContentWrapper>
                 <Img src={image}/>
             </Wrapper>
-            <MoveScroll onClick={onMoveToElement}>▼</MoveScroll>
-            <Container ref={element}></Container>
+            <MoveScroll onClick={onMoveToElement}></MoveScroll>
+            <Container ref={element}>
+                <img alt='tutorial' src={tutorial}/>
+                <Button onClick={handler}>ITyping 시작하기 &gt;&gt;</Button>
+            </Container>
         </>
     )
 }
@@ -56,12 +67,30 @@ const Img = styled.img`
 `;
 
 const MoveScroll = styled.div`
-    text-align: center;
-    font-size: 40px;
+    background-image: url(${down});
+    width: 44px;
+    height: 44px;
+    margin: 80px auto;
     cursor: pointer;
 `;
 
 const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 80px;
+    margin-bottom: 150px;
+`;
+
+const Button = styled.button`
+    width: 280px;
+    height: 50px;
+    border: 0;
+    background-color: #1C3796;
+    color: white;
+    border-radius: 8px;  
+    font-size: 20px;
+    text-align: center;
 `;
 
 export default Tutorial;
