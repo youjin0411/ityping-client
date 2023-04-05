@@ -33,7 +33,7 @@ const Login = () => {
     return (
         <Container>
             <Welcome>Welcome!</Welcome>
-            <Text>login to ITyping</Text>
+            <Text>Login to ITyping</Text>
             <Form onSubmit={onSubmitHandler}>
                 <Label>Email</Label>
                 <InputEmail type='email' value={Email} onChange={onEmailHandler} placeholder='Email을 입력해주세요'/>
@@ -114,7 +114,7 @@ const LoginBtn = styled.button`
     margin-top: 18px;
     color: white;
     border: 1px solid #667085;
-    background-color: #7986B6;
+    background-color: #1C3796;
     border-radius: 8px;
     font-size: 16px;
 `;
