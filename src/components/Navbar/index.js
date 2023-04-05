@@ -11,7 +11,7 @@ const Navbar = () => {
 				<Bars />
 				<NavMenu>
 					<Logo to='/'>
-							로고
+						로고
 					</Logo>
 					<Blank/>
 					<DropdownMenu />
@@ -22,7 +22,7 @@ const Navbar = () => {
 };
 
 const Container = styled.div`
-height: 60px;
+	height: 60px;
 	border-bottom: 1px solid #E4E7EC;
 `;
 
@@ -55,11 +55,11 @@ justify-content: space-evenly;
 align-items: center;
 width: 1920px;
 column-gap: 100px;
+
 @media screen and (max-width: 768px) {
 	display: none;
 }
 `;
-
 
 const Bars = styled(FaBars)`
 display: none;
