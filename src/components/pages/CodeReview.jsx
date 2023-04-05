@@ -4,140 +4,110 @@ import bg from '../../img/back.png'
 import { useHistory } from 'react-router-dom';
 
 const CodeReview = (props) => {
-    const [border, setBorder] = useState('0px solid white');
-    const {Contents, isBase, isPract} = props;
+    const {contents, isBase, isPract} = props;
     
     const history = useHistory();
     
     const handler1 = () => {
-        history.push('/code-reviewbase');
+        history.push('/code-reviewBase');
     }
 
     const handler2 = () => {
-        history.push('/code-reviewpract');
+        history.push('/code-reviewPract');
     }
 
-    const intents = () => {
-        history.push('/code-reviewcheck');
+    const handler3 = () => {
+        history.push('/code-reviewCheck');
     }
 
     return (
-        <div>
-            <Wrapper>
-                <Img src ={bg}></Img>
-                <Divtheme> «&nbsp;&nbsp;코드리뷰&nbsp;&nbsp;» </Divtheme>
-                <Widthline/>
-                <div style={{
-                    maxWidth: '53.95vw',
-                    margin: '0 auto',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr 1fr',
-                    textAlign: 'center',
-                    marginTop: '2vw',
-                    marginLeft: '15vw'
-                    }} 
-                    onClick={() => 
-                        setBorder('2px solid #38405D')
-                    }
-                >
-                    <Box style={{border}}>{Contents}</Box>
-                </div>
-                <Text1 style={isBase ? {color: '#38405D', fontWeight: 'bold'} : {}} onClick={handler1}>기초</Text1>
-                <Text2 style={isPract ? {color: '#38405D', fontWeight: 'bold'} : {}} onClick={handler2}>실전</Text2>
-                <HeightLine/>
-            </Wrapper>
-            <div style={{
-                marginTop: '3.5vw'
-            }}>
-                <Button onClick={intents}>코드 리뷰 보러 가기</Button>
-            </div>
-        </div>
+        <Container>
+            <Bg>
+                <Title>코드리뷰</Title>
+                <Select 
+                    style={isBase ? {color: '#38405D', fontWeight: 'bold'} : {}} 
+                    onClick={handler1}>
+                    기초
+                </Select>
+                <Select 
+                    style={isPract ? {color: '#38405D', fontWeight: 'bold'} : {}} 
+                    onClick={handler2}>
+                    실천
+                </Select>
+                <BoxWrapper>
+                    <Box>{contents}</Box>
+                </BoxWrapper>
+            </Bg>
+            <Button onClick={handler3}>코드리뷰 보러가기</Button>
+        </Container>
     )
 }
 
-const Button = styled.button`
-    width: 14vw;
-    height: 3.47vw;
-    border: 0;
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1180px;
+    margin: 0 auto;
+`
+
+const Bg = styled.div`
+    background-image: url(${bg});
+    width: 1180px;
+    height: 558px;
+    margin-top: 72px;
+`;
+
+const Title = styled.h2`
+  font-size: 20px;
+  color: #38405D;
+  margin-left: 606px;  
+`;
+
+const Select = styled.div`
+    font-size: 18px;
+    color: #98A2B3;
+    margin-top: 22px;
+    margin-left: 38px;
     cursor: pointer;
-    background-color: #1C3796;
-    border-radius: 4px;
-    color: white;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 1rem;
-    float: right;
-    margin-right: 13vw;
-    margin-bottom: 2vw;
+
+    &:nth-child(2) {
+        margin-top: 62px;
+    }
+`;
+
+const BoxWrapper = styled.div`
+    display: flex;
+    column-gap: 60px;
+    width: 1068px;
+    height: 500px;    
+    margin-top: -65px;
+    margin-left: 230px;
 `;
 
 const Box = styled.div`
-    margin-top: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #E4E7EC;
-    width: 16vw;
-    height: 9vw;
+    width: 240px;
+    height: 150px;
+    background-color: #E4E7EC;
     border-radius: 4px;
-    grid-column-gap: 2vw;
+
+    &:hover {
+        box-shadow: 0 0 0 2px #38405D inset;
+    }
 `;
 
-const Text1 = styled.div`
-    float: left;
-    margin-top: -8vw;
-    margin-left: 2.5vw;
-    font-family: 'Noto Sans KR', sans-serif;
-    color: #98A2B3;
-    cursor: pointer;
-`;
-
-const Text2 = styled.div`
-    float: left;
-    margin-top: -5vw;
-    margin-left: 2.5vw;
-    font-family: 'Noto Sans KR', sans-serif;
-    cursor: pointer;
-    color: #98A2B3;
-`;
-
-const Img = styled.img`
-    float: left;
-    width: 4vw;
-    height: 1vw;
-    margin-left: 2vw;
-    margin-top: 1.2vw;
-`;
-
-const Wrapper = styled.div`
-    border: 1px solid #667085;
-    border-radius: 5px;
-    text-align: center;
-    width: 71.9444vw;
-    height: 68.75vh;
-    margin : 0 auto;
-    margin-top: 6.925vh;
-`;
-
-const Divtheme = styled.div`
-    font-size: 1.2vw;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
-    padding-top: 0.7vw;
-`;
-
-const Widthline = styled.hr`
-    position: absolute;
-    width: 63.95vw;
-    background: #667085;
-    margin-left: 7.9900vw;
-`;
-
-const HeightLine = styled.hr`
-    width: 0.01vw;
-    height: 68.6vh;
-    margin: 0 auto;
-    margin-left: 7.9999vw;
-    margin-top: -15.5vw;
+const Button = styled.button`
+    align-self: flex-end;
+    width: 224px;
+    height: 58px;
+    margin-top: 70px;
+    border-radius: 8px;
+    background-color: #7986B6;
+    color: #ffffff;
 `;
 
 export default CodeReview;

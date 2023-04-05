@@ -108,14 +108,14 @@ const Box = styled.div`
     &:hover {
         box-shadow: 0 0 0 2px #38405D inset;
     }
-`
+`;
 
 const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 1180px;
-`
+`;
 
 const Img = styled.img`
     margin-top: 109px;

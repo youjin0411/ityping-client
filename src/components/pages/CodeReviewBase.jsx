@@ -3,7 +3,7 @@ import CodeReview from './CodeReview';
 
 const CodeReviewBase = () => {
     return (
-        <CodeReview Contents='HTML' isBase={true}/>
+        <CodeReview contents='HTML' isBase={true}/>
     )
 }
 

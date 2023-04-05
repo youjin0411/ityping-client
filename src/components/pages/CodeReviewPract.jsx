@@ -3,7 +3,7 @@ import CodeReview from './CodeReview';
 
 const CodeReviewPract = () => {
     return (
-        <CodeReview Contents='쇼핑몰' isPract={true}/>
+        <CodeReview contents='쇼핑몰' isPract={true}/>
     )
 }
 
