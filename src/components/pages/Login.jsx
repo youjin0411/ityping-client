@@ -33,11 +33,11 @@ const Login = () => {
     return (
         <Container>
             <Welcome>Welcome!</Welcome>
-            <Text style={{marginBottom: '30px'}}>login to ITyping</Text>
+            <Text>login to ITyping</Text>
             <Form onSubmit={onSubmitHandler}>
-                <label>Email</label>
+                <Label>Email</Label>
                 <InputEmail type='email' value={Email} onChange={onEmailHandler} placeholder='Email을 입력해주세요'/>
-                <label>Password</label>
+                <Label>Password</Label>
                 <InputPw type='password' value={Password} onChange={onPasswordHandler} placeholder='Password를 입력해주세요'/>
                 <LoginBtn formAction=''>Login</LoginBtn>
             </Form>
@@ -45,16 +45,15 @@ const Login = () => {
             <Button>Sign in with Google</Button>
         </Container>
     )
-}
+}   
 
 const Container = styled.div`
-    margin: 130px auto;
+    margin: 146px auto;
     width: 445px;
-    height: 600px;
+    height: 592px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     border: 1px solid #667085;
     border-radius: 10px;
 `;
@@ -62,11 +61,13 @@ const Container = styled.div`
 const Welcome = styled.h1`
     color: #1C3796;
     font-size: 25px;
+    margin: 0;
+    margin-top: 40px;
 `;
 
 const Text = styled.p`
     font-size: 16px;
-    margin: 8px 0;
+    margin: 17px 0;
 `;
 
 const Form = styled.form`
@@ -75,10 +76,22 @@ const Form = styled.form`
     justify-content: center;
 `;
 
+const Label = styled.label`
+    color: #38405D;  
+
+    &:nth-child(1) {
+        margin-top: 38px;
+    }
+
+    &:nth-child(3) {
+        margin-top: 16px;
+    }
+`;
+
 const InputEmail = styled.input`
-    width: 250px;
-    height: 40px;
-    margin-bottom: 8px;
+    width: 236px;
+    height: 42px;
+    margin-top: 8px;
     border: 1px solid #667085;
     border-radius: 8px;
     padding-left: 10px;
@@ -86,9 +99,9 @@ const InputEmail = styled.input`
 `;
 
 const InputPw = styled.input`
-    width: 250px;
-    height: 40px;
-    margin-bottom: 15px;
+    width: 236px;
+    height: 42px;
+    margin-top: 8px;
     border: 1px solid #667085;
     border-radius: 8px;
     padding-left: 10px;
@@ -97,8 +110,8 @@ const InputPw = styled.input`
 
 const LoginBtn = styled.button`
     width: 250px;
-    height: 40px;
-    margin-left: 6px;
+    height: 38px;
+    margin-top: 18px;
     color: white;
     border: 1px solid #667085;
     background-color: #7986B6;
@@ -111,8 +124,8 @@ const Or = styled.div`
     align-items: center;
     color: #38405D;
     font-size: 12px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 34px;
+    margin-bottom: 22px;
 
     &::before {
         content: "";
@@ -139,7 +152,8 @@ const Or = styled.div`
 
 const Button = styled.button`
     width: 250px;
-    height: 40px;
+    height: 42px;
+    background-color: #ffffff;
     color: #757575;
     border: 1px solid #667085;
     border-radius: 8px;

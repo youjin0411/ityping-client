@@ -1,29 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SignUp = (props) => {
+const SignUp = () => {
     return (
-        <>
-            <Container>
-                <Welcome>Welcome!</Welcome>
-                <Text style={{marginBottom: '30px'}}>SignUp to ITyping</Text>
-                <Wrapper>
-                    <Text>Email</Text>
-                    <InputEmail type='text' placeholder='Email을 입력해주세요'></InputEmail>
-                </Wrapper>
-                <Wrapper>
-                    <Text>Password</Text>
-                    <InputPw type='password' placeholder='Password를 입력해주세요'></InputPw>
-                </Wrapper>
-                <Wrapper>
-                    <Text>닉네임</Text>
-                    <InputNickName type='text' maxLength='6' placeholder='닉네임을 입력해주세요(최대 6글자)'></InputNickName>
-                </Wrapper>
-                <SignUpBtn>SignUp</SignUpBtn>
-                <Or>OR</Or>
-                <Button>Sign up with Google</Button>
-            </Container>
-        </>
+        <Container>
+            <Welcome>Welcome!</Welcome>
+            <Text style={{marginBottom: '30px'}}>SignUp to ITyping</Text>
+            <Wrapper>
+                <Text>Email</Text>
+                <InputEmail type='text' placeholder='Email을 입력해주세요'></InputEmail>
+            </Wrapper>
+            <Wrapper>
+                <Text>Password</Text>
+                <InputPw type='password' placeholder='Password를 입력해주세요'></InputPw>
+            </Wrapper>
+            <Wrapper>
+                <Text>닉네임</Text>
+                <InputNickName type='text' maxLength='6' placeholder='닉네임을 입력해주세요(최대 6글자)'></InputNickName>
+            </Wrapper>
+            <SignUpBtn>SignUp</SignUpBtn>
+            <Or>OR</Or>
+            <Button>Sign up with Google</Button>
+        </Container>
     )
 }
 
