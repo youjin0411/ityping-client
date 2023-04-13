@@ -1,9 +1,13 @@
 import React from 'react';
 import CodeReview from './CodeReview';
+import Navbar from '../Navbar';
 
 const CodeReviewPract = () => {
     return (
-        <CodeReview contents='쇼핑몰' isPract={true}/>
+        <>
+            <Navbar/>
+            <CodeReview contents='쇼핑몰' isPract={true}/>
+        </>
     )
 }
 

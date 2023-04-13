@@ -1,9 +1,14 @@
 import React from 'react';
+import Navbar from '../Navbar';
 import CodeReview from './CodeReview';
+
 
 const CodeReviewBase = () => {
     return (
-        <CodeReview contents='HTML' isBase={true}/>
+        <>
+            <Navbar/>
+            <CodeReview contents='HTML' isBase={true}/>
+        </>
     )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Navbar from '../Navbar';
 import image from '../../img/image.png';
 import down from '../../img/down.png';
 import useMoveScroll from '../Hook/useMoveScroll';
@@ -17,6 +18,7 @@ const Tutorial = (props) => {
 
     return (
         <>
+            <Navbar />
             <Wrapper>
                 <ContentWrapper>
                     <Title>ITyping</Title>

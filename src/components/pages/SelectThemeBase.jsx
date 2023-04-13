@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../Navbar';
 import SelectTheme from './SelectTheme';
 
 const SelectThemeBase = () => {
@@ -6,7 +7,10 @@ const SelectThemeBase = () => {
 
 
     return (
-        <SelectTheme contents={contents} isBase={true}/>
+        <>
+            <Navbar />
+            <SelectTheme contents={contents} isBase={true}/>
+        </>
     )
 }
 

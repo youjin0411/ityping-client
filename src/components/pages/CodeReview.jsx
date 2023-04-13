@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Navbar from '../Navbar';
 import bg from '../../img/back.png'
 import { useHistory } from 'react-router-dom';
 
@@ -21,25 +22,28 @@ const CodeReview = (props) => {
     }
 
     return (
-        <Container>
-            <Bg>
-                <Title>코드리뷰</Title>
-                <Select 
-                    style={isBase ? {color: '#38405D', fontWeight: 'bold'} : {}} 
-                    onClick={handler1}>
-                    기초
-                </Select>
-                <Select 
-                    style={isPract ? {color: '#38405D', fontWeight: 'bold'} : {}} 
-                    onClick={handler2}>
-                    실천
-                </Select>
-                <BoxWrapper>
-                    <Box>{contents}</Box>
-                </BoxWrapper>
-            </Bg>
-            <Button onClick={handler3}>코드리뷰 보러가기</Button>
-        </Container>
+        <>
+            <Navbar/>
+            <Container>
+                <Bg>
+                    <Title>코드리뷰</Title>
+                    <Select 
+                        style={isBase ? {color: '#38405D', fontWeight: 'bold'} : {}} 
+                        onClick={handler1}>
+                        기초
+                    </Select>
+                    <Select 
+                        style={isPract ? {color: '#38405D', fontWeight: 'bold'} : {}} 
+                        onClick={handler2}>
+                        실천
+                    </Select>
+                    <BoxWrapper>
+                        <Box>{contents}</Box>
+                    </BoxWrapper>
+                </Bg>
+                <Button onClick={handler3}>코드리뷰 보러가기</Button>
+            </Container>
+        </>
     )
 }
 

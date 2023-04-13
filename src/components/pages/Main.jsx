@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Navbar from '../Navbar';
 import { useHistory } from 'react-router-dom';
 import image from '../../img/image.png';
 
@@ -11,18 +12,21 @@ const Main = (props) => {
     }
 
     return (
-        <Wrapper>
-            <ContentWrapper>
-                <Title>ITyping</Title>
-                <Content>
-                    Online Typing Practice for Programmers<br/>
-                    테마를 선택해 원하는 코딩을 해보며<br/>
-                    타자 연습을 하고 코드도 배우는 웹사이트
-                </Content>
-                <Button onClick={handler}>START</Button>
-            </ContentWrapper>
-            <Img src={image}/>
-        </Wrapper>
+        <>
+            <Navbar/>
+            <Wrapper>
+                <ContentWrapper>
+                    <Title>ITyping</Title>
+                    <Content>
+                        Online Typing Practice for Programmers<br/>
+                        테마를 선택해 원하는 코딩을 해보며<br/>
+                        타자 연습을 하고 코드도 배우는 웹사이트
+                    </Content>
+                    <Button onClick={handler}>START</Button>
+                </ContentWrapper>
+                <Img src={image}/>
+            </Wrapper>
+        </>
     )
 }
 

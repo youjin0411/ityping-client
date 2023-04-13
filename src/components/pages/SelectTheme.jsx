@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Navbar from '../Navbar';
 import bg from '../../img/back.png'
 import person from '../../img/person.png';
 import speach_buble from '../../img/speach_buble.png';
@@ -23,35 +24,38 @@ const SelectTheme = (props) => {
     }
 
     return (
-        <Container>
-            <Bg>
-                <Title>테마 선택</Title>
-                <Select 
-                    style={isBase ? {color: '#38405D', fontWeight: 'bold'} : {}} 
-                    onClick={handler1}>
-                    기초
-                </Select>
-                <Select 
-                    style={isPract ? {color: '#38405D', fontWeight: 'bold'} : {}} 
-                    onClick={handler2}>
-                    실천
-                </Select>
-                <BoxWrapper>
-                    <Box>{contents[0]}</Box>
-                    <Box>{contents[1]}</Box>
-                    <Box>{contents[2]}</Box>
-                </BoxWrapper>
-            </Bg>
-            <Wrapper>
-                <Img src={person}></Img>
-                <SpeechWrapper>
-                    <SpeechBubble src={speach_buble}></SpeechBubble>
-                    <SpeechText>이유리 님 ________ 부탁해요 ~! 😊</SpeechText>
-                    <ChoiceTheme>HTML</ChoiceTheme>
-                </SpeechWrapper>
-                <Button onClick={moveTyping}>타자 치러 가기</Button>
-            </Wrapper>
-        </Container>
+        <>
+            <Navbar />
+            <Container>
+                <Bg>
+                    <Title>테마 선택</Title>
+                    <Select 
+                        style={isBase ? {color: '#38405D', fontWeight: 'bold'} : {}} 
+                        onClick={handler1}>
+                        기초
+                    </Select>
+                    <Select 
+                        style={isPract ? {color: '#38405D', fontWeight: 'bold'} : {}} 
+                        onClick={handler2}>
+                        실천
+                    </Select>
+                    <BoxWrapper>
+                        <Box>{contents[0]}</Box>
+                        <Box>{contents[1]}</Box>
+                        <Box>{contents[2]}</Box>
+                    </BoxWrapper>
+                </Bg>
+                <Wrapper>
+                    <Img src={person}></Img>
+                    <SpeechWrapper>
+                        <SpeechBubble src={speach_buble}></SpeechBubble>
+                        <SpeechText>이유리 님 ________ 부탁해요 ~! 😊</SpeechText>
+                        <ChoiceTheme>HTML</ChoiceTheme>
+                    </SpeechWrapper>
+                    <Button onClick={moveTyping}>타자 치러 가기</Button>
+                </Wrapper>
+            </Container>
+        </>
     )
 }
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Navbar from '../Navbar';
 
 const CodeReviewCheck = (props) => {
     return (
         <div>
+            <Navbar/>
             <Wrapper>
                 <Divtheme> 기초 &gt;  HTML &gt;  코드 리뷰 </Divtheme>
                 <Widthline/>
