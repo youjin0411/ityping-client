@@ -22,7 +22,7 @@ const Login = () => {
                 <input className={styles.input} type='email' placeholder='Email을 입력해주세요' onChange={handleIdChange}/>
                 <label className={styles.label}>Password</label>
                 <input className={styles.input} type='password' placeholder='Password를 입력해주세요' onChange={handlePwChange}/>
-                <button className={styles.login_btn} disabled={id.length === 0 || pw.length === 0}>Login</button>
+                <button className={styles.login_btn} disabled={id.length === 0 || pw.length === 0}>로그인</button>
             </form>
             <div className={styles.or}>OR</div>
             <button className={styles.google_btn}><img className={styles.google_img} src='google.png'/>Sign in with Google</button>
