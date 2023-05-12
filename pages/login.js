@@ -38,10 +38,10 @@ const Login = () => {
             <form className={styles.form}>
                 <label className={styles.label}>Email</label>
                 {/* <input className={styles.input_email} type='email' value={Email} onChange={onEmailHandler} placeholder='Email을 입력해주세요'/> */}
-                <input className={styles.input_email} type='email' placeholder='Email을 입력해주세요'/>
+                <input className={styles.input} type='email' placeholder='Email을 입력해주세요'/>
                 <label className={styles.label}>Password</label>
                 {/* <input className={styles.input_pw} type='password' value={Password} onChange={onPasswordHandler} placeholder='Password를 입력해주세요'/> */}
-                <input className={styles.input_pw} type='password' placeholder='Password를 입력해주세요'/>
+                <input className={styles.input} type='password' placeholder='Password를 입력해주세요'/>
                 {/* <button className={styles.login_btn} formAction=''>Login</button> */}
                 <button className={styles.login_btn}>Login</button>
             </form>
