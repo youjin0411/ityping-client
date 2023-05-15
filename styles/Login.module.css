@@ -63,6 +63,7 @@
     background-color: #6C5DD3;
     border-radius: 8px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .login_btn:disabled {
@@ -102,6 +103,7 @@
     border-radius: 8px;
     font-weight: bold;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .google_img {

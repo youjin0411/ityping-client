@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.contents_container {
+    display: flex;
+    column-gap: 33px;
+}
