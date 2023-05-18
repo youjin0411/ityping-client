@@ -1,0 +1,21 @@
+.container {
+    background-image: url('../public/card_back.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+    height: 196px;
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.03);
+}
+
+.title {
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.content {
+    color: #9D9D9D;
+    font-size: 17px;
+}
