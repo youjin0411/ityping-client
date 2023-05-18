@@ -1,7 +1,10 @@
 import styles from "@/styles/SelectTool.module.css";
+import { useRouter } from "next/router";
 import React from "react";
 
 const SelectTool = (props) => {
+  const router = useRouter();
+
   return (
     <>
       <div className={styles.container}>
@@ -11,7 +14,7 @@ const SelectTool = (props) => {
           <div className={styles.tools_container}>
             {props.tools.map((tool) => {
               return (
-                <div className={styles.tool_container} key={tool.name}>
+                <div className={styles.tool_container} key={tool.name} onClick={() => router.push('/practice/shortcut')}>
                   <img className={styles.tool_img} src={tool.img} />
                   <div className={styles.tool_contents}>
                     <h3>{tool.name}</h3>
