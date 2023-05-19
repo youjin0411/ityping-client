@@ -8,7 +8,7 @@ const Progress = (props) => {
         <div className={styles.container}>
             <div className={styles.left_container}>
                 <div className={styles.tool_img}>
-                    <img src='vscode.png'/>
+                    <img src='/images/vscode.png'/>
                 </div>
                 <div className={styles.text_box}>
                     <div className={styles.title}>

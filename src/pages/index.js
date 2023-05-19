@@ -9,12 +9,16 @@ const Home = () => {
     {
       "img" : "vscode.png",
       "name" : "Visual Studio Code",
-      "info" : "ㅂㅇㅇㅅㅋㄷ 설명~"
+      "info" : "ㅂㅇㅇㅅㅋㄷ 설명~",
+      "color" : "#D0ECFF",
+      "hover" : "#F1FAFF"
     },
     {
       "img" : "intellij.png",
       "name" : "IntelliJ",
-      "info" : "인텔리제잇 설명~"
+      "info" : "인텔리제잇 설명~",
+      "color" : "#F3D2D2",
+      "hover" : "#FFF6F6"
     }
   ]
 
@@ -22,12 +26,16 @@ const Home = () => {
     {
       "img" : "photoshop.png",
       "name" : "Adobe Photoshop",
-      "info" : "뽀토샵 설명~"
+      "info" : "뽀토샵 설명~",
+      "color" : "#D0ECFF",
+      "hover" : "#F1FAFF"
     },
     {
       "img" : "illustrator.png",
       "name" : "Adobe Illustrator",
-      "info" : "ㅇㄹㅅㅌㄹㅇㅌ 설명~"
+      "info" : "ㅇㄹㅅㅌㄹㅇㅌ 설명~",
+      "color" : "#F3D2D2",
+      "hover" : "#FFF6F6"
     }
   ]
 
