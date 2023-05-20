@@ -2,7 +2,7 @@ import Card from '@/src/component/Card';
 import Navbar from '@/src/component/Navbar';
 import Progress from '@/src/component/Progress';
 import Sidebar from '@/src/component/Sidebar';
-import styles from '@/styles/Practice.module.css';
+import styles from '@/styles/Study.module.css';
 import { useRouter } from 'next/router';
 
 const StudyShortCut = (props) => {
