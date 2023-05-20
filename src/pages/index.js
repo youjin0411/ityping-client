@@ -43,7 +43,7 @@ const Home = () => {
     <>
       <Navbar />
       <div className={styles.container}>
-        <Sidebar />
+        <Sidebar title='단축키 학습' image='/images/study.png'/>
         <div className={styles.contents}>
           <h2>Welcome!</h2>
           <h3>필요한 툴의 단축키를 학습해보세요!</h3>

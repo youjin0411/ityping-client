@@ -5,14 +5,14 @@ import Sidebar from '@/src/component/Sidebar';
 import styles from '@/styles/Practice.module.css';
 import { useRouter } from 'next/router';
 
-const Emmat = (props) => {
+const StudyEmmat = (props) => {
     const router = useRouter();
 
     return (
         <>
             <Navbar/>
             <div className={styles.container}>
-                <Sidebar/>
+                <Sidebar title='단축키 학습' image='/images/study.png'/>
                 <div className={styles.right_container}>
                     <Progress/>
                     <div className={styles.menu_container}>
@@ -44,4 +44,4 @@ const Emmat = (props) => {
     );
 }
 
-export default Emmat;
+export default StudyEmmat;
