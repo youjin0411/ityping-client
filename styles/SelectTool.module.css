@@ -58,6 +58,22 @@
     cursor: not-allowed;
 }
 
+.img_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    padding: 13px;
+    border-radius: 10px;
+}
+
+.tool_img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
 .tool_contents {
     width: 371px;
     height: 85px;

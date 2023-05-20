@@ -6,7 +6,7 @@ const Sidebar = () => {
     <>
       <div className={styles.container}>
         <div className={styles.box}>
-          <a className={styles.text}><img src='study.png'/>단축키 학습</a>
+          <a className={styles.text}><img src='/images/study.png'/>단축키 학습</a>
         </div>
         <div className={styles.line}></div>
       </div>
