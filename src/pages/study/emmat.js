@@ -16,7 +16,7 @@ const StudyEmmat = (props) => {
                 <div className={styles.right_container}>
                     <Progress/>
                     <div className={styles.menu_container}>
-                        <select className={styles.left_menu} onChange={() => router.push('/practice/shortcut')}>
+                        <select className={styles.left_menu} onChange={() => router.push('/study/shortcut')}>
                             <option key='shortcut'>단축키</option>
                             <option key='emmat' selected>단축어</option>
                         </select>
