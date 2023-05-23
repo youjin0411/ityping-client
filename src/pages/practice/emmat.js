@@ -1,42 +1,25 @@
-import Card from '@/src/component/Card';
 import Navbar from '@/src/component/Navbar';
-import Progress from '@/src/component/Progress';
 import Sidebar from '@/src/component/Sidebar';
-import styles from '@/styles/Practice.module.css';
+import styles from '@/styles/Emmat.module.css';
 import { useRouter } from 'next/router';
 
-const Emmat = (props) => {
+const PracEmmat = (props) => {
     const router = useRouter();
 
     return (
         <>
             <Navbar/>
             <div className={styles.container}>
-                <Sidebar/>
+                <Sidebar title='학습 종료' image='/images/leave.png'/>
                 <div className={styles.right_container}>
-                    <Progress/>
-                    <div className={styles.menu_container}>
-                        <select className={styles.left_menu} onChange={() => router.push('/practice/shortcut')}>
-                            <option key='shortcut'>단축키</option>
-                            <option key='emmat' selected>단축어</option>
-                        </select>
-                        <div className={styles.right_menu}>
-                            <div className={styles.menu_btn}><a>연습</a></div>
-                            <div className={styles.menu_btn}><a>실습</a></div>
-                            <div className={styles.menu_btn}><a>게임</a></div>
-                        </div>
-                    </div>
-                    <div className={styles.content_container}>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
+                    <div>Visual Studio Code 단축키 연습\n단축키와 의미를 익히고 따라쳐보며 암기해보세요!</div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <button>입력하기</button>
+                    <div>
+                        <button>다시하기</button>
+                        <button>넘어가기</button>
                     </div>
                 </div>
             </div>
@@ -44,4 +27,4 @@ const Emmat = (props) => {
     );
 }
 
-export default Emmat;
+export default PracEmmat;

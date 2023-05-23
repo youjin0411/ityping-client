@@ -16,7 +16,7 @@ const SelectTool = (props) => {
               return (
                 <div className={styles.tool_container} 
                   key={tool.name} 
-                  onClick={() => router.push('/practice/shortcut')}>
+                  onClick={() => router.push('/study/shortcut')}>
                   <div className={styles.img_box} style={{backgroundColor:tool.color}}><img className={styles.tool_img} src={`/images/${tool.img}`} /></div>
                   <div className={styles.tool_contents}>
                     <h3>{tool.name}</h3>

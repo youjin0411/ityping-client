@@ -7,7 +7,19 @@
     height: 196px;
     padding: 22px;
     border-radius: 20px;
-    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.03);
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.05);
+}
+
+.container_hover {
+    background-image: url('../public/images/card_back_shover.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+    height: 196px;
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.05);
 }
 
 .title {

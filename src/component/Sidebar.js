@@ -1,12 +1,12 @@
 import styles from "@/styles/Sidebar.module.css";
 import React from "react";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.box}>
-          <a className={styles.text}><img src='/images/study.png'/>단축키 학습</a>
+          <a className={styles.text}><img src={props.image}/>{props.title}</a>
         </div>
         <div className={styles.line}></div>
       </div>
