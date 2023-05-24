@@ -59,7 +59,7 @@ const SignUp = () => {
         </form>
         <div className={styles.or}>OR</div>
         <button className={styles.google_btn}>
-          <img className={styles.google_img} src="google.png" />
+          <img className={styles.google_img} src="/images/google.png" />
           Sign Up with Google
         </button>
       </div>

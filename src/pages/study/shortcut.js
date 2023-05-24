@@ -1,4 +1,5 @@
 import Card from '@/src/component/Card';
+import Menu from '@/src/component/Menu';
 import Navbar from '@/src/component/Navbar';
 import Progress from '@/src/component/Progress';
 import Sidebar from '@/src/component/Sidebar';
@@ -20,11 +21,7 @@ const StudyShortCut = (props) => {
                             <option key='shortcut' selected>단축키</option>
                             <option key='emmat'>단축어</option>
                         </select>
-                        <div className={styles.right_menu}>
-                            <div className={styles.menu_btn}><a>연습</a></div>
-                            <div className={styles.menu_btn}><a>실습</a></div>
-                            <div className={styles.menu_btn}><a>게임</a></div>
-                        </div>
+                        <Menu/>
                     </div>
                     <div className={styles.content_container}>
                         <Card title='Crtl + F' content='파일 내 내용 검색'/>
