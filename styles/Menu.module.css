@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    column-gap: 12px;
+}
+
+.menu_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 135px;
+    height: 39px;
+    background-color: #F3EEFF;
+    border-radius: 8px;
+    cursor: pointer;
+}
