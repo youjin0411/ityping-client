@@ -41,22 +41,16 @@ export const emmats = [
     </ul>`
   },
   {
-    emmat: "div>(ul>li)>p",
-    description: "하위 트리 그룹화",
-    example: 
-    `<div>
-      <ul>
-        <li></li>
-      </ul>
-      <p></p>
-    </div>`
+    emmat: "div#box",
+    description: "ID 속성 추가",
+    example:
+    `<div id="box"></div>`
   },
   {
-    emmat: "div#header+div.page",
-    description: "CSS와 동일한 구문을 사용하여 ID와 클래스 속성 추가",
+    emmat: "div.hi",
+    description: "클래스 속성 추가",
     example:
-    `<div id="header"></div>
-    <div class="page"></div>`
+    `<div class="hi"></div>`
   },
   {
     emmat: "td[title=hi]",
@@ -69,38 +63,32 @@ export const emmats = [
     example: "<td title=''></td>",
   },
   {
-    emmat: "ul>li.item$*3",
+    emmat: "li.$*3",
     description: "숫자가 매겨진 요소",
     example:
-    `<ul>
-      <li class='item1'></li>
-      <li class='item2'></li>
-      <li class='item3'></li>
-    </ul>`,
+    `<li class='1'></li>
+    <li class='2'></li>
+    <li class='3'></li>`,
   },
   {
-    emmat: "ul>li.item$$$*3",
+    emmat: "li.$$$*3",
     description: "0으로 패딩된 숫자가 매겨진 요소",
     example:
-    `<ul>
-      <li class='item001'></li>
-      <li class='item002'></li>
-      <li class='item003'></li>
-    </ul>`,
+    `<li class='001'></li>
+    <li class='002'></li>
+    <li class='003'></li>`,
   },
   {
-    emmat: "ul>li.item$@-*3",
+    emmat: "ul>li.$@-*3",
     description: "내림차순으로 숫자가 매겨진 요소",
     example:
-    `<ul>
-      <li class='item3'></li>
-      <li class='item2'></li>
-      <li class='item1'></li>
-    </ul>`,
+    `<li class='3'></li>
+    <li class='2'></li>
+    <li class='1'></li>`,
   },
   {
-    emmat: "a{Click me}",
+    emmat: "a{클릭}",
     description: "요소에 텍스트 추가",
-    example: "<a href=''>Click me</a>",
+    example: "<a href=''>클릭</a>",
   }
 ];
