@@ -5,6 +5,7 @@ import Progress from '@/src/component/Progress';
 import Sidebar from '@/src/component/Sidebar';
 import styles from '@/styles/Study.module.css';
 import { useRouter } from 'next/router';
+import { emmats } from '@/public/emmats';
 
 const StudyEmmat = (props) => {
     const router = useRouter();
@@ -24,16 +25,7 @@ const StudyEmmat = (props) => {
                         <Menu/>
                     </div>
                     <div className={styles.content_container}>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
+                        {emmats.map((e) => <Card title={e.emmat} content={e.description} example={e.example}/>)}
                     </div>
                 </div>
             </div>

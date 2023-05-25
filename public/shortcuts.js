@@ -1,4 +1,4 @@
-const shortcuts = [
+export const shortcuts = [
     {
       shortcut: "Ctrl + P",
       description: "파일 열기",

@@ -29,3 +29,8 @@
     border-radius: 8px;
     cursor: pointer;
 }
+
+.example {
+    font-size: 13px;
+    white-space: pre-line;
+}

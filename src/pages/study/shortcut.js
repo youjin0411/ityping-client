@@ -5,9 +5,11 @@ import Progress from '@/src/component/Progress';
 import Sidebar from '@/src/component/Sidebar';
 import styles from '@/styles/Study.module.css';
 import { useRouter } from 'next/router';
+import { shortcuts } from '@/public/shortcuts'
 
 const StudyShortCut = (props) => {
     const router = useRouter();
+    
 
     return (
         <>  
@@ -24,17 +26,7 @@ const StudyShortCut = (props) => {
                         <Menu/>
                     </div>
                     <div className={styles.content_container}>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
-                        <Card title='Crtl + F' content='파일 내 내용 검색'/>
+                    {shortcuts.map((s) => <Card title={s.shortcut} content={s.description}/>)}
                     </div>
                 </div>
             </div>
