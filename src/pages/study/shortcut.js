@@ -9,7 +9,6 @@ import { shortcuts } from '@/public/shortcuts'
 
 const StudyShortCut = (props) => {
     const router = useRouter();
-    
 
     return (
         <>  
@@ -23,7 +22,7 @@ const StudyShortCut = (props) => {
                             <option key='shortcut' selected>단축키</option>
                             <option key='emmat'>단축어</option>
                         </select>
-                        <Menu/>
+                        <Menu isShortcut={true}/>
                     </div>
                     <div className={styles.content_container}>
                     {shortcuts.map((s) => <Card title={s.shortcut} content={s.description}/>)}
