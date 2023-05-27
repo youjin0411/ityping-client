@@ -18,8 +18,8 @@ const PracShortCut = (props) => {
                     </div>
                     <div className={styles.page_container}>
                         <div className={styles.current_page}>1</div>
-                        <div className={styles.line}></div>
-                        <div className={styles.all_page}>28</div>
+                        <div className={styles.line}> | </div>
+                        <div className={styles.all_page}>28</div> 
                     </div>
                     <div className={styles.card}>
                         <div className={styles.card_title}>Ctrl + F</div>
@@ -30,10 +30,10 @@ const PracShortCut = (props) => {
                         <input className={styles.input}/>
                         <input className={styles.input}/>
                     </div>
-                    <button>입력하기</button>
-                    <div>
-                        <button>다시하기</button>
-                        <button>넘어가기</button>
+                    <button className={styles.enter_btn}>입력 완료</button>
+                    <div className={styles.btn_container}>
+                        <button className={styles.retry_btn}>다시하기</button>
+                        <button className={styles.next_btn}>넘어가기</button>
                     </div>
                 </div>
             </div>

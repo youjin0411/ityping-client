@@ -4,6 +4,13 @@
     margin-top: 60px;
 }
 
+.right_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 1150px;
+}
+
 .title_container {
     display: flex;
     justify-content: center;
@@ -21,4 +28,72 @@ div .title:nth-child(1) {
 
 div .title:nth-child(2) {
     font-size: 14px;
+}
+
+.page_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.current_page {
+    color: #68BB93;
+}
+
+.line {
+    white-space: pre-wrap;
+    color: #C8C8C8;
+}
+
+.all_page {
+    color: #C8C8C8;
+}
+
+.card {
+    background-image: url('../public/images/practice_card.png');
+    width: 454px;
+    height: 248px;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.input {
+    width: 58px;
+    height: 56px;
+    background-color: #F3F3F3;
+}
+
+.enter_btn {
+    width: 179px;
+    height: 41px;
+    border-radius: 8px;
+    background-color: #CAB0FF;
+    color: white;
+}
+
+.enter_btn:disabled {
+    background-color: #EBE1FF;
+}
+
+.btn_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 374px;
+}
+
+.retry_btn {
+    width: 179px;
+    height: 41px;
+    background-color: #F3F3F3;
+    color: #656565;
+    border-radius: 8px;
+}
+
+.next_btn {
+    width: 179px;
+    height: 41px;
+    background-color: #CAB0FF;
+    color: white;
+    border-radius: 8px;
 }
