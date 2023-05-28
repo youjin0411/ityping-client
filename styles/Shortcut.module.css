@@ -60,7 +60,10 @@ div .title:nth-child(2) {
 .input {
     width: 58px;
     height: 56px;
+    margin-right: 10px;
     background-color: #F3F3F3;
+    border: 0;
+    outline: none;
 }
 
 .enter_btn {
@@ -88,6 +91,7 @@ div .title:nth-child(2) {
     background-color: #F3F3F3;
     color: #656565;
     border-radius: 8px;
+    border: 0;
 }
 
 .next_btn {
@@ -96,4 +100,5 @@ div .title:nth-child(2) {
     background-color: #CAB0FF;
     color: white;
     border-radius: 8px;
+    border: 0;
 }
