@@ -55,22 +55,32 @@ div .title:nth-child(2) {
     height: 248px;
     padding: 30px;
     border-radius: 20px;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.03);
+}
+
+.input_container {
+    display: flex;
 }
 
 .input {
     width: 58px;
     height: 56px;
+    margin-top: 30px;
     margin-right: 10px;
+    padding: 15px;
     background-color: #F3F3F3;
     border: 0;
     outline: none;
+    font-size: 17px;
 }
 
 .enter_btn {
     width: 179px;
     height: 41px;
+    margin-top: 40px;
     border-radius: 8px;
     background-color: #CAB0FF;
+    border: 0;
     color: white;
 }
 
@@ -79,7 +89,8 @@ div .title:nth-child(2) {
 }
 
 .btn_container {
-    display: flex;
+    display: none;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     width: 374px;
