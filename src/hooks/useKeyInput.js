@@ -5,8 +5,6 @@ const useKeyInput = () => {
   const [currentInputIndex, setCurrentInputIndex] = useState(0); // 현재 입력 중인 인덱스
   const [currentShortcutIndex, setCurrentShortcutIndex] = useState(0); // 현재 카드 인덱스
   const [keysPressed, setKeysPressed] = useState(['', '']); // 입력한 키를 상태로 관리
-  const [pageNum, setPageNum] = useState(1);
-
   
   useEffect(() => {
 		const handleKeyDown = (event) => {
@@ -81,29 +79,14 @@ const useKeyInput = () => {
 			window.removeEventListener('keydown', handleKeyDown);
     };
   }, [currentInputIndex]);
-	
-  // 키 입력이 완료되었을 때
-  const handleInputComplete = () => {
-    console.log('Keys pressed:', keysPressed);
-  };
-	
-  // 다음 카드로 넘어갈 때
-  const handleNextCard = () => {
-    setCurrentShortcutIndex((prevIndex) => (prevIndex + 1) % shortcuts.length);
-    setPageNum(pageNum + 1);
-  }
 
   return {
     currentInputIndex,
     currentShortcutIndex,
     keysPressed,
-    pageNum,
     setCurrentInputIndex,
     setCurrentShortcutIndex,
-    setKeysPressed,
-    setPageNum,
-    handleInputComplete,
-    handleNextCard,
+    setKeysPressed
   };
 };
 
