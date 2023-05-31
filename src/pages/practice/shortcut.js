@@ -2,30 +2,50 @@ import Navbar from '@/src/component/Navbar';
 import Sidebar from '@/src/component/Sidebar';
 import styles from '@/styles/ShortCut.module.css';
 import { shortcuts } from '@/public/shortcuts';
-import useKeyInput from '@/src/hooks/useKeyInput';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const PracShortCut = () => {
-  const {
-    currentShortcutIndex,
-    keysPressed
-  } = useKeyInput();
-  const [pageNum, setPageNum] = useState(1);
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
 
-	// 현재 카드에 해당하는 단축키를 가져옴
-	const currentShortcut = shortcuts[currentShortcutIndex];
-  const shortcutKeys = currentShortcut.shortcut.split(' + ');
+  useEffect(() => {
+    console.log("add handler")
+    const handler = (e) => {
+      console.log("from handler");
+      if(e.key === shortcuts[currentIdx].combination[currentKeyIdx]) {
+        if(e.key === 'Alt' || e.key === 'Tab') e.preventDefault();
+        setCurrentKeyIdx(idx => {
+          console.log(idx);
+          if(idx + 1 === shortcuts[currentIdx].combination.length) {
+            setCurrentIdx(idx => idx + 1);
+            return 0;
+          } else {
+            return idx + 1;
+          } 
+        })
+      }
+    }
+    window.addEventListener("keydown", handler);
 
-  // 키 입력이 완료되었을 때
-  const handleInputComplete = () => {
-    console.log('Keys pressed:', keysPressed);
-  };
-	
-  // 다음 카드로 넘어갈 때
-  const handleNextCard = () => {
-    setPageNum(pageNum - 1);
-    setCurrentShortcutIndex(currentShortcutIndex + 1);
+    return () => {
+      console.log("remove handler");
+      window.removeEventListener("keydown", handler);
+    }
+  }, [currentIdx, currentKeyIdx]);
+
+  if(currentIdx === shortcuts.length) {
+    return (
+      <div>
+        <h1>끝</h1>
+        <button onClick={() => {
+          setCurrentIdx(0)
+          setCurrentKeyIdx(0)
+        }}>다시 하기</button>
+      </div>
+    )
   }
+
+  const shortcut = shortcuts[currentIdx]
 
   return (
     <>
@@ -38,25 +58,54 @@ const PracShortCut = () => {
             <p className={styles.title}>단축어와 의미를 익히고 따라쳐보며 암기해보세요!</p>
           </div>
           <div className={styles.page_container}>
-            <div className={styles.current_page}>{pageNum}</div>
+            <div className={styles.current_page}>{currentIdx + 1}</div>
             <div className={styles.line}> | </div>
             <div className={styles.all_page}>{shortcuts.length}</div>
           </div>
           <div className={styles.card}>
-            <div className={styles.card_title}>{currentShortcut.shortcut}</div>
-            <div className={styles.card_content}>{currentShortcut.description}</div>
+            <div className={styles.card_title}>
+              {shortcut.combination.map((c, idx) => {
+                if(c === shortcut.combination[currentKeyIdx]) {
+                  return <>
+                    <span className={styles.bold}>{
+                      (() => {
+                        switch(c) {
+                          case 'Control' : return 'Ctrl';
+                          case 'ArrowUp' : return '↑';
+                          case 'ArrowLeft' : return '←';
+                          default : return c;
+                        }
+                      })()
+                    }</span>
+                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
+                  </>
+                } else {
+                  return <>
+                    <span className={styles.text}>{
+                      (() => {
+                        switch(c) {
+                          case 'Control' : return 'Ctrl';
+                          case 'ArrowUp' : return '↑';
+                          case 'ArrowLeft' : return '←';
+                          default : return c;
+                        }
+                      })()}</span>
+                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}>+</span>}
+                  </>
+                }
+              })}  
+            </div>
+            <div className={styles.card_content}>{shortcut.description}</div>
           </div>
           <div className={styles.input_container}>
-						{shortcutKeys.map((key, index) => (
-							<div className={styles.input} key={index}>{keysPressed[index]}</div>
-						))}
+            <div className={styles.input}>{shortcut.combination[currentKeyIdx]}</div>
           </div>
-          <button className={styles.enter_btn} onClick={handleInputComplete}>
+          <button className={styles.enter_btn}>
             입력 완료
           </button>
           <div className={styles.btn_container}>
             <button className={styles.retry_btn}>다시하기</button>
-            <button className={styles.next_btn} onClick={handleNextCard}>
+            <button className={styles.next_btn}>
               넘어가기
             </button>
           </div>

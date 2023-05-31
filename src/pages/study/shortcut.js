@@ -25,7 +25,7 @@ const StudyShortCut = (props) => {
                         <Menu isShortcut={true}/>
                     </div>
                     <div className={styles.content_container}>
-                    {shortcuts.map((s) => <Card title={s.shortcut} content={s.description}/>)}
+                    {shortcuts.map((s) => <Card title={s.text} content={s.description}/>)}
                     </div>
                 </div>
             </div>
