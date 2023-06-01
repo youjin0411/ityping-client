@@ -64,7 +64,7 @@ div .title:nth-child(2) {
 }
 
 .bold {
-    font-size: 17;
+    font-size: 18px;
     color: #4F4F4F;
     font-weight: bold;
 }
@@ -80,18 +80,32 @@ div .title:nth-child(2) {
 
 .input_container {
     display: flex;
+    align-items: center;
+    margin-top: 30px;
 }
 
 .input {
     width: 58px;
     height: 56px;
-    margin-top: 30px;
-    margin-right: 10px;
+    margin: 10px;
     padding: 15px;
     background-color: #F3F3F3;
     border: 0;
     outline: none;
     font-size: 17px;
+    text-align: center;
+}
+
+.disa_input {
+    width: 58px;
+    height: 56px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #c9c9c9;
+    border: 0;
+    outline: none;
+    font-size: 17px;
+    text-align: center;
 }
 
 .enter_btn {

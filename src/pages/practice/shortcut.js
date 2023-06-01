@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react';
 const PracShortCut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
-  const [visible, setVisible] = useState(0);
+  const [visible, setVisible] = useState(1);
 
   const changeButton = () => {
-    setVisible(1);
+    setVisible(!visible);
   }
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const PracShortCut = () => {
         if(e.key === 'Alt' || e.key === 'Tab') e.preventDefault();
         setCurrentKeyIdx(idx => {
           if(idx + 1 === shortcuts[currentIdx].combination.length) {
-            changeButton();
+            e.preventDefault();
             return 0;
           } else {
             return idx + 1;
@@ -48,7 +48,7 @@ const PracShortCut = () => {
     )
   }
 
-  const shortcut = shortcuts[currentIdx]
+  const shortcut = shortcuts[currentIdx];
 
   return (
     <>
@@ -76,7 +76,7 @@ const PracShortCut = () => {
                           case 'Control' : return 'Ctrl';
                           case 'ArrowUp' : return '↑';
                           case 'ArrowLeft' : return '←';
-                          default : return c;
+                          default : return c.toUpperCase();
                         }
                       })()
                     }</span>
@@ -90,36 +90,60 @@ const PracShortCut = () => {
                           case 'Control' : return 'Ctrl';
                           case 'ArrowUp' : return '↑';
                           case 'ArrowLeft' : return '←';
-                          default : return c;
+                          default : return c.toUpperCase();
                         }
                       })()}</span>
-                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}>+</span>}
+                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                   </>
                 }
-              })}  
+              })}
             </div>
             <div className={styles.card_content}>{shortcut.description}</div>
           </div>
           <div className={styles.input_container}>
             {shortcut.combination.map((c, idx) => {
-              return <div className={styles.input}>{c === shortcut.combination[currentKeyIdx] ? shortcut.combination[currentKeyIdx] : ''}</div>;
+              if(c === shortcut.combination[currentKeyIdx]) {
+                return <>
+                  <div className={styles.disa_input}>{
+                    (() => {
+                      switch(c) {
+                        case 'Control' : return 'Ctrl';
+                        case 'ArrowUp' : return '↑';
+                        case 'ArrowLeft' : return '←';
+                        default : return c.toUpperCase();
+                      }
+                    })()
+                  }</div>
+                  {idx === shortcut.combination.length - 1 ? null : <div className={styles.text}> + </div>}
+                </>
+              } else {
+                return <>
+                  <div className={styles.input}>{
+                    (() => {
+                      switch(c) {
+                        case 'Control' : return 'Ctrl';
+                        case 'ArrowUp' : return '↑';
+                        case 'ArrowLeft' : return '←';
+                        default : return c.toUpperCase();
+                      }
+                    })()}</div>
+                  {idx === shortcut.combination.length - 1 ? null : <div className={styles.text}>+</div>}
+                </>
+              }
             })}
           </div>
           {
-            visible ? '' :
-            <button className={styles.enter_btn}>
-              입력 완료
-            </button>
-          }
-          {
             visible ? 
+            <button className={styles.enter_btn} onClick={changeButton()}>
+                입력 완료
+            </button>
+            :
             <div className={styles.btn_container}>
-              <button className={styles.retry_btn}>다시하기</button>
-              <button className={styles.next_btn} onClick={() => setCurrentIdx(idx => idx + 1)}>
+                <button className={styles.retry_btn}>다시하기</button>
+                <button className={styles.next_btn}>
                 넘어가기
-              </button>
+                </button>
             </div>
-            : ''
           }
         </div>
       </div>
