@@ -34,6 +34,7 @@ div .title:nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 65px;
 }
 
 .current_page {
@@ -44,7 +45,7 @@ div .title:nth-child(2) {
     white-space: pre-wrap;
     color: #C8C8C8;
 }
-
+ 
 .all_page {
     color: #C8C8C8;
 }
@@ -54,9 +55,9 @@ div .title:nth-child(2) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-size: cover;
     width: 454px;
     height: 248px;
+    margin-top: 11px;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.03);
@@ -108,11 +109,11 @@ div .title:nth-child(2) {
 }
 
 .btn_container {
-    display: none;
-    /* display: flex; */
+    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 374px;
+    margin-top: 40px;
 }
 
 .retry_btn {
