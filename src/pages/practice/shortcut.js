@@ -4,12 +4,13 @@ import styles from '@/styles/ShortCut.module.css';
 import { shortcuts } from '@/public/shortcuts';
 import { useEffect, useState } from 'react';
 
-const PracShortCut = () => {
+const ShortCut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
-  const [visible, setVisible] = useState(1);
+  const [visible, setVisible] = useState(true);
 
   const changeButton = () => {
+    console.log("???")
     setVisible(!visible);
   }
 
@@ -50,6 +51,7 @@ const PracShortCut = () => {
 
   const shortcut = shortcuts[currentIdx];
 
+  console.log(visible)
   return (
     <>
       <Navbar />
@@ -69,6 +71,7 @@ const PracShortCut = () => {
             <div className={styles.card_title}>
               {shortcut.combination.map((c, idx) => {
                 if(c === shortcut.combination[currentKeyIdx]) {
+                  console.log(styles)
                   return <>
                     <span className={styles.bold}>{
                       (() => {
@@ -134,7 +137,7 @@ const PracShortCut = () => {
           </div>
           {
             visible ? 
-            <button className={styles.enter_btn} onClick={changeButton()}>
+            <button className={styles.enter_btn} onClick={changeButton}>
                 입력 완료
             </button>
             :
@@ -151,4 +154,4 @@ const PracShortCut = () => {
   );
 };
 
-export default PracShortCut;
+export default ShortCut;
