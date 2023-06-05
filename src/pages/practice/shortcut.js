@@ -8,18 +8,18 @@ const ShortCut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(true);
-
+  
   const changeButton = () => {
-    console.log("???")
     setVisible(!visible);
   }
 
   useEffect(() => {
-    console.log("add handler")
     const handler = (e) => {
-      console.log("from handler");
       if(e.key === shortcuts[currentIdx].combination[currentKeyIdx]) {
         if(e.key === 'Alt' || e.key === 'Tab') e.preventDefault();
+        if(e.key === shortcuts[currentIdx].combination[shortcuts[currentIdx].combination.length-1]) {
+          setVisible(!visible);
+        }
         setCurrentKeyIdx(idx => {
           if(idx + 1 === shortcuts[currentIdx].combination.length) {
             e.preventDefault();
@@ -30,14 +30,16 @@ const ShortCut = () => {
         })
       }
     }
-    window.addEventListener("keydown", handler);
-
+    window.addEventListener("keyup", handler);
+    
     return () => {
-      window.removeEventListener("keydown", handler);
+      window.removeEventListener("keyup", handler);
     }
   }, [currentIdx, currentKeyIdx]);
+  
+  const shortcut = shortcuts[currentIdx];
 
-  if(currentIdx === shortcuts.length) {
+  if(currentIdx === shortcuts.length-1) {
     return (
       <div>
         <h1>끝</h1>
@@ -48,8 +50,6 @@ const ShortCut = () => {
       </div>
     )
   }
-
-  const shortcut = shortcuts[currentIdx];
 
   console.log(visible)
   return (
@@ -105,7 +105,7 @@ const ShortCut = () => {
           </div>
           <div className={styles.input_container}>
             {shortcut.combination.map((c, idx) => {
-              if(c === shortcut.combination[currentKeyIdx]) {
+              if(c <= shortcut.combination[currentKeyIdx]) {
                 return <>
                   <div className={styles.disa_input}>{
                     (() => {
@@ -143,7 +143,7 @@ const ShortCut = () => {
             :
             <div className={styles.btn_container}>
                 <button className={styles.retry_btn}>다시하기</button>
-                <button className={styles.next_btn}>
+                <button className={styles.next_btn} onClick={() => setCurrentKeyIdx(idx => idx + 1)}>
                 넘어가기
                 </button>
             </div>
