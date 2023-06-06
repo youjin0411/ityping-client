@@ -16,7 +16,6 @@ const Login = () => {
 
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         <h1 className={styles.welcome}>Welcome!</h1>
         <p className={styles.text}>ITyping 로그인하기</p>
