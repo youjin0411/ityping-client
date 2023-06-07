@@ -23,7 +23,7 @@ const SignUp = () => {
     <>
       <div className={styles.container}>
         <h1 className={styles.welcome}>Welcome!</h1>
-        <p className={styles.text}>ITyping 회원가입하기</p>
+        <p className={styles.text}>STUDY KEY 회원가입하기</p>
         <form className={styles.form}>
           <label className={styles.label}>Email</label>
           <input

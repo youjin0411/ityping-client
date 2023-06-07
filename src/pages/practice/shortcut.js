@@ -56,7 +56,7 @@ const ShortCut = () => {
     <>
       <Navbar />
       <div className={styles.container}>
-        <Sidebar title="학습 종료" image="/images/leave.png" />
+      <Sidebar/>
         <div className={styles.right_container}>
           <div className={styles.title_container}>
             <p className={styles.title}>Visual Studio Code 단축어 연습</p>
