@@ -8,12 +8,9 @@ const PracEmmat = (props) => {
     const [currentIdx, setCurrentIdx] = useState(0);
     const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
     const [visible, setVisible] = useState(1);
+    const [isDisable, setIsDisable] = useState(0);
+    const [emmatValue, setEmmatValue] = useState('');
   
-    const changeButton = () => {
-      setVisible(!visible);
-      console.log(visible);
-    }
-
     if(currentIdx === emmats.length) {
       return (
         <div>
@@ -28,11 +25,19 @@ const PracEmmat = (props) => {
   
     const emmat = emmats[currentIdx];
 
+    const handlerEmmat = e => {
+        setEmmatValue(e.target.value);
+        console.log(e.target.value);
+        if(e.target.value === emmats[0].emmat) {
+            setIsDisable(!isDisable);
+        }
+    }
+
     return (
         <>
             <Navbar/>
             <div className={styles.container}>
-                <Sidebar/>
+                <Sidebar isStudy={false} isSelected={true}/>
                 <div className={styles.right_container}>
                     <div className={styles.title_container}>
                         <p className={styles.title}>Visual Studio Code 단축키 연습</p>
@@ -48,20 +53,18 @@ const PracEmmat = (props) => {
                         <div className={styles.card_content}>{emmat.description}</div>
                     </div>
                     <div className={styles.input_container}>
-                        <label>연습</label>
-                        {emmats.map((e, i) => {
-                            <input placeholder={e}/>
-                        })}
+                        <label className={styles.text}>연습</label>
+                        <input className={styles.input} disabled={isDisable}  placeholder={emmats[0].emmat} onChange={handlerEmmat}/>
                     </div>
                     {
                     visible ? 
-                    <button className={styles.enter_btn}>
+                    <button className={styles.enter_btn} onClick={() => setVisible(!visible)}>
                         입력 완료
                     </button>
                     :
                     <div className={styles.btn_container}>
                         <button className={styles.retry_btn}>다시하기</button>
-                        <button className={styles.next_btn} onClick={handleNextCard}>
+                        <button className={styles.next_btn}>
                         넘어가기
                         </button>
                     </div>
