@@ -1,13 +1,5 @@
 export const emmats = [
   {
-    emmat: "! + Tab",
-    description: "HTML 기본 구조 세팅",
-    example:
-    `<html>
-      ...
-    </html>`
-  },
-  {
     emmat: "ul>li",
     description: "요소를 중첩시킴",
     example: 

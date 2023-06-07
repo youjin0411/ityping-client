@@ -8,7 +8,7 @@ const SelectTool = (props) => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.box} style={{backgroundColor: props.background_color}}>For {props.job_en}</div>
+        <div className={styles.box} style={{backgroundImage: props.job_en === 'Developer' ? 'url("/images/developer.png")' : 'url("/images/designer.png")'}}>For {props.job_en}</div>
         <div className={styles.content_container}>
           <h4>{props.job_ko}를 위한 툴</h4>
           <div className={styles.tools_container}>

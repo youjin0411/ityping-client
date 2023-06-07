@@ -14,7 +14,7 @@ const StudyShortCut = (props) => {
         <>  
             <Navbar/>
             <div className={styles.container}>
-                <Sidebar title='단축키 학습' image='/images/study.png'/>
+                <Sidebar isStudy={false} isSelected={true}/>
                 <div className={styles.right_container}>
                     <Progress/>
                     <div className={styles.menu_container}>

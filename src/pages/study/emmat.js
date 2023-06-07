@@ -14,7 +14,7 @@ const StudyEmmat = (props) => {
         <>
             <Navbar/>
             <div className={styles.container}>
-                <Sidebar title='단축키 학습' image='/images/study.png'/>
+                <Sidebar isStudy={false} isSelected={true}/>
                 <div className={styles.right_container}>
                     <Progress/>
                     <div className={styles.menu_container}>
@@ -22,7 +22,7 @@ const StudyEmmat = (props) => {
                             <option key='shortcut'>단축키</option>
                             <option key='emmat' selected>단축어</option>
                         </select>
-                        <Menu/>
+                        <Menu/> 
                     </div>
                     <div className={styles.content_container}>
                         {emmats.map((e) => <Card title={e.emmat} content={e.description} example={e.example}/>)}
