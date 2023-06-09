@@ -27,10 +27,18 @@ const StudyShortCut = (props) => {
                                 console.log(showOptions)
                                 setShowOptions(!showOptions)
                             }}>
-                            <div className={styles.label}>{currentValue}</div>
+                            <div className={styles.selected}>
+                                <div className={styles.label}>{currentValue}</div>
+                                {
+                                    showOptions ? 
+                                    <img className={styles.btn} src='/images/select_up.png' alt='up'/>
+                                    :
+                                    <img className={styles.btn} src='/images/select_down.png' alt='down'/>
+                                }
+                            </div>
                             <div className={styles.option_container} style={{ display: showOptions ? 'block' : 'none'}}>
-                                <div className={styles.option} onClick={handleOnChangeSelectValue}>단축키</div>
-                                <div className={styles.option} onClick={handleOnChangeSelectValue}>단축어</div>
+                                <div className={styles.option} onClick={handleOnChangeSelectValue} value='단축키'>단축키</div>
+                                <a href='/study/emmat'><div className={styles.option} onClick={handleOnChangeSelectValue} value='단축어'>단축어</div></a>
                             </div>
                         </div>
                         <Menu isShortcut={true}/>
