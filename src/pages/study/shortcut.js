@@ -25,10 +25,10 @@ const StudyShortCut = (props) => {
                     <div className={styles.menu_container}>
                         <div className={styles.select} onClick={() => {
                                 console.log(showOptions)
-                                setShowOptions(!showOptions)}
-                            }>
+                                setShowOptions(!showOptions)
+                            }}>
                             <div className={styles.label}>{currentValue}</div>
-                            <div className={styles.option_container} style={{ display: `${showOptions ? 'block' : 'none'}`}}>
+                            <div className={styles.option_container} style={{ display: showOptions ? 'block' : 'none'}}>
                                 <div className={styles.option} onClick={handleOnChangeSelectValue}>단축키</div>
                                 <div className={styles.option} onClick={handleOnChangeSelectValue}>단축어</div>
                             </div>
