@@ -6,18 +6,16 @@ import { useEffect, useState } from 'react';
 
 const PracEmmat = (props) => {
     const [currentIdx, setCurrentIdx] = useState(0);
-    const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
     const [visible, setVisible] = useState(1);
     const [isDisable, setIsDisable] = useState(0);
-    const [emmatValue, setEmmatValue] = useState('');
-  
+    const [text, setText] = useState('');
+
     if(currentIdx === emmats.length) {
       return (
         <div>
           <h1>끝</h1>
           <button onClick={() => {
             setCurrentIdx(0)
-            setCurrentKeyIdx(0)
           }}>다시 하기</button>
         </div>
       )
@@ -26,9 +24,9 @@ const PracEmmat = (props) => {
     const emmat = emmats[currentIdx];
 
     const handlerEmmat = e => {
-        setEmmatValue(e.target.value);
+        setText(e.target.value);
         console.log(e.target.value);
-        if(e.target.value === emmats[0].emmat) {
+        if(e.target.value === emmats[currentIdx].emmat) {
             setIsDisable(!isDisable);
         }
     }
@@ -54,17 +52,24 @@ const PracEmmat = (props) => {
                     </div>
                     <div className={styles.input_container}>
                         <label className={styles.text}>연습</label>
-                        <input className={styles.input} disabled={isDisable}  placeholder={emmats[0].emmat} onChange={handlerEmmat}/>
+                        <input className={styles.input} disabled={isDisable} value={text} placeholder={emmats[currentIdx].emmat} onChange={handlerEmmat}/>
                     </div>
                     {
                     visible ? 
-                    <button className={styles.enter_btn} onClick={() => setVisible(!visible)}>
+                    <button className={styles.enter_btn} disabled={!isDisable} onClick={() => setVisible(!visible)}>
                         입력 완료
                     </button>
                     :
                     <div className={styles.btn_container}>
                         <button className={styles.retry_btn}>다시하기</button>
-                        <button className={styles.next_btn}>
+                        <button className={styles.next_btn}
+                            onClick={() => {
+                                setText('');
+                                setIsDisable(!isDisable);
+                                setCurrentIdx(idx => idx + 1);
+                                setVisible(!visible);
+                            }
+                        }>
                         넘어가기
                         </button>
                     </div>
