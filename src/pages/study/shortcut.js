@@ -28,7 +28,7 @@ const StudyShortCut = (props) => {
                                 setShowOptions(!showOptions)}
                             }>
                             <div className={styles.label}>{currentValue}</div>
-                            <div className={styles.option_container} styles={{ display: `${showOptions ? 'block' : 'none'}`}}>
+                            <div className={styles.option_container} style={{ display: `${showOptions ? 'block' : 'none'}`}}>
                                 <div className={styles.option} onClick={handleOnChangeSelectValue}>단축키</div>
                                 <div className={styles.option} onClick={handleOnChangeSelectValue}>단축어</div>
                             </div>
