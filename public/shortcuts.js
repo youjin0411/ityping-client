@@ -1,4 +1,14 @@
 export const shortcuts = [
+    {
+        text: "Alt + 방향키 위(아래)",
+        description: "코드 행 변경",
+        combination: ["Alt", "ArrowUp"]
+    },
+    {
+        text: "Ctrl + Tab",
+        description: "탭 이동",
+        combination: ["Control", "Tab"]
+    },
   {
       text: "Ctrl + O",
       description: "파일 열기",
@@ -18,11 +28,6 @@ export const shortcuts = [
       text: "Ctrl + S",
       description: "파일 저장",
       combination: ["Control", "s"]
-  },
-  {
-      text: "Ctrl + Tab",
-      description: "탭 이동",
-      combination: ["Control", "Tab"]
   },
   {
       text: "Ctrl + Q",
@@ -83,11 +88,6 @@ export const shortcuts = [
       text: "Ctrl + F2",
       description: "모든 항목 변경",
       combination: ["Control", "F2"]
-  },
-  {
-      text: "Alt + 방향키 위(아래)",
-      description: "코드 행 변경",
-      combination: ["Alt", "ArrowUp"]
   },
   {
       text: "Alt + Ctrl + 방향키 위(아래)",

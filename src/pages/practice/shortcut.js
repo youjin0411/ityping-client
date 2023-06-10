@@ -1,13 +1,13 @@
 import Navbar from '@/src/component/Navbar';
 import Sidebar from '@/src/component/Sidebar';
-import styles from '@/styles/ShortCut.module.css';
+import styles from '@/styles/Shortcut.module.css';
 import { shortcuts } from '@/public/shortcuts';
 import { useEffect, useState } from 'react';
 
-const ShortCut = () => {
+const PracticeShortcut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   
   const changeButton = () => {
     setVisible(!visible);
@@ -15,26 +15,30 @@ const ShortCut = () => {
 
   useEffect(() => {
     const handler = (e) => {
-      if(e.key === shortcuts[currentIdx].combination[currentKeyIdx]) {
-        if(e.key === 'Alt' || e.key === 'Tab') e.preventDefault();
-        if(e.key === shortcuts[currentIdx].combination[shortcuts[currentIdx].combination.length-1]) {
-          setVisible(!visible);
-        }
-        setCurrentKeyIdx(idx => {
-          if(idx + 1 === shortcuts[currentIdx].combination.length) {
+      if(!visible) {
+        if(e.key === shortcuts[currentIdx].combination[currentKeyIdx]) {
+          if(e.key === 'Alt' || e.key === 'Tab') {
             e.preventDefault();
-            return 0;
-          } else {
-            return idx + 1;
-          } 
-        })
+          }
+          if(e.key === shortcuts[currentIdx].combination[shortcuts[currentIdx].combination.length-1]) {
+            setVisible(!visible);
+          }
+          setCurrentKeyIdx(idx => {
+            if(idx + 1 === shortcuts[currentIdx].combination.length) {
+              e.preventDefault();
+              return 0;
+            } else {
+              return idx + 1;
+            } 
+          })
+        }
       }
     }
-    window.addEventListener("keyup", handler);
+    window.addEventListener("keydown", handler);
     
     return () => {
-      window.removeEventListener("keyup", handler);
-    }
+      window.removeEventListener("keydown", handler);
+    } 
   }, [currentIdx, currentKeyIdx]);
   
   const shortcut = shortcuts[currentIdx];
@@ -56,7 +60,7 @@ const ShortCut = () => {
     <>
       <Navbar />
       <div className={styles.container}>
-      <Sidebar/>
+      <Sidebar isStudy={false} isSelected={true}/>
         <div className={styles.right_container}>
           <div className={styles.title_container}>
             <p className={styles.title}>Visual Studio Code 단축어 연습</p>
@@ -136,14 +140,14 @@ const ShortCut = () => {
             })}
           </div>
           {
-            visible ? 
-            <button className={styles.enter_btn} onClick={changeButton}>
-                입력 완료
-            </button>
-            :
+            visible && 
             <div className={styles.btn_container}>
                 <button className={styles.retry_btn}>다시하기</button>
-                <button className={styles.next_btn} onClick={() => setCurrentKeyIdx(idx => idx + 1)}>
+                <button className={styles.next_btn} onClick={() => {
+                  setCurrentIdx(idx => idx + 1)
+                  setCurrentKeyIdx(idx => 0)
+                  setVisible(false)
+                }}>
                 넘어가기
                 </button>
             </div>
@@ -154,4 +158,4 @@ const ShortCut = () => {
   );
 };
 
-export default ShortCut;
+export default PracticeShortcut;

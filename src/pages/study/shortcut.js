@@ -4,11 +4,16 @@ import Navbar from '@/src/component/Navbar';
 import Progress from '@/src/component/Progress';
 import Sidebar from '@/src/component/Sidebar';
 import styles from '@/styles/Study.module.css';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { shortcuts } from '@/public/shortcuts';
 
 const StudyShortCut = (props) => {
-    const router = useRouter();
+    const [currentValue, setCurrentValue] = useState("단축키");
+    const [showOptions, setShowOptions] = useState(false);
+  
+    const handleOnChangeSelectValue = (e) => {
+      setCurrentValue(e.target.getAttribute("value"));
+    };
 
     return (
         <>  
@@ -18,10 +23,24 @@ const StudyShortCut = (props) => {
                 <div className={styles.right_container}>
                     <Progress/>
                     <div className={styles.menu_container}>
-                        <select className={styles.left_menu} onChange={() => router.push('/study/emmat')}>
-                            <option key='shortcut' selected>단축키</option>
-                            <option key='emmat'>단축어</option>
-                        </select>
+                        <div className={styles.select} onClick={() => {
+                                console.log(showOptions)
+                                setShowOptions(!showOptions)
+                            }}>
+                            <div className={styles.selected}>
+                                <div className={styles.label}>{currentValue}</div>
+                                {
+                                    showOptions ? 
+                                    <img className={styles.btn} src='/images/select_up.png' alt='up'/>
+                                    :
+                                    <img className={styles.btn} src='/images/select_down.png' alt='down'/>
+                                }
+                            </div>
+                            <div className={styles.option_container} style={{ display: showOptions ? 'block' : 'none'}}>
+                                <div className={styles.option} onClick={handleOnChangeSelectValue} value='단축키'>단축키</div>
+                                <a href='/study/emmat'><div className={styles.option} onClick={handleOnChangeSelectValue} value='단축어'>단축어</div></a>
+                            </div>
+                        </div>
                         <Menu isShortcut={true}/>
                     </div>
                     <div className={styles.content_container}>

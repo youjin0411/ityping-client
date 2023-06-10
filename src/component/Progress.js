@@ -23,8 +23,8 @@ const Progress = (props) => {
                 <CircularProgressbar value={28} text={`28%`} styles={buildStyles({
                     pathColor: '#6C5DD3',
                     textColor: '#FFFFFF',
-                    trailColor: '#F3EEFF',
-                })}/>;
+                    trailColor: '#F3EEFF'
+                })}/>
             </div>
         </div>
     );
