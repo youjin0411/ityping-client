@@ -4,6 +4,13 @@
     margin-top: 60px;
 }
 
+.right_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 1150px;
+}
+
 .title_container {
     display: flex;
     justify-content: center;
@@ -21,4 +28,122 @@ div .title:nth-child(1) {
 
 div .title:nth-child(2) {
     font-size: 14px;
+}
+
+.page_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65px;
+}
+
+.current_page {
+    color: #68BB93;
+}
+
+.line {
+    white-space: pre-wrap;
+    color: #C8C8C8;
+}
+ 
+.all_page {
+    color: #C8C8C8;
+}
+
+.card {
+    background-image: url('../public/images/practice_card.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 454px;
+    height: 248px;
+    margin-top: 11px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.03);
+}
+
+.bold {
+    font-size: 18px;
+    color: #4F4F4F;
+    font-weight: bold;
+}
+
+.text {
+   font-size: 18px;
+   color: #9D9D9D;
+}
+
+.card_content {
+    margin-top: 60px;
+}
+
+.input_container {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.input {
+    width: 58px;
+    height: 56px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #F3F3F3;
+    border: 0;
+    outline: none;
+    font-size: 17px;
+    text-align: center;
+}
+
+.disa_input {
+    width: 58px;
+    height: 56px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #c9c9c9;
+    border: 0;
+    outline: none;
+    font-size: 17px;
+    text-align: center;
+}
+
+.enter_btn {
+    width: 179px;
+    height: 41px;
+    margin-top: 40px;
+    border-radius: 8px;
+    background-color: #CAB0FF;
+    border: 0;
+    color: white;
+}
+
+.enter_btn:disabled {
+    background-color: #EBE1FF;
+}
+
+.btn_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 374px;
+    margin-top: 40px;
+}
+
+.retry_btn {
+    width: 179px;
+    height: 41px;
+    background-color: #F3F3F3;
+    color: #656565;
+    border-radius: 8px;
+    border: 0;
+}
+
+.next_btn {
+    width: 179px;
+    height: 41px;
+    background-color: #CAB0FF;
+    color: white;
+    border-radius: 8px;
+    border: 0;
 }

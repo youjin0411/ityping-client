@@ -5,6 +5,7 @@ import Progress from '@/src/component/Progress';
 import Sidebar from '@/src/component/Sidebar';
 import styles from '@/styles/Study.module.css';
 import { useRouter } from 'next/router';
+import { emmats } from '@/public/emmats';
 
 const StudyEmmat = (props) => {
     const router = useRouter();
@@ -13,7 +14,7 @@ const StudyEmmat = (props) => {
         <>
             <Navbar/>
             <div className={styles.container}>
-                <Sidebar title='단축키 학습' image='/images/study.png'/>
+                <Sidebar isStudy={false} isSelected={true}/>
                 <div className={styles.right_container}>
                     <Progress/>
                     <div className={styles.menu_container}>
@@ -21,19 +22,10 @@ const StudyEmmat = (props) => {
                             <option key='shortcut'>단축키</option>
                             <option key='emmat' selected>단축어</option>
                         </select>
-                        <Menu/>
+                        <Menu/> 
                     </div>
                     <div className={styles.content_container}>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
-                        <Card title='.클래스명' content='클래스명을 가진 div 태그를 만들어준다.' example='.container'/>
+                        {emmats.map((e) => <Card title={e.emmat} content={e.description} example={e.example}/>)}
                     </div>
                 </div>
             </div>

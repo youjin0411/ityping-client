@@ -15,7 +15,7 @@ const Card = (props) => {
             <div className={styles.content}>
                 {props.content}
             </div>
-            {props.example ? <div className={styles.example}>ex) {props.example}</div> : ''}
+            {props.example ? <pre className={styles.example}>ex) {props.example}</pre> : ''}
         </div>
     );
 }
