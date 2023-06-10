@@ -2,8 +2,10 @@ import styles from "@/styles/Login.module.css";
 import React, { useState } from "react";
 import axios from 'axios';
 import Navbar from "../component/Navbar";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
   const [id, setId] = useState("");
   const [pw, setPw] = useState(""); 
 
@@ -24,13 +26,9 @@ const Login = () => {
         email: id,
         password: pw
       });
-      // // 로그인 성공 시 처리
-      // console.log("로그인 성공:", response.data);
-      if (response.status === 200) {
-        const data = response.data;
-        console.log(data.message);
-      } else {
-        console.error("회원가입에 실패했습니다.");
+      if(response) {
+        alert("로그인에 성공하셨습니다.")
+        router.push('/')
       }
     } catch (error) {
       console.error("로그인 중 오류 발생:", error.message);
@@ -39,6 +37,7 @@ const Login = () => {
 
   return (
     <>
+    <Navbar/>
       <div className={styles.container}>
         <h1 className={styles.welcome}>Welcome!</h1>
         <p className={styles.text}>STUDY KEY 로그인하기</p>

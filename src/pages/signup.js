@@ -1,9 +1,11 @@
 import styles from "@/styles/SignUp.module.css";
 import axios from 'axios';
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Navbar from "../component/Navbar";
 
 const SignUp = () => {
+  const router = useRouter();
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [nickname, setNickname] = useState("");
@@ -20,19 +22,18 @@ const SignUp = () => {
     setNickname(e.target.value);
   };
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
     try {
       const response = await axios.post("/api/signup", {
         email: id,
         password: pw,
         nickname: nickname
       });
-
-      if (response.status === 200) {
-        const data = response.data;
-        console.log(data.message);
-      } else {
-        console.error("회원가입에 실패했습니다.");
+      if(response) {
+        alert("성공")
+        router.push('/login')
       }
     } catch (error) {
       console.error("회원가입 중 오류 발생:", error);
@@ -41,6 +42,7 @@ const SignUp = () => {
 
   return (
     <>
+    <Navbar/>
       <div className={styles.container}>
         <h1 className={styles.welcome}>Welcome!</h1>
         <p className={styles.text}>STUDY KEY 회원가입하기</p>
