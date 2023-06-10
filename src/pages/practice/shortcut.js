@@ -8,10 +8,7 @@ const PracticeShortcut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
-  
-  const changeButton = () => {
-    setVisible(!visible);
-  }
+  const [complete, setComplete] = useState(false);
 
   useEffect(() => {
     const handler = (e) => {
@@ -55,7 +52,6 @@ const PracticeShortcut = () => {
     )
   }
 
-  console.log(visible)
   return (
     <>
       <Navbar />
@@ -74,8 +70,7 @@ const PracticeShortcut = () => {
           <div className={styles.card}>
             <div className={styles.card_title}>
               {shortcut.combination.map((c, idx) => {
-                if(c === shortcut.combination[currentKeyIdx]) {
-                  console.log(styles)
+                if(idx === currentKeyIdx) {
                   return <>
                     <span className={styles.bold}>{
                       (() => {
@@ -83,9 +78,12 @@ const PracticeShortcut = () => {
                           case 'Control' : return 'Ctrl';
                           case 'ArrowUp' : return '↑';
                           case 'ArrowLeft' : return '←';
+                          case 'Tab': return 'Tab';
+                          case 'Alt': return 'Alt';
+                          case 'Shift': return 'Shift';
                           default : return c.toUpperCase();
                         }
-                      })()
+                      })
                     }</span>
                     {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                   </>
@@ -97,9 +95,12 @@ const PracticeShortcut = () => {
                           case 'Control' : return 'Ctrl';
                           case 'ArrowUp' : return '↑';
                           case 'ArrowLeft' : return '←';
+                          case 'Tab': return 'Tab';
+                          case 'Alt': return 'Alt';
+                          case 'Shift': return 'Shift';
                           default : return c.toUpperCase();
                         }
-                      })()}</span>
+                      })}</span>
                     {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                   </>
                 }
@@ -109,32 +110,77 @@ const PracticeShortcut = () => {
           </div>
           <div className={styles.input_container}>
             {shortcut.combination.map((c, idx) => {
-              if(c <= shortcut.combination[currentKeyIdx]) {
+              console.log("c: ", c);
+              console.log("idx: ", idx);
+              console.log("currentKeyIdx: ", currentKeyIdx);
+              console.log("comb: ", shortcut.combination[currentKeyIdx]);
+              if (idx === 0 && currentKeyIdx === 0) {
+                setComplete(true);
+
                 return <>
-                  <div className={styles.disa_input}>{
+                  <span className={styles.input}>{
                     (() => {
                       switch(c) {
                         case 'Control' : return 'Ctrl';
                         case 'ArrowUp' : return '↑';
                         case 'ArrowLeft' : return '←';
+                        case 'Tab': return 'Tab';
+                        case 'Alt': return 'Alt';
+                        case 'Shift': return 'Shift';
                         default : return c.toUpperCase();
                       }
-                    })()
-                  }</div>
-                  {idx === shortcut.combination.length - 1 ? null : <div className={styles.text}> + </div>}
+                    })}</span>
+                  {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
+                </>
+              } else if(c === shortcut.combination[currentKeyIdx-1]) {
+                return <>
+                  <span className={styles.disa_input}>{
+                    (() => {
+                      switch(c) {
+                        case 'Control' : return 'Ctrl';
+                        case 'ArrowUp' : return '↑';
+                        case 'ArrowLeft' : return '←';
+                        case 'Tab': return 'Tab';
+                        case 'Alt': return 'Alt';
+                        case 'Shift': return 'Shift';
+                        default : return c.toUpperCase();
+                      }
+                    })
+                  }</span>
+                  {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
+                </>
+              } else if(complete) {
+                return <>
+                  <span className={styles.disa_input}>{
+                    (() => {
+                      switch(c) {
+                        case 'Control' : return 'Ctrl';
+                        case 'ArrowUp' : return '↑';
+                        case 'ArrowLeft' : return '←';
+                        case 'Tab': return 'Tab';
+                        case 'Alt': return 'Alt';
+                        case 'Shift': return 'Shift';
+                        default : return c.toUpperCase();
+                      }
+                    })
+                  }</span>
+                  {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                 </>
               } else {
                 return <>
-                  <div className={styles.input}>{
+                  <span className={styles.input}>{
                     (() => {
                       switch(c) {
                         case 'Control' : return 'Ctrl';
                         case 'ArrowUp' : return '↑';
                         case 'ArrowLeft' : return '←';
+                        case 'Tab': return 'Tab';
+                        case 'Alt': return 'Alt';
+                        case 'Shift': return 'Shift';
                         default : return c.toUpperCase();
                       }
-                    })()}</div>
-                  {idx === shortcut.combination.length - 1 ? null : <div className={styles.text}>+</div>}
+                    })}</span>
+                  {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                 </>
               }
             })}
