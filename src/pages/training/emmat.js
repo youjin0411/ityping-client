@@ -4,7 +4,7 @@ import styles from '@/styles/Emmat.module.css';
 import { emmats } from '@/public/emmats';
 import { useEffect, useState } from 'react';
 
-const PracticeEmmat = (props) => {
+const TrainingEmmat = (props) => {
     const [currentIdx, setCurrentIdx] = useState(0);
     const [visible, setVisible] = useState(1);
     const [isDisable, setIsDisable] = useState(0);
@@ -46,13 +46,12 @@ const PracticeEmmat = (props) => {
                         <div className={styles.line}> | </div>
                         <div className={styles.all_page}>{emmats.length}</div>
                     </div>
-                    <div className={styles.card} style={{backgroundImage: "url('/images/practice_card.png')"}}>
-                        <div className={styles.card_title}>{emmat.emmat}</div>
+                    <div className={styles.card}>
                         <div className={styles.card_content}>{emmat.description}</div>
                     </div>
                     <div className={styles.input_container}>
                         <label className={styles.text}>연습</label>
-                        <input className={styles.input} disabled={isDisable} value={text} placeholder={emmats[currentIdx].emmat} onChange={handlerEmmat}/>
+                        <input className={styles.input} disabled={isDisable} value={text} onChange={handlerEmmat}/>
                     </div>
                     {
                     visible ? 
@@ -80,4 +79,4 @@ const PracticeEmmat = (props) => {
     );
 }
 
-export default PracticeEmmat;
+export default TrainingEmmat;
