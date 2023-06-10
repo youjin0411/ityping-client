@@ -1,10 +1,10 @@
 import Navbar from '@/src/component/Navbar';
 import Sidebar from '@/src/component/Sidebar';
-import styles from '@/styles/ShortCut.module.css';
+import styles from '@/styles/PracticeShortcut.module.css';
 import { shortcuts } from '@/public/shortcuts';
 import { useEffect, useState } from 'react';
 
-const ShortCut = () => {
+const PracticeShortcut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -154,4 +154,4 @@ const ShortCut = () => {
   );
 };
 
-export default ShortCut;
+export default PracticeShortcut;

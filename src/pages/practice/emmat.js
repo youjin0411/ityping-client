@@ -1,10 +1,10 @@
 import Navbar from '@/src/component/Navbar';
 import Sidebar from '@/src/component/Sidebar';
-import styles from '@/styles/Emmat.module.css';
+import styles from '@/styles/PracticeEmmat.module.css';
 import { emmats } from '@/public/emmats';
 import { useEffect, useState } from 'react';
 
-const PracEmmat = (props) => {
+const PracticeEmmat = (props) => {
     const [currentIdx, setCurrentIdx] = useState(0);
     const [visible, setVisible] = useState(1);
     const [isDisable, setIsDisable] = useState(0);
@@ -80,4 +80,4 @@ const PracEmmat = (props) => {
     );
 }
 
-export default PracEmmat;
+export default PracticeEmmat;
