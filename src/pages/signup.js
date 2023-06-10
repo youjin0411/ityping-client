@@ -1,4 +1,5 @@
 import styles from "@/styles/SignUp.module.css";
+import axios from 'axios';
 import React, { useState } from "react";
 import Navbar from "../component/Navbar";
 
@@ -19,13 +20,31 @@ const SignUp = () => {
     setNickname(e.target.value);
   };
 
+  const handleSignUp = async () => {
+    try {
+      const response = await axios.post("/api/signup", {
+        email: id,
+        password: pw,
+        nickname: nickname
+      });
+
+      if (response.status === 200) {
+        const data = response.data;
+        console.log(data.message);
+      } else {
+        console.error("회원가입에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("회원가입 중 오류 발생:", error);
+    }
+  };
+
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         <h1 className={styles.welcome}>Welcome!</h1>
-        <p className={styles.text}>ITyping 회원가입하기</p>
-        <form className={styles.form}>
+        <p className={styles.text}>STUDY KEY 회원가입하기</p>
+        <form className={styles.form} onSubmit={handleSignUp}>
           <label className={styles.label}>Email</label>
           <input
             className={styles.input}
@@ -50,16 +69,15 @@ const SignUp = () => {
           />
           <button
             className={styles.sign_up_btn}
-            disabled={
-              id.length === 0 || pw.length === 0 || nickname.length === 0
-            }
+            disabled={id.length === 0 || pw.length === 0 || nickname.length === 0}
+            type="submit"
           >
             회원가입
           </button>
         </form>
         <div className={styles.or}>OR</div>
         <button className={styles.google_btn}>
-          <img className={styles.google_img} src="/images/google.png" />
+          <img className={styles.google_img} src="/images/google.png" alt="Google" />
           Sign Up with Google
         </button>
       </div>

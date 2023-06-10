@@ -1,10 +1,11 @@
 import styles from "@/styles/Login.module.css";
 import React, { useState } from "react";
+import axios from 'axios';
 import Navbar from "../component/Navbar";
 
 const Login = () => {
   const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
+  const [pw, setPw] = useState(""); 
 
   const handleIdChange = (e) => {
     setId(e.target.value);
@@ -14,13 +15,34 @@ const Login = () => {
     setPw(e.target.value);
   };
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      // 서버로 로그인 요청을 보냄
+      const response = await axios.post("/api/login", {
+        email: id,
+        password: pw
+      });
+      // // 로그인 성공 시 처리
+      // console.log("로그인 성공:", response.data);
+      if (response.status === 200) {
+        const data = response.data;
+        console.log(data.message);
+      } else {
+        console.error("회원가입에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("로그인 중 오류 발생:", error.message);
+    }
+  };
+
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         <h1 className={styles.welcome}>Welcome!</h1>
-        <p className={styles.text}>ITyping 로그인하기</p>
-        <form className={styles.form}>
+        <p className={styles.text}>STUDY KEY 로그인하기</p>
+        <form className={styles.form} onSubmit={handleLogin}>
           <label className={styles.label}>Email</label>
           <input
             className={styles.input}
@@ -38,6 +60,7 @@ const Login = () => {
           <button
             className={styles.login_btn}
             disabled={id.length === 0 || pw.length === 0}
+            type="submit"
           >
             로그인
           </button>
@@ -51,5 +74,4 @@ const Login = () => {
     </>
   );
 };
-
 export default Login;
