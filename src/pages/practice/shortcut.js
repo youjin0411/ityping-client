@@ -9,7 +9,7 @@ const PracticeShortcut = () => {
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
   const [complete, setComplete] = useState(false);
-  
+
   useEffect(() => {
     const handler = (e) => {
       if(!visible) {
@@ -21,9 +21,13 @@ const PracticeShortcut = () => {
             setVisible(!visible);
           }
           setCurrentKeyIdx(idx => {
-            if(idx + 1 === shortcuts[currentIdx].combination.length) {
-              e.preventDefault();
+            if(idx === -1) {
+              setComplete(true);
               return 0;
+            } else if(idx + 1 === shortcuts[currentIdx].combination.length) {
+              e.preventDefault();
+              setComplete(true);
+              return -1;
             } else {
               return idx + 1;
             } 
@@ -51,7 +55,7 @@ const PracticeShortcut = () => {
       </div>
     )
   }
-
+  
   return (
     <>
       <Navbar />
@@ -109,13 +113,43 @@ const PracticeShortcut = () => {
           </div>
           <div className={styles.input_container}>
             {shortcut.combination.map((c, idx) => {
-              console.log("c: ", c);
-              console.log("idx: ", idx);
-              console.log("currentKeyIdx: ", currentKeyIdx);
-              console.log("comb: ", shortcut.combination[currentKeyIdx]);
-              console.log("complete: ", complete);
-              if (idx === 0 && currentKeyIdx === 0) {
-                
+              console.log("currentIdx: ", currentKeyIdx);
+              console.log("idx: ", idx)
+              console.log("check: ", complete)
+              if (currentKeyIdx === 2 && idx === 0) {
+                return <>
+                  <span className={styles.disa_input}>{
+                    (() => {
+                      switch(c) {
+                        case 'Control' : return 'Ctrl';
+                        case 'ArrowUp' : return '↑';
+                        case 'ArrowLeft' : return '←';
+                        case 'Tab': return 'Tab';
+                        case 'Alt': return 'Alt';
+                        case 'Shift': return 'Shift';
+                        default : return c.toUpperCase();
+                      }
+                    })()}</span>
+                  {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
+                </>
+              }
+              else if (complete) {
+                return <>
+                  <span className={styles.disa_input}>{
+                    (() => {
+                      switch(c) {
+                        case 'Control' : return 'Ctrl';
+                        case 'ArrowUp' : return '↑';
+                        case 'ArrowLeft' : return '←';
+                        case 'Tab': return 'Tab';
+                        case 'Alt': return 'Alt';
+                        case 'Shift': return 'Shift';
+                        default : return c.toUpperCase();
+                      }
+                    })()}</span>
+                  {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
+                </>
+              } else if(idx === currentKeyIdx) {
                 return <>
                   <span className={styles.input}>{
                     (() => {
@@ -169,12 +203,17 @@ const PracticeShortcut = () => {
           {
             visible && 
             <div className={styles.btn_container}>
-                <button className={styles.retry_btn}>다시하기</button>
+                <button className={styles.retry_btn} onClick={() => {
+                  setCurrentIdx(idx => idx);
+                  setCurrentKeyIdx(idx => 0);
+                  setVisible(false);
+                  setComplete(false);
+                }}>다시하기</button>
                 <button className={styles.next_btn} onClick={() => {
                   setCurrentIdx(idx => idx + 1);
                   setCurrentKeyIdx(idx => 0);
                   setVisible(false);
-                  setComplete(false)
+                  setComplete(false);
                 }}>
                 넘어가기
                 </button>
