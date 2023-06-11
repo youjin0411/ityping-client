@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import Navbar from "../component/Navbar";
 import { useRouter } from "next/router";
+import Cookies from 'js-cookie';
 
 const Login = () => {
   const router = useRouter();
@@ -26,8 +27,14 @@ const Login = () => {
         email: id,
         password: pw
       });
+      // 성공 후 응답이 있다면 
       if(response) {
-        alert("로그인에 성공하셨습니다.")
+        const cookie = response.data
+        alert(cookie.message) //로그인 성공 출력
+        // user 정보를 쿠키로 저장
+        Cookies.set('email', cookie.user.email);
+        Cookies.set('pw', cookie.user.pw);
+        Cookies.set('nickname', cookie.user.nickname);
         router.push('/')
       }
     } catch (error) {
