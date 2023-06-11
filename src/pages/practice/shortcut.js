@@ -129,7 +129,7 @@ const PracticeShortcut = () => {
                         case 'Shift': return 'Shift';
                         default : return c.toUpperCase();
                       }
-                    })}</span>
+                    })()}</span>
                   {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                 </>
               } else if(c === shortcut.combination[currentKeyIdx-1]) {
@@ -145,25 +145,7 @@ const PracticeShortcut = () => {
                         case 'Shift': return 'Shift';
                         default : return c.toUpperCase();
                       }
-                    })
-                  }</span>
-                  {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                </>
-              } else if(complete) {
-                return <>
-                  <span className={styles.disa_input}>{
-                    (() => {
-                      switch(c) {
-                        case 'Control' : return 'Ctrl';
-                        case 'ArrowUp' : return '↑';
-                        case 'ArrowLeft' : return '←';
-                        case 'Tab': return 'Tab';
-                        case 'Alt': return 'Alt';
-                        case 'Shift': return 'Shift';
-                        default : return c.toUpperCase();
-                      }
-                    })
-                  }</span>
+                    })()}</span>
                   {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                 </>
               } else {
@@ -179,7 +161,7 @@ const PracticeShortcut = () => {
                         case 'Shift': return 'Shift';
                         default : return c.toUpperCase();
                       }
-                    })}</span>
+                    })()}</span>
                   {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                 </>
               }
@@ -190,9 +172,10 @@ const PracticeShortcut = () => {
             <div className={styles.btn_container}>
                 <button className={styles.retry_btn}>다시하기</button>
                 <button className={styles.next_btn} onClick={() => {
-                  setCurrentIdx(idx => idx + 1)
-                  setCurrentKeyIdx(idx => 0)
-                  setVisible(false)
+                  setCurrentIdx(idx => idx + 1);
+                  setCurrentKeyIdx(idx => 0);
+                  setVisible(false);
+                  setComplete(false)
                 }}>
                 넘어가기
                 </button>
