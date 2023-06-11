@@ -48,7 +48,7 @@ const PracticeShortcut = () => {
   return (
     <>
       {currentIdx === shortcuts.length-1 ? <Modal title="Visual Studio Code 단축키 연습"/> : ""}
-      <div style={currentIdx === shortcuts.length-1 ? {width: "100%", height: "100%", backgroundColor: "#D9D9D9", opacity: "50%"} : ""}>
+      <div style={currentIdx === shortcuts.length-1 ? {width: "100%", height: "100%", backgroundColor: "#D9D9D9", opacity: "50%"} : null}>
         <Navbar/>
         <div className={styles.container}>
         <Sidebar isStudy={true} isSelected={true}/>
@@ -62,7 +62,7 @@ const PracticeShortcut = () => {
               <div className={styles.line}> | </div>
               <div className={styles.all_page}>{shortcuts.length}</div>
             </div>
-            <div className={styles.card}>
+            <div className={styles.card} style={{backgroundImage: "url('/images/practice_card.png')"}}>
               <div className={styles.card_title}>
                 {shortcut.combination.map((c, idx) => {
                   if(idx === currentKeyIdx) {
