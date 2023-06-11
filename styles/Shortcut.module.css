@@ -52,7 +52,6 @@ div .title:nth-child(2) {
 }
 
 .card {
-    background-image: url('../public/images/practice_card.png');
     display: flex;
     flex-direction: column;
     align-items: center;

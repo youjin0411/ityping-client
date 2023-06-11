@@ -62,7 +62,7 @@ const PracticeShortcut = () => {
               <div className={styles.line}> | </div>
               <div className={styles.all_page}>{shortcuts.length}</div>
             </div>
-            <div className={styles.card}>
+            <div className={styles.card} style={{backgroundImage: "url('/images/practice_card.png')"}}>
               <div className={styles.card_title}>
                 {shortcut.combination.map((c, idx) => {
                   if(idx === currentKeyIdx) {
