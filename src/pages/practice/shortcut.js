@@ -9,7 +9,7 @@ const PracticeShortcut = () => {
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
   const [complete, setComplete] = useState(false);
-
+  
   useEffect(() => {
     const handler = (e) => {
       if(!visible) {
@@ -83,8 +83,7 @@ const PracticeShortcut = () => {
                           case 'Shift': return 'Shift';
                           default : return c.toUpperCase();
                         }
-                      })
-                    }</span>
+                      })()}</span>
                     {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                   </>
                 } else {
@@ -100,7 +99,7 @@ const PracticeShortcut = () => {
                           case 'Shift': return 'Shift';
                           default : return c.toUpperCase();
                         }
-                      })}</span>
+                      })()}</span>
                     {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
                   </>
                 }
@@ -114,9 +113,9 @@ const PracticeShortcut = () => {
               console.log("idx: ", idx);
               console.log("currentKeyIdx: ", currentKeyIdx);
               console.log("comb: ", shortcut.combination[currentKeyIdx]);
+              console.log("complete: ", complete);
               if (idx === 0 && currentKeyIdx === 0) {
-                setComplete(true);
-
+                
                 return <>
                   <span className={styles.input}>{
                     (() => {
