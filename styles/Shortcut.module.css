@@ -115,6 +115,7 @@ div .title:nth-child(2) {
     border-radius: 8px;
     background-color: #CAB0FF;
     border: 0;
+    outline: none;
     color: white;
 }
 
@@ -137,6 +138,7 @@ div .title:nth-child(2) {
     color: #656565;
     border-radius: 8px;
     border: 0;
+    outline: 0;
 }
 
 .next_btn {
@@ -146,4 +148,5 @@ div .title:nth-child(2) {
     color: white;
     border-radius: 8px;
     border: 0;
+    outline: 0;
 }

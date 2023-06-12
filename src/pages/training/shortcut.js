@@ -9,49 +9,51 @@ const TrainingShortcut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
-  const [complete, setComplete] = useState(false);
-  const [pressed, setPressed] = useState([]);
-
-  // TODO: 
-  // 1. shortcuts[currentIdx].combination.length 크기만큼 pressed 배열 초기화
-  // 2. 키가 눌러졌을 때 pressed[currentKeyIdx]에 입력된 키 값 push
-  // 3. 입력완료 버튼을 누르면 pressed[currentKeyIdx] 와 shortcuts[currentIdx].combination[currentKeyIdx] 비교
-  // 4. 같으면 input_container 배경 초록색, 다르면 배경 빨간색 후 흔들리는 모션 추가
-  // 끗 
+  const [pressed, setPressed] = useState(Array(shortcuts[currentIdx]?.combination.length).fill(''));
+  const [correct, setCorrect] = useState({"backgroundColor" : "#c9c9c9"});
 
   useEffect(() => {
     const handler = (e) => {
-      if(!visible) {
-        if(e.key === shortcuts[currentIdx].combination[currentKeyIdx]) {
-          if(e.key === 'Alt' || e.key === 'Tab') {
-            e.preventDefault();
-          }
-          if(e.key === shortcuts[currentIdx].combination[shortcuts[currentIdx].combination.length-1]) {
-            setVisible(!visible);
-          }
-          setCurrentKeyIdx(idx => {
-            if(idx === -1) {
-              setComplete(true);
-              return 0;
-            } else if(idx + 1 === shortcuts[currentIdx].combination.length) {
-              e.preventDefault();
-              setComplete(true);
-              return -1;
-            } else {
-              return idx + 1;
-            } 
-          })
+      if (!visible && currentKeyIdx !== -1) {
+        if (e.key === 'Alt' || e.key === 'Tab') {
+          e.preventDefault();
         }
+        setCurrentKeyIdx((idx) => {
+          if (idx + 1 === shortcuts[currentIdx].combination.length) {
+            e.preventDefault();
+            return -1;
+          } else {
+            return idx + 1;
+          }
+        });
+    
+        setPressed((prevPressed) => {
+          const newPressed = [...prevPressed];
+          newPressed[currentKeyIdx] = e.key;
+          return newPressed;
+        });
+      }
+    };
+    window.addEventListener('keydown', handler);
+
+    return () => {
+      window.removeEventListener('keydown', handler);
+    };
+  }, [currentIdx, currentKeyIdx, visible]);
+
+  const shortcut = shortcuts[currentIdx];
+  const isCorrect = () => {
+    let isAllCorrect = true;
+
+    for (let i = 0; i < shortcut.combination.length; i++) {
+      if (shortcut.combination[i] !== pressed[i]) {
+        isAllCorrect = false;
+        break;
       }
     }
-    window.addEventListener("keydown", handler);
-    
-    return () => {
-      window.removeEventListener("keydown", handler);
-    } 
-  }, [currentIdx, currentKeyIdx]);
-  
-  const shortcut = shortcuts[currentIdx];
+
+    isAllCorrect ? setCorrect({"backgroundColor" : "#C9EEDC"}) : setCorrect({"backgroundColor" : "#FFDDDD"});
+  }
 
   return (
     <>
@@ -75,108 +77,65 @@ const TrainingShortcut = () => {
             </div>
             <div className={styles.input_container}>
               {shortcut.combination.map((c, idx) => {
-                if (currentKeyIdx === 2 && idx === 0) {
-                  return <>
-                    <span className={styles.disa_input}>{
-                      (() => {
-                        switch(c) {
-                          case 'Control' : return 'Ctrl';
-                          case 'ArrowUp' : return '↑';
-                          case 'ArrowLeft' : return '←';
-                          case 'Tab': return 'Tab';
-                          case 'Alt': return 'Alt';
-                          case 'Shift': return 'Shift';
-                          default : return c.toUpperCase();
-                        }
-                      })()}</span>
-                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                  </>
-                }
-                else if (complete) {
-                  return <>
-                    <span className={styles.disa_input}>{
-                      (() => {
-                        switch(c) {
-                          case 'Control' : return 'Ctrl';
-                          case 'ArrowUp' : return '↑';
-                          case 'ArrowLeft' : return '←';
-                          case 'Tab': return 'Tab';
-                          case 'Alt': return 'Alt';
-                          case 'Shift': return 'Shift';
-                          default : return c.toUpperCase();
-                        }
-                      })()}</span>
-                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                  </>
-                } else if(idx === currentKeyIdx) {
-                  return <>
-                    <span className={styles.input}>{
-                      (() => {
-                        switch(c) {
-                          case 'Control' : return 'Ctrl';
-                          case 'ArrowUp' : return '↑';
-                          case 'ArrowLeft' : return '←';
-                          case 'Tab': return 'Tab';
-                          case 'Alt': return 'Alt';
-                          case 'Shift': return 'Shift';
-                          default : return c.toUpperCase();
-                        }
-                      })()}</span>
-                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                  </>
-                } else if(c === shortcut.combination[currentKeyIdx-1]) {
-                  return <>
-                    <span className={styles.disa_input}>{
-                      (() => {
-                        switch(c) {
-                          case 'Control' : return 'Ctrl';
-                          case 'ArrowUp' : return '↑';
-                          case 'ArrowLeft' : return '←';
-                          case 'Tab': return 'Tab';
-                          case 'Alt': return 'Alt';
-                          case 'Shift': return 'Shift';
-                          default : return c.toUpperCase();
-                        }
-                      })()}</span>
-                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                  </>
+                if(currentKeyIdx > -1) {
+                  console.log("idx: ", idx);
+                  console.log("c: ", currentKeyIdx);
+                  return (
+                    <>
+                      <span className={styles.input}>{
+                        (() => {
+                          switch(pressed[idx]) {
+                            case 'Control' : return 'Ctrl';
+                            case 'ArrowUp' : return '↑';
+                            case 'ArrowLeft' : return '←';
+                            case 'Tab': return 'Tab';
+                            case 'Alt': return 'Alt';
+                            case 'Shift': return 'Shift';
+                            default : return pressed[idx].toUpperCase();
+                          }
+                        })()}</span>
+                      {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
+                    </>
+                  );
                 } else {
-                  return <>
-                    <span className={styles.input}>{
-                      (() => {
-                        switch(c) {
-                          case 'Control' : return 'Ctrl';
-                          case 'ArrowUp' : return '↑';
-                          case 'ArrowLeft' : return '←';
-                          case 'Tab': return 'Tab';
-                          case 'Alt': return 'Alt';
-                          case 'Shift': return 'Shift';
-                          default : return c.toUpperCase();
-                        }
-                      })()}</span>
-                    {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                  </>
+                  return (
+                    <>
+                      <span className={styles.disa_input} style={correct}>{
+                        (() => {
+                          switch(pressed[idx]) {
+                            case 'Control' : return 'Ctrl';
+                            case 'ArrowUp' : return '↑';
+                            case 'ArrowLeft' : return '←';
+                            case 'Tab': return 'Tab';
+                            case 'Alt': return 'Alt';
+                            case 'Shift': return 'Shift';
+                            default : return pressed[idx].toUpperCase();
+                          }
+                        })()}</span>
+                      {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
+                    </>
+                  );
                 }
               })}
             </div>
             {
-              visible && 
-              <div className={styles.btn_container}>
-                  <button className={styles.retry_btn} onClick={() => {
-                    setCurrentIdx(idx => idx);
-                    setCurrentKeyIdx(idx => 0);
-                    setVisible(false);
-                    setComplete(false);
-                  }}>다시하기</button>
-                  <button className={styles.next_btn} onClick={() => {
-                    setCurrentIdx(idx => idx + 1);
-                    setCurrentKeyIdx(idx => 0);
-                    setVisible(false);
-                    setComplete(false);
-                  }}>
-                  넘어가기
-                  </button>
-              </div>
+              !visible ? 
+              <button className={styles.enter_btn} onClick={() => {
+                setVisible(true);
+                isCorrect();
+              }}>
+                압력완료
+              </button>
+              :
+              <button className={styles.next_btn} style={{marginTop: "40px"}} onClick={() => {
+                setCurrentIdx(idx => idx + 1);
+                setCurrentKeyIdx(idx => 0);
+                setVisible(false);
+                setCorrect({"backgroundColor" : "#c9c9c9"});
+                setPressed(Array(shortcuts[currentIdx]?.combination.length).fill(''));
+              }}>
+              넘어가기
+              </button>
             }
           </div>
         </div>
