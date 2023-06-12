@@ -63,43 +63,6 @@ const TrainingShortcut = () => {
               <div className={styles.all_page}>{shortcuts.length}</div>
             </div>
             <div className={styles.card} style={{backgroundImage: "url('/images/training_card.png')"}}>
-              <div className={styles.card_title}>
-                {shortcut.combination.map((c, idx) => {
-                  if(idx === currentKeyIdx) {
-                    return <>
-                      <span className={styles.bold}>{
-                        (() => {
-                          switch(c) {
-                            case 'Control' : return 'Ctrl';
-                            case 'ArrowUp' : return '↑';
-                            case 'ArrowLeft' : return '←';
-                            case 'Tab': return 'Tab';
-                            case 'Alt': return 'Alt';
-                            case 'Shift': return 'Shift';
-                            default : return c.toUpperCase();
-                          }
-                        })()}</span>
-                      {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                    </>
-                  } else {
-                    return <>
-                      <span className={styles.text}>{
-                        (() => {
-                          switch(c) {
-                            case 'Control' : return 'Ctrl';
-                            case 'ArrowUp' : return '↑';
-                            case 'ArrowLeft' : return '←';
-                            case 'Tab': return 'Tab';
-                            case 'Alt': return 'Alt';
-                            case 'Shift': return 'Shift';
-                            default : return c.toUpperCase();
-                          }
-                        })()}</span>
-                      {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                    </>
-                  }
-                })}
-              </div>
               <div className={styles.card_content}>{shortcut.description}</div>
             </div>
             <div className={styles.input_container}>
