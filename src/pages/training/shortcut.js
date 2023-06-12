@@ -10,6 +10,14 @@ const TrainingShortcut = () => {
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
   const [complete, setComplete] = useState(false);
+  const [pressed, setPressed] = useState([]);
+
+  // TODO: 
+  // 1. shortcuts[currentIdx].combination.length 크기만큼 pressed 배열 초기화
+  // 2. 키가 눌러졌을 때 pressed[currentKeyIdx]에 입력된 키 값 push
+  // 3. 입력완료 버튼을 누르면 pressed[currentKeyIdx] 와 shortcuts[currentIdx].combination[currentKeyIdx] 비교
+  // 4. 같으면 input_container 배경 초록색, 다르면 배경 빨간색 후 흔들리는 모션 추가
+  // 끗 
 
   useEffect(() => {
     const handler = (e) => {
@@ -63,43 +71,6 @@ const TrainingShortcut = () => {
               <div className={styles.all_page}>{shortcuts.length}</div>
             </div>
             <div className={styles.card} style={{backgroundImage: "url('/images/training_card.png')"}}>
-              <div className={styles.card_title}>
-                {shortcut.combination.map((c, idx) => {
-                  if(idx === currentKeyIdx) {
-                    return <>
-                      <span className={styles.bold}>{
-                        (() => {
-                          switch(c) {
-                            case 'Control' : return 'Ctrl';
-                            case 'ArrowUp' : return '↑';
-                            case 'ArrowLeft' : return '←';
-                            case 'Tab': return 'Tab';
-                            case 'Alt': return 'Alt';
-                            case 'Shift': return 'Shift';
-                            default : return c.toUpperCase();
-                          }
-                        })()}</span>
-                      {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                    </>
-                  } else {
-                    return <>
-                      <span className={styles.text}>{
-                        (() => {
-                          switch(c) {
-                            case 'Control' : return 'Ctrl';
-                            case 'ArrowUp' : return '↑';
-                            case 'ArrowLeft' : return '←';
-                            case 'Tab': return 'Tab';
-                            case 'Alt': return 'Alt';
-                            case 'Shift': return 'Shift';
-                            default : return c.toUpperCase();
-                          }
-                        })()}</span>
-                      {idx === shortcut.combination.length - 1 ? null : <span className={styles.text}> + </span>}
-                    </>
-                  }
-                })}
-              </div>
               <div className={styles.card_content}>{shortcut.description}</div>
             </div>
             <div className={styles.input_container}>
