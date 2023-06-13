@@ -1,0 +1,122 @@
+.container {
+    width: 1420px;
+    margin: 0 auto;
+    display: flex;   
+}
+
+.text {
+    color: #4F4F4F;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn_container1 {
+    display: flex;
+    margin-top: 19px;
+}
+
+.profile_btn {
+    width: 280px;
+    height: 43px;
+    padding: 10px 13px;
+    background-color: #6C5DD3;
+    color: #FDFDFD;
+    border: 0;
+    border-radius: 10px;
+    text-align: start;
+}
+
+.record_btn {
+    width: 280px;
+    height: 43px;
+    margin-left: 15px;
+    padding: 10px 13px;
+    background-color: white;
+    color: #B4B4B4;
+    border: 0;
+    border-radius: 10px;
+    text-align: start;
+}
+
+.record_btn:hover {
+    background-color: #E0DDF4;
+    transition: all 0.5s;
+}
+
+.profile_container {
+    margin-top: 76px;
+    margin-bottom: 25px;
+}
+
+.profile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px; 
+}
+
+.edit_btn {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+.info_container {
+    width: 367px;
+    margin: 12px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input_container {
+    width: 278px;
+    height: 33px;
+    margin-right: -80px;
+    padding: 4px 18px;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+}
+
+.pw_container {
+    width: 278px;
+    height: 33px;
+    margin-right: -62px;
+    padding: 4px 18px;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+}
+
+.btn_container2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 263px;
+}
+
+.logout_btn {
+    width: 128px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    column-gap: 8px;
+    align-items: center;
+    padding: 10px;
+    padding-left: 13px;
+    background-color: #F6F6F6;
+    color: #4F4F4F;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 8px;
+}
+
+.quit_btn {
+    width: 128px;
+    height: 46px;
+    margin-top: 4px;
+    padding: 10px 13px;
+    background-color: #F6F6F6;
+    color: #FF5252;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 8px;
+    text-align: start;
+}
