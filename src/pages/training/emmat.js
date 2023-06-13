@@ -11,14 +11,17 @@ const TrainingEmmat = () => {
 	const [isDisable, setIsDisable] = useState(false);
 	const [text, setText] = useState('');
 	const [color, setColor] = useState('');
+	const [correct, setCorrect] = useState(false);
 	const emmat = emmats[currentIdx];
 
 	const handlerEmmat = e => {
 		setText(e.target.value);
 		if(e.target.value === emmats[currentIdx].emmat) {
 			setColor("#C9EEDC");
+			setCorrect(true);
 		} else {
 			setColor("#FFDDDD");
+			setCorrect(false);
 		}
 	}
 
@@ -53,6 +56,16 @@ const TrainingEmmat = () => {
 									setVisible(true);
 									setIsDisable(true);
 							}}>입력완료</button>
+							:
+							correct ? 
+							<button className={styles.next_btn}
+								style={{marginTop: "40px"}}
+								onClick={() => {
+									setText('');
+									setIsDisable(false);
+									setCurrentIdx(idx => idx + 1);
+									setVisible(false);	
+								}}>넘어가기</button>
 							:
 							<button className={styles.retry_btn}
 								style={{marginTop: "40px"}}

@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { emmats } from '@/public/emmats';
 
 const StudyEmmat = (props) => {
-    const [currentValue, setCurrentValue] = useState("단축키");
+    const [currentValue, setCurrentValue] = useState("단축어");
     const [showOptions, setShowOptions] = useState(false);
   
     const handleOnChangeSelectValue = (e) => {

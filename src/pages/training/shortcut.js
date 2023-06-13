@@ -127,15 +127,26 @@ const TrainingShortcut = () => {
                 압력완료
               </button>
               :
-              <button className={styles.next_btn} style={{marginTop: "40px"}} onClick={() => {
-                setCurrentIdx(idx => idx + 1);
-                setCurrentKeyIdx(idx => 0);
-                setVisible(false);
-                setCorrect({"backgroundColor" : "#c9c9c9"});
-                setPressed(Array(shortcuts[currentIdx]?.combination.length).fill(''));
-              }}>
-              넘어가기
-              </button>
+							correct.backgroundColor === "#C9EEDC"? 
+							<button className={styles.next_btn}
+								style={{marginTop: "40px"}}
+								onClick={() => {
+									setCurrentIdx(idx => idx + 1);
+                  setCurrentKeyIdx(idx => 0);
+                  setVisible(false);
+                  setCorrect({"backgroundColor" : "#c9c9c9"});
+                  setPressed(Array(shortcuts[currentIdx]?.combination.length).fill(''));
+								}}>넘어가기</button>
+							:
+							<button className={styles.retry_btn}
+								style={{marginTop: "40px"}}
+								onClick={() => {
+									setCurrentIdx(idx => idx + 1);
+                  setCurrentKeyIdx(idx => 0);
+                  setVisible(false);
+                  setCorrect({"backgroundColor" : "#c9c9c9"});
+                  setPressed(Array(shortcuts[currentIdx]?.combination.length).fill(''));
+								}}>나중에 한 번 더</button>
             }
           </div>
         </div>
