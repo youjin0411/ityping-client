@@ -4,12 +4,29 @@ import styles from '@/styles/Shortcut.module.css';
 import { shortcuts } from '@/public/shortcuts';
 import { useEffect, useState } from 'react';
 import Modal from '@/src/component/Modal';
+import JSConfetti from 'js-confetti';
 
 const PracticeShortcut = () => {
   const [currentIdx, setCurrentIdx] = useState(0); //데이터베이스에 보낼 %값    n/19
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
   const [complete, setComplete] = useState(false);
+
+  const [jsConfetti, setJsConfetti] = useState(null);
+  useEffect(() => {
+      setJsConfetti(new JSConfetti());
+  }, []);
+
+  const handler = () => {
+    console.log("dd")
+      jsConfetti.addConfetti({
+      confettiColors: [
+          "#CAB0FF"
+      ],
+      confettiNumber: 500,
+      });
+  }
+
 
   useEffect(() => {
     const handler = (e) => {
@@ -106,7 +123,7 @@ const PracticeShortcut = () => {
               {shortcut.combination.map((c, idx) => {
                 if (currentKeyIdx === 2 && idx === 0) {
                   return <>
-                    <span className={styles.disa_input}>{
+                    <span className={styles.disa_input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -123,7 +140,7 @@ const PracticeShortcut = () => {
                 }
                 else if (complete) {
                   return <>
-                    <span className={styles.disa_input}>{
+                    <span className={styles.disa_input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -139,7 +156,7 @@ const PracticeShortcut = () => {
                   </>
                 } else if(idx === currentKeyIdx) {
                   return <>
-                    <span className={styles.input}>{
+                    <span className={styles.input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -155,7 +172,7 @@ const PracticeShortcut = () => {
                   </>
                 } else if(c === shortcut.combination[currentKeyIdx-1]) {
                   return <>
-                    <span className={styles.disa_input}>{
+                    <span className={styles.disa_input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -171,7 +188,7 @@ const PracticeShortcut = () => {
                   </>
                 } else {
                   return <>
-                    <span className={styles.input}>{
+                    <span className={styles.input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -202,6 +219,7 @@ const PracticeShortcut = () => {
                     setCurrentKeyIdx(idx => 0);
                     setVisible(false);
                     setComplete(false);
+                    currentIdx === shortcuts.length-2 && handler();
                   }}>
                   넘어가기
                   </button>

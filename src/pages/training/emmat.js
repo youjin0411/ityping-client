@@ -4,6 +4,7 @@ import styles from '@/styles/Emmat.module.css';
 import { emmats } from '@/public/emmats';
 import { useState } from 'react';
 import Modal from '@/src/component/Modal';
+import JSConfetti from 'js-confetti';
 
 const TrainingEmmat = () => {
 	const [currentIdx, setCurrentIdx] = useState(0);
@@ -13,6 +14,21 @@ const TrainingEmmat = () => {
 	const [color, setColor] = useState('');
 	const [correct, setCorrect] = useState(false);
 	const emmat = emmats[currentIdx];
+
+	const [jsConfetti, setJsConfetti] = useState(null);
+  useEffect(() => {
+      setJsConfetti(new JSConfetti());
+  }, []);
+
+  const handler = () => {
+    console.log("dd")
+      jsConfetti.addConfetti({
+      confettiColors: [
+          "#CAB0FF"
+      ],
+      confettiNumber: 500,
+      });
+  }
 
 	const handlerEmmat = e => {
 		setText(e.target.value);
@@ -73,7 +89,8 @@ const TrainingEmmat = () => {
 									setText('');
 									setIsDisable(false);
 									setCurrentIdx(idx => idx + 1);
-									setVisible(false);	
+									setVisible(false);
+									currentIdx === shortcuts.length-2 && handler();
 								}}>나중에 한 번 더</button>
 						}
 						</div>

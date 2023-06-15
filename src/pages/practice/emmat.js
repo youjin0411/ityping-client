@@ -4,6 +4,7 @@ import styles from '@/styles/Emmat.module.css';
 import { emmats } from '@/public/emmats';
 import { useState } from 'react';
 import Modal from '@/src/component/Modal';
+import JSConfetti from 'js-confetti';
 
 const PracticeEmmat = () => {
 	const [currentIdx, setCurrentIdx] = useState(0); //데이터베이스에 보낼 %값    n/12
@@ -11,6 +12,21 @@ const PracticeEmmat = () => {
 	const [isDisable, setIsDisable] = useState(false);
 	const [text, setText] = useState('');
 	const emmat = emmats[currentIdx];
+
+	const [jsConfetti, setJsConfetti] = useState(null);
+  useEffect(() => {
+      setJsConfetti(new JSConfetti());
+  }, []);
+
+  const handler = () => {
+    console.log("dd")
+      jsConfetti.addConfetti({
+      confettiColors: [
+          "#CAB0FF"
+      ],
+      confettiNumber: 500,
+      });
+  }
 
 	const handlerEmmat = e => {
 		setText(e.target.value);
@@ -61,6 +77,7 @@ const PracticeEmmat = () => {
 									setIsDisable(false);
 									setCurrentIdx(idx => idx + 1);
 									setVisible(false);
+									currentIdx === shortcuts.length-2 && handler();
 								}
 							}>
 							넘어가기
