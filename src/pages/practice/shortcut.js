@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Modal from '@/src/component/Modal';
 
 const PracticeShortcut = () => {
-  const [currentIdx, setCurrentIdx] = useState(0);
+  const [currentIdx, setCurrentIdx] = useState(0); //데이터베이스에 보낼 %값    n/19
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
   const [complete, setComplete] = useState(false);

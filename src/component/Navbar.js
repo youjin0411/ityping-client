@@ -14,7 +14,9 @@ const Navbar = () => {
         if (response.ok) {
           const userData = await response.json();
           setUserData(userData); // 사용자 데이터 설정
-		  console.log(userData)
+		  localStorage.setItem('email', userData.email)
+		  localStorage.setItem('pw', userData.pw)
+		  localStorage.setItem('nickname', userData.nickname)
         } else {
           // 오류 처리
         }
@@ -36,8 +38,8 @@ const Navbar = () => {
 							<div className={styles.profile_container}>
 								<img className={styles.profile} src='/images/profile.png'/>
 								<div className={styles.user_container}>
-									<p className={styles.name}>Yiyoori</p>
-									<p className={styles.email}>d2133@e-mirim.hs.kr</p>
+									<p className={styles.name}>{userData.nickname}</p>
+									<p className={styles.email}>{userData.email}</p>
 								</div>
 							</div>
 						</a>

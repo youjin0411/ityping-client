@@ -2,32 +2,18 @@ import styles from '@/styles/MyPage.module.css';
 import Navbar from '../component/Navbar';
 import Sidebar from '../component/Sidebar';
 import { useRouter } from 'next/router';
-import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 
 const MyPage = () => {
-  const [user, setUser] = useState(null);
   const router = useRouter();
-
+  const [pw, setPw] = useState(null)
+  const [email, setId] = useState(null)
+  const [nickname, setNickname] = useState(null)
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch('/api/user', {
-          credentials: 'include', // 'connect.sid' 쿠키를 포함하도록 설정
-        });
-        if (response.ok) {
-          const userData = await response.json();
-          setUser(userData)
-        } else {
-          // 오류 처리
-        }
-      } catch (error) {
-        // 오류 처리
-      }
-    };
-  
-    fetchUserData();
-  }, []);
+    setId(localStorage.getItem('email'))
+    setPw(localStorage.getItem('pw'))
+    setNickname(localStorage.getItem('nickname'));
+  }, [])
   
   const handleLogout = async () => {
     try {
@@ -36,6 +22,7 @@ const MyPage = () => {
         credentials: 'include', // 'connect.sid' 쿠키를 포함하도록 설정
       });
       if (response.ok) {
+        localStorage.clear()
         router.replace('/');
       } else {
         // 오류 처리
@@ -62,7 +49,7 @@ const MyPage = () => {
           </div>
           <div className={styles.info_container}>
             <label className={styles.text}>닉네임</label>
-            {/* <div className={styles.input_container}>{user.email}</div>  */}
+            <div className={styles.input_container}>{ nickname }</div> 
             <button className={styles.edit_btn}><img src='/images/edit.png'/></button>
           </div>
           <div className={styles.info_container}>
@@ -72,7 +59,7 @@ const MyPage = () => {
           </div>
           <div className={styles.info_container}>
             <label className={styles.text}>이메일</label>
-            {/* <div className={styles.input_container}>{user.nickname}</div> */}
+            <div className={styles.input_container}>{email}</div>
             <button className={styles.edit_btn}><img src='/images/edit.png'/></button>
           </div>
           <div className={styles.btn_container2}>

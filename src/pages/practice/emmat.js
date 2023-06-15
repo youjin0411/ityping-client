@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Modal from '@/src/component/Modal';
 
 const PracticeEmmat = () => {
-	const [currentIdx, setCurrentIdx] = useState(0);
+	const [currentIdx, setCurrentIdx] = useState(0); //데이터베이스에 보낼 %값    n/12
 	const [visible, setVisible] = useState(false);
 	const [isDisable, setIsDisable] = useState(false);
 	const [text, setText] = useState('');
