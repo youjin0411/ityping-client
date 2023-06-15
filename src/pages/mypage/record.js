@@ -1,9 +1,9 @@
-import styles from '@/styles/MyPage.module.css';
-import Navbar from '../component/Navbar';
-import Sidebar from '../component/Sidebar';
+import styles from '@/styles/Record.module.css';
+import Navbar from '../../component/Navbar';
+import Sidebar from '../../component/Sidebar';
 import { useRouter } from 'next/router';
 
-const MyPage = () => {
+const Record = () => {
   const router = useRouter();
 
   return (
@@ -14,8 +14,8 @@ const MyPage = () => {
         <div>
           <p className={styles.text}>MY PAGE</p>
           <div className={styles.btn_container1}>
-            <button className={styles.profile_btn}>프로필</button>
-            <button className={styles.record_btn} onClick={() => router.push('/mypage/record')}>기록보기</button>
+            <button className={styles.profile_btn} onClick={() => router.push('/mypage')}>프로필</button>
+            <button className={styles.record_btn}>기록보기</button>
           </div>
           <div className={styles.profile_container}>
             <img className={styles.profile} src='/images/profile.png'/>
@@ -46,4 +46,4 @@ const MyPage = () => {
   );
 }
 
-export default MyPage;
+export default Record;
