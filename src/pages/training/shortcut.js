@@ -94,8 +94,6 @@ const TrainingShortcut = () => {
             <div className={styles.input_container}>
               {shortcut.combination.map((c, idx) => {
                 if(currentKeyIdx > -1) {
-                  console.log("idx: ", idx);
-                  console.log("c: ", currentKeyIdx);
                   return (
                     <>
                       <span className={styles.input} style={c === 'Shift' ? { width: "64px" } : null}>{
@@ -116,7 +114,9 @@ const TrainingShortcut = () => {
                 } else {
                   return (
                     <>
-                      <span className={styles.disa_input} style={{ backgroundColor, width: c === 'Shift' ? "64px" : null }}>{
+                      <span className={`${styles.disa_input} ${backgroundColor === '#FFDDDD' && styles.shake_animation}`}
+                        style={{ backgroundColor, width: c === 'Shift' ? "64px" : null }}
+                      >{
                         (() => {
                           switch(pressed[idx]) {
                             case 'Control' : return 'Ctrl';
