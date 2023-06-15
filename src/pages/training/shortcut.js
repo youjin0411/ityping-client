@@ -10,7 +10,7 @@ const TrainingShortcut = () => {
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
   const [pressed, setPressed] = useState(Array(shortcuts[currentIdx]?.combination.length).fill(''));
-  const [correct, setCorrect] = useState({"backgroundColor" : "#c9c9c9"});
+  const [backgroundColor, setBackgroundColor] = useState("#c9c9c9");
 
   useEffect(() => {
     const handler = (e) => {
@@ -52,7 +52,7 @@ const TrainingShortcut = () => {
       }
     }
 
-    isAllCorrect ? setCorrect({"backgroundColor" : "#C9EEDC"}) : setCorrect({"backgroundColor" : "#FFDDDD"});
+    isAllCorrect ? setBackgroundColor("#C9EEDC") : setBackgroundColor("#FFDDDD");
   }
 
   return (
@@ -82,7 +82,7 @@ const TrainingShortcut = () => {
                   console.log("c: ", currentKeyIdx);
                   return (
                     <>
-                      <span className={styles.input}>{
+                      <span className={styles.input} style={c === 'Shift' ? { width: "64px" } : null}>{
                         (() => {
                           switch(pressed[idx]) {
                             case 'Control' : return 'Ctrl';
@@ -100,7 +100,7 @@ const TrainingShortcut = () => {
                 } else {
                   return (
                     <>
-                      <span className={styles.disa_input} style={correct}>{
+                      <span className={styles.disa_input} style={{ backgroundColor, width: c === 'Shift' ? "64px" : null }}>{
                         (() => {
                           switch(pressed[idx]) {
                             case 'Control' : return 'Ctrl';
@@ -127,14 +127,14 @@ const TrainingShortcut = () => {
                 압력완료
               </button>
               :
-							correct.backgroundColor === "#C9EEDC"? 
+							backgroundColor === "#C9EEDC"? 
 							<button className={styles.next_btn}
 								style={{marginTop: "40px"}}
 								onClick={() => {
 									setCurrentIdx(idx => idx + 1);
                   setCurrentKeyIdx(idx => 0);
                   setVisible(false);
-                  setCorrect({"backgroundColor" : "#c9c9c9"});
+                  setBackgroundColor("#c9c9c9");
                   setPressed(Array(shortcuts[currentIdx]?.combination.length).fill(''));
 								}}>넘어가기</button>
 							:
@@ -144,7 +144,7 @@ const TrainingShortcut = () => {
 									setCurrentIdx(idx => idx + 1);
                   setCurrentKeyIdx(idx => 0);
                   setVisible(false);
-                  setCorrect({"backgroundColor" : "#c9c9c9"});
+                  setBackgroundColor("#c9c9c9");
                   setPressed(Array(shortcuts[currentIdx]?.combination.length).fill(''));
 								}}>나중에 한 번 더</button>
             }
