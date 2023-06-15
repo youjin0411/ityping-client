@@ -4,6 +4,7 @@ import styles from '@/styles/Shortcut.module.css';
 import { shortcuts } from '@/public/shortcuts';
 import { useEffect, useState } from 'react';
 import Modal from '@/src/component/Modal';
+import JSConfetti from 'js-confetti';
 
 const TrainingShortcut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -11,6 +12,21 @@ const TrainingShortcut = () => {
   const [visible, setVisible] = useState(false);
   const [pressed, setPressed] = useState(Array(shortcuts[currentIdx]?.combination.length).fill(''));
   const [backgroundColor, setBackgroundColor] = useState("#c9c9c9");
+
+	const [jsConfetti, setJsConfetti] = useState(null);
+  useEffect(() => {
+      setJsConfetti(new JSConfetti());
+  }, []);
+
+  const handler = () => {
+    console.log("dd")
+      jsConfetti.addConfetti({
+      confettiColors: [
+          "#CAB0FF"
+      ],
+      confettiNumber: 500,
+      });
+  }
 
   useEffect(() => {
     const handler = (e) => {
@@ -146,6 +162,7 @@ const TrainingShortcut = () => {
                   setVisible(false);
                   setBackgroundColor("#c9c9c9");
                   setPressed(Array(shortcuts[currentIdx]?.combination.length).fill(''));
+                  currentIdx === shortcuts.length-2 && handler();
 								}}>나중에 한 번 더</button>
             }
           </div>

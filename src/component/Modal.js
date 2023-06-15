@@ -1,18 +1,11 @@
 import styles from '@/styles/Modal.module.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import Confetti from 'react-confetti'
 
 const Modal = (props) => {
 
     return (
         <div className={styles.container}>
-            <Confetti
-                width="515px"
-                height="388px"
-                numberOfPieces={30}
-                colors={['#CAB0FF']}
-            />
             <div className={styles.title}>{props.title}</div>
             <div className={styles.text}>연습 완료!</div>
             <div className={styles.progress}>

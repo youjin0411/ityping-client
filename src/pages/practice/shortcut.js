@@ -4,12 +4,29 @@ import styles from '@/styles/Shortcut.module.css';
 import { shortcuts } from '@/public/shortcuts';
 import { useEffect, useState } from 'react';
 import Modal from '@/src/component/Modal';
+import JSConfetti from 'js-confetti';
 
 const PracticeShortcut = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentKeyIdx, setCurrentKeyIdx] = useState(0);
   const [visible, setVisible] = useState(false);
   const [complete, setComplete] = useState(false);
+
+  const [jsConfetti, setJsConfetti] = useState(null);
+  useEffect(() => {
+      setJsConfetti(new JSConfetti());
+  }, []);
+
+  const handler = () => {
+    console.log("dd")
+      jsConfetti.addConfetti({
+      confettiColors: [
+          "#CAB0FF"
+      ],
+      confettiNumber: 500,
+      });
+  }
+
 
   useEffect(() => {
     const handler = (e) => {
@@ -202,6 +219,7 @@ const PracticeShortcut = () => {
                     setCurrentKeyIdx(idx => 0);
                     setVisible(false);
                     setComplete(false);
+                    currentIdx === shortcuts.length-2 && handler();
                   }}>
                   넘어가기
                   </button>
