@@ -1,0 +1,111 @@
+.container {
+    width: 1420px;
+    margin: 0 auto;
+    display: flex;   
+}
+
+.right_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-top: 6px;
+    margin-bottom: 24px;
+}
+
+.game_container {
+    width: 1287px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.match_container {
+    width: 580px;
+    height: 746px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    background-color: #CAB0FF;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.05);
+}
+
+.match_text {
+    margin-top: 15px;
+    color: #FDFDFD;
+    font-size: 20px;
+}
+
+.rank_container {
+    width: 522px;
+    height: 481px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    border-radius: 20px;
+    background-color: #E9DEFE;
+}
+
+.rank_text {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.rank_box {
+    margin-top: 28px;
+    width: 474px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rank {
+    width: 211px;
+    display: flex;
+}
+
+.left_box .text {
+    margin-right: 85px;
+    color: #534E4E;
+}
+
+.right_box .text {
+    margin-right: 70px;
+    color: #534E4E;
+}
+
+.score {
+    color: #FDFDFD;
+    font-size: 13px;
+}
+
+.line {
+    height: 383px;
+    border-right: 1px solid #FCFCFC;
+}
+
+.start_btn {
+    width: 108px;
+    height: 35px;
+    margin: 17px 29px;
+    align-self: flex-end;
+    border: 0;
+    border-radius: 8px;
+    background-color: #6C5DD3;
+    color: #FDFDFD;
+}
+
+.record_box {
+    height: 77px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-top: 21px;
+    margin-left: 35px;
+}
+
+.record {
+    color: #FDFDFD;
+}
