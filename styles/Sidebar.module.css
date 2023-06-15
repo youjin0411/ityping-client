@@ -20,6 +20,16 @@
     cursor: pointer;
 }
 
+.exit_box {
+    width: 108px;
+    height: 35px;
+    margin-right: 38px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    background-color: #6C5DD3;
+    cursor: pointer;
+}
+
 .box {
     width: 215px;
     height: 52px;
