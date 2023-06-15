@@ -12,7 +12,7 @@ const Sidebar = (props) => {
           :
           <div>
             <div className={props.isSelected ? styles.selected_box : styles.box}><a className={props.isSelected ? styles.selected_text : styles.text} href="/study/shortcut"><img src={props.isSelected ? '/images/selected-study.png' : '/images/study.png'}/>단축키 학습</a></div>
-            <div className={props.isSelected ? styles.box : styles.selected_box}><a className={props.isSelected ? styles.text : styles.selected_text}><img src={props.isSelected ? '/images/game.png' : '/images/selected-game.png'}/>단축키 게임</a></div>
+            <div className={props.isSelected ? styles.box : styles.selected_box}><a className={props.isSelected ? styles.text : styles.selected_text} href="/game/gameChoice"><img src={props.isSelected ? '/images/game.png' : '/images/selected-game.png'}/>단축키 게임</a></div>
           </div>
         }
         </div>

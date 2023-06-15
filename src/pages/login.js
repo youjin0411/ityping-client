@@ -1,11 +1,13 @@
+import Cookies from 'js-cookie';
 import styles from "@/styles/Login.module.css";
-import React, { useState } from "react";
+import React, { useState, useSyncExternalStore } from "react";
 import axios from 'axios';
 import Navbar from "../component/Navbar";
 import { useRouter } from "next/router";
-import Cookies from 'js-cookie';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 const Login = () => {
+  const {data: session} = useSession()
   const router = useRouter();
   const [id, setId] = useState("");
   const [pw, setPw] = useState(""); 
@@ -20,28 +22,29 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       // 서버로 로그인 요청을 보냄
       const response = await axios.post("/api/login", {
         email: id,
         password: pw
       });
-      // 성공 후 응답이 있다면 
-      if(response) {
-        const cookie = response.data
-        alert(cookie.message) //로그인 성공 출력
-        // user 정보를 쿠키로 저장
-        Cookies.set('email', cookie.user.email);
-        Cookies.set('pw', cookie.user.pw);
-        Cookies.set('nickname', cookie.user.nickname);
-        router.push('/')
+  
+      // 응답의 상태 코드를 확인하여 로그인 성공 여부를 판단
+      if (response.status === 200) {
+        const user = response.data.user;
+        const message = response.data.message;
+  
+        alert(message); // 로그인 성공 출력
+        router.replace('/');
+      } else {
+        // 로그인 실패 처리
+        alert('로그인 실패: 이메일 또는 비밀번호가 잘못되었습니다.');
       }
     } catch (error) {
       console.error("로그인 중 오류 발생:", error.message);
     }
   };
-
+  
   return (
     <>
     <Navbar/>
@@ -72,7 +75,7 @@ const Login = () => {
           </button>
         </form>
         <div className={styles.or}>OR</div>
-        <button className={styles.google_btn}>
+        <button className={styles.google_btn} onClick={(e)=> signIn('google')}>
           <img className={styles.google_img} src="/images/google.png" />
           Sign in with Google
         </button>
