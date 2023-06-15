@@ -106,7 +106,7 @@ const PracticeShortcut = () => {
               {shortcut.combination.map((c, idx) => {
                 if (currentKeyIdx === 2 && idx === 0) {
                   return <>
-                    <span className={styles.disa_input}>{
+                    <span className={styles.disa_input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -123,7 +123,7 @@ const PracticeShortcut = () => {
                 }
                 else if (complete) {
                   return <>
-                    <span className={styles.disa_input}>{
+                    <span className={styles.disa_input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -139,7 +139,7 @@ const PracticeShortcut = () => {
                   </>
                 } else if(idx === currentKeyIdx) {
                   return <>
-                    <span className={styles.input}>{
+                    <span className={styles.input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -155,7 +155,7 @@ const PracticeShortcut = () => {
                   </>
                 } else if(c === shortcut.combination[currentKeyIdx-1]) {
                   return <>
-                    <span className={styles.disa_input}>{
+                    <span className={styles.disa_input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
@@ -171,7 +171,7 @@ const PracticeShortcut = () => {
                   </>
                 } else {
                   return <>
-                    <span className={styles.input}>{
+                    <span className={styles.input} style={c === 'Shift' ? { width: "64px" } : null}>{
                       (() => {
                         switch(c) {
                           case 'Control' : return 'Ctrl';
