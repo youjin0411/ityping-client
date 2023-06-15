@@ -1,7 +1,7 @@
 import Navbar from '@/src/component/Navbar';
 import Sidebar from '@/src/component/Sidebar';
 import styles from '@/styles/Study.module.css';
-import styles2 from '@/styles/GameChoice.css'
+import styles2 from '@/styles/GameChoice.module.css'
 import { useState } from 'react';
 
 const StudyShortCut = (props) => {
