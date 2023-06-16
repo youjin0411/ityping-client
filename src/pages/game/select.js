@@ -2,8 +2,14 @@ import Navbar from '@/src/component/Navbar';
 import Sidebar from '@/src/component/Sidebar';
 import styles from '@/styles/SelectGame.module.css'
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const SelectGame = (props) => {
+	const router = useRouter();
+
+	const handleButtonClick = () => {
+		router.push('/game/shortcutsGame');
+	};
 	return (
 		<>  
 			<Navbar/>
@@ -28,7 +34,7 @@ const SelectGame = (props) => {
 									</div>
 								</div>
 							</div>
-							<button className={styles.start_btn}>START</button>
+							<button className={styles.start_btn} onClick={handleButtonClick}>START</button>
 							<div className={styles.record_box}>
 								<p className={styles.record}>내기록</p>
 								<p className={styles.record}>최고점수 : 0</p>
