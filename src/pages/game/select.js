@@ -28,7 +28,7 @@ const SelectGame = (props) => {
 									</div>
 								</div>
 							</div>
-							<button className={styles.start_btn}>START</button>
+							<button className={styles.start_btn}><a href='gamestart'>START</a></button>
 							<div className={styles.record_box}>
 								<p className={styles.record}>내기록</p>
 								<p className={styles.record}>최고점수 : 0</p>
